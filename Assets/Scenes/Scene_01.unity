@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 100490828}
   - component: {fileID: 100490827}
   m_Layer: 0
-  m_Name: "\u67F3\u6811"
+  m_Name: "\u67F3\u6811\u8EAF\u5E72"
   m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,7 +148,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100490825}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 10.91, y: 9, z: -7.054336}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -190,7 +190,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.7813864}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -201,7 +201,91 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.9191914, y: 7.5456123}
+  m_Size: {x: 6.9191914, y: 5.9828396}
+  m_EdgeRadius: 0
+--- !u!1 &521957027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 521957028}
+  - component: {fileID: 521957030}
+  - component: {fileID: 521957029}
+  m_Layer: 0
+  m_Name: "\u67F3\u6811\u6839"
+  m_TagString: Interactive
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &521957028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521957027}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.528021, y: 6.378751, z: -8.40768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &521957029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521957027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08d776deabdf3c748a30f13ff3f0e0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    m_keys:
+    - "n-\u5C0F\u67F3 \u554A\u554A\uFF0C\u559D\u9971\u6C34\u7684\u611F\u89C9\u771F\u4E0D\u9519\u3002
+      \u90A3\u4E48\uFF0C\u4F5C\u4E3A\u62A5\u7B54\uFF0C\u5C31\u628A\u8FD9\u4E2A\u7ED9\u4F60\u5427\u3002
+      n- \u83B7\u5F97\u4E86\u9493\u7AFF\uFF01"
+    - "n-\u963F\u8A00 \u539F\u6765\u6839\u90E8\u5728\u8FD9\u91CC\u554A\u3002"
+    m_values: 0400000000000000
+  nowItem: 0
+  isDone: 0
+  isTalk: 0
+  NPCName: 
+  doneDictionary:
+    m_keys: []
+    m_values: 
+--- !u!61 &521957030
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521957027}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1562767, y: -0.20316076}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8751526, y: 1.4063215}
   m_EdgeRadius: 0
 --- !u!1 &1000913044 stripped
 GameObject:
@@ -671,8 +755,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     m_keys:
-    - "n-\u6211 11111111\u3002 +1\u3002"
-    m_values: 00000000
+    - "n-null \u8001\u4F2F\u4F3C\u4E4E\u9677\u5165\u4E86\u56DE\u5FC6\u3002"
+    - "n- \u83B7\u5F97\u9053\u5177\u201C\u56DE\u5FC6\u201D!"
+    - "n-\u963F\u8A00 \u2026\u2026\u4F60\u60F3\u7528\u8FD9\u4E2A\u6253\u4ED6\u5417\uFF1F"
+    - "n-\u963F\u8A00 \u6211\u53EF\u4E0D\u505A\u8FD9\u4E48\u7F3A\u5FB7\u7684\u4E8B\u3002"
+    m_values: 00000000030000000500000004000000
   nowItem: 0
   isDone: 0
   isTalk: 0

@@ -36,14 +36,8 @@ public class DialogueManger : Singleton<DialogueManger>
                             nameText.text = dialogueLine[currentLine].Replace("n-", "");
                             currentLine++;
                         }
-                        else
-                        {
-                            currentLine++;
-                            StartCoroutine(ScrollLetter());
-                        }
 
-
-                        //TODO:名字问题：可以尝试标识符 dialogueLine[currentLine].StartsWith("n-");
+                        StartCoroutine(ScrollLetter());
                     }
                     else
                     {
@@ -76,22 +70,14 @@ public class DialogueManger : Singleton<DialogueManger>
         }
 
         dialogueLine = talkText;
-        // if (newName == null)
-        // {
-        //     nameText.enabled = false;
-        // }
-        // else
-        // {
-        //     nameText.text = newName;
-        // }
 
         currentLine = 0;
-        // dialogueText.text = dialogueLine[currentLine];
         if (dialogueLine[currentLine].StartsWith("n-"))
         {
             nameText.text = dialogueLine[currentLine].Replace("n-", "");
             currentLine++;
         }
+        //TODO:需要添加 添加物品关键字"Add-"(暂定)
 
         StartCoroutine(ScrollLetter());
 
@@ -116,5 +102,6 @@ public class DialogueManger : Singleton<DialogueManger>
         }
 
         isScrolling = false;
+        currentLine++;
     }
 }
