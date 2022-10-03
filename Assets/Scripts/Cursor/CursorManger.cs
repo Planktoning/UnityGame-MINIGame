@@ -1,12 +1,10 @@
-using System;
 using UniRx;
 using UnityEngine;
 
 public class CursorManger : MonoBehaviour
 {
+    [Header("当前手持物品")]
     public ItemDetails currentItem;
-
-    public String[] dialogue;
 
     private Vector3 cursorWorPos =>
         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
@@ -60,19 +58,10 @@ public class CursorManger : MonoBehaviour
                 item.ItemClicked();
                 break;
             case "Interactive":
-                // var interactive = obj.GetComponent<BaseInteractive>();
-                // var interactive = obj.GetComponents<BaseInteractive>();
-                // foreach (var VARIABLE in interactive)
-                // {
-                //     VARIABLE.CheckItem(currentItem.itemName);
-                // }
-
-                var a = obj.GetComponents<BaseInteractive>();
-                foreach (var VARIABLE in a)
-                {
-                    DialogueManger.Instance.GetDialogueInformation(VARIABLE.aaaa,VARIABLE.NPCName,currentItem);
-                }
-                
+                var interactive = obj.GetComponent<BaseInteractive>();
+                if (interactive.isTalk)
+                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, interactive.NPCName,
+                        currentItem, obj);
                 break;
         }
     }

@@ -11,16 +11,17 @@ public class Move : MonoBehaviour
 
     private Animator _animator;
 
-    // Start is called before the first frame update
+    public bool canMove = true;
+
     void Start()
     {
         _animator = this.GetComponent<Animator>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        MoveController();
+        if (canMove)
+            MoveController();
     }
 
     void MoveController()
