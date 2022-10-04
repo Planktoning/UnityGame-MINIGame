@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,12 @@ public class TransitionManger : Singleton<TransitionManger>
     public float fadeDuration = 0.5f;//TODO:场景切换时的动画的时间要多久--暂定0.5f
 
     private bool isFade;
-    
+
+    private void Start()
+    {
+        SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
+    }
+
     /// <summary> 
     /// 这里是使用切换场景的方法
     /// </summary>

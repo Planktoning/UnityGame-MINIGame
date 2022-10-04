@@ -1,5 +1,4 @@
-﻿
-using UnityEditor;
+﻿using UnityEditor;
 
 [CustomPropertyDrawer(typeof(StringStringDictionary))]
 [CustomPropertyDrawer(typeof(ObjectColorDictionary))]

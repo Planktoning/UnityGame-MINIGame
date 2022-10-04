@@ -26,13 +26,20 @@ public enum ItemName
     /// <summary>
     /// 一桶水
     /// </summary>
-    ButtonOfWater,
+    BucketOfWater,
 
+    
     /// <summary>
     /// 钓竿
     /// </summary>
     FishingRod,
-
+    
+    /// <summary>
+    /// 空的水桶
+    /// </summary>
+    Bucket,
+    
+//下面是情感
     /// <summary>
     /// 惬意
     /// </summary>
@@ -56,5 +63,10 @@ public enum ItemName
     /// <summary>
     /// 刺眼
     /// </summary>
-    Dazzling
+    Dazzling,
+
+    /// <summary>
+    /// 任意物品都可以触发对话
+    /// </summary>
+    Any
 }

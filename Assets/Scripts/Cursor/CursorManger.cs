@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class CursorManger : MonoBehaviour
 {
-    [Header("当前手持物品")]
-    public ItemDetails currentItem;
+    [Header("当前手持物品")] public ItemDetails currentItem;
 
     private Vector3 cursorWorPos =>
         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
@@ -13,6 +12,7 @@ public class CursorManger : MonoBehaviour
 
     private void Awake()
     {
+        GameObject currentObj = new GameObject();
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0)).Subscribe(_ =>
         {
@@ -26,8 +26,17 @@ public class CursorManger : MonoBehaviour
         Observable.FromEvent<ItemDetails>(action => SlotUI.ItemSelectedEvent += action,
             action => SlotUI.ItemSelectedEvent -= action).Subscribe(action => { currentItem = action; });
 
-        // Observable.FromEvent<String[]>(action => DialogueManger.ChangeText += action,
-        //     action => DialogueManger.ChangeText -= action).Subscribe(action => { dialogue = action; });
+        #region 碰撞体进入对话区域的操作
+
+        Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
+            action => Location.InteractiveEnter -= action).First().Subscribe(action =>
+        {
+            var interactive = action.GetComponent<BaseInteractive>();
+            DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);  
+        });
+
+        #endregion
+        
     }
 
     // private void Update()
@@ -48,6 +57,7 @@ public class CursorManger : MonoBehaviour
     /// <param name="obj"></param>
     void ClickHappen(GameObject obj)
     {
+        Debug.Log(obj?.tag);
         switch (obj.tag)
         {
             case "Teleport":
@@ -60,8 +70,7 @@ public class CursorManger : MonoBehaviour
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();
                 if (interactive.isTalk)
-                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, interactive.NPCName,
-                        currentItem, obj);
+                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, obj);
                 break;
         }
     }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class NPCliushu : BaseInteractive
 {
-    [SerializeField] private StringItemNameDictionary doneDictionary;
-
     void Start()
     {
     }

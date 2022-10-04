@@ -58,7 +58,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     ///点击物品栏上的物品，会在currentItem上返回具体的物品
     public void OnPointerClick(PointerEventData eventData)
     {
-        ItemSelectedEvent.Invoke(currentitem);
+        ItemSelectedEvent?.Invoke(currentitem);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

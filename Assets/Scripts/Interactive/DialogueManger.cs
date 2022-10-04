@@ -11,15 +11,12 @@ public class DialogueManger : Singleton<DialogueManger>
     [TextArea(1, 3)] public string[] dialogueLine; //对话文本
     [SerializeField] private int currentLine; //当前行
 
-    private GameObject NPCgameobj;
+    private GameObject NPCgameobj; //NPC的游戏对象
+    private ItemDetails currentItem; //当前物品
 
-    private bool isScrolling;
-    public float scrollSpeed;
+    private bool isScrolling; //是否在显示字幕中
+    public float scrollSpeed; //显示字幕速度
 
-    private void Start()
-    {
-        dialogueText.text = dialogueLine[currentLine];
-    }
 
     private void Update()
     {
@@ -38,9 +35,11 @@ public class DialogueManger : Singleton<DialogueManger>
                         }
 
                         StartCoroutine(ScrollLetter());
+                        currentLine++;
                     }
                     else
                     {
+                        CheckToChange();
                         dialogueBox.SetActive(false);
                         FindObjectOfType<Move>().canMove = true;
                         NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
@@ -57,17 +56,27 @@ public class DialogueManger : Singleton<DialogueManger>
     /// <param name="newName">NPC姓名</param>
     /// <param name="item">此时手持物品信息</param>
     /// <param name="obj">对话者的gameobj</param>
-    public void GetDialogueInformation(StringItemNameDictionary infor, string newName, ItemDetails item, GameObject obj)
+    public void GetDialogueInformation(StringItemNameDictionary infor, ItemDetails item, GameObject obj)
     {
         NPCgameobj = obj;
+        currentItem = item;
         string[] talkText = new string[] { };
         foreach (var kvp in infor)
         {
-            if (item.itemName == kvp.Value)
+            if (item.itemName == kvp.Value || kvp.Value == ItemName.Any)
             {
                 talkText = kvp.Key.Split(' ');
             }
         }
+
+        //空文本时返回
+        if (infor.Count == 0)
+        {
+            Debug.Log("infor.count==0");
+            return;
+        }
+        
+        
 
         dialogueLine = talkText;
 
@@ -80,6 +89,10 @@ public class DialogueManger : Singleton<DialogueManger>
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
 
         StartCoroutine(ScrollLetter());
+        if (currentLine < dialogueLine.Length)
+        {
+            currentLine++;
+        }
 
         dialogueBox.SetActive(true); //激活场景
         FindObjectOfType<Move>().canMove = false;
@@ -102,6 +115,29 @@ public class DialogueManger : Singleton<DialogueManger>
         }
 
         isScrolling = false;
-        currentLine++;
+    }
+
+    /// <summary>
+    /// 检测是否为要求物品，在触发对话之后更改对话文本
+    /// **若不写(none)则不触发成功**
+    /// </summary>
+    void CheckToChange()
+    {
+        ItemName requireItem = NPCgameobj.GetComponent<BaseInteractive>().requiredItem;
+        if (requireItem == ItemName.None)
+        {
+            return;
+        }
+
+        if (currentItem.itemName == requireItem)
+        {
+            NPCgameobj.GetComponent<BaseInteractive>().dialogue =
+                NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
+
+            if (NPCgameobj.GetComponent<BaseInteractive>().dialogue == null)
+            {
+                NPCgameobj.SetActive(false);
+            }
+        }
     }
 }

@@ -1,27 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BaseInteractive : MonoBehaviour
 {
-    // /// <summary>
-    // /// 触发特殊交互时手上持有的物品
-    // /// </summary>
-    // public ItemName requiredItem;
+    /// <summary>
+    /// 更改对话文本的物品
+    /// </summary>
+    [Header("更改到正确的对话需要的物品，不需要就不写")]
+    public ItemName requiredItem;
 
     #region 序列化字
 
-    [Header("对话文本及对应的触发")]
-    [SerializeField] public StringItemNameDictionary dialogue;
+    [Header("对话文本及对应的触发")] [SerializeField]
+    public StringItemNameDictionary dialogue;
+
+    [Header("触发了正确的物品后的对话")] [SerializeField]
+    public StringItemNameDictionary doneDictionary;
 
     #endregion
 
-    /// <summary>
-    /// 点击交互时手上的物品
-    /// </summary>
-    public ItemName nowItem;
+    // /// <summary>
+    // /// 点击交互时手上的物品
+    // /// </summary>
+    // public ItemName nowItem;
 
     public bool isDone;
 
@@ -29,8 +29,6 @@ public class BaseInteractive : MonoBehaviour
     /// 能否对话
     /// </summary>
     public bool isTalk;
-
-    public string NPCName; //npc名字
 
     #region 用不到的东西
 
@@ -86,7 +84,7 @@ public class BaseInteractive : MonoBehaviour
     // }
 
     #endregion
-    
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
