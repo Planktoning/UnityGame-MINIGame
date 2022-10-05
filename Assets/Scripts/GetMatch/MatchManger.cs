@@ -14,6 +14,9 @@ public class MatchManger : Singleton<MatchManger>
 
     public void GetInformation()
     {
-        print(DialogueManger.Instance.dialogueLine[DialogueManger.Instance.currentLine]);
+        if (!DialogueManger.Instance.isScrolling)
+        {
+            print(DialogueManger.Instance.dialogueLine[DialogueManger.Instance.currentLine]);
+        }
     }
 }

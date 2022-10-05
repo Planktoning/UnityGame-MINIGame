@@ -74,12 +74,12 @@ public class CursorManger : MonoBehaviour
                 break;
             case "Dialouge":
                 MatchManger.Instance.GetInformation();
+                //TODO:尝试把UI对话框放在另外一层，激活时使用observable检测dialoguebox是否激活更改点击返回的层数
                 break;
             default:
                 // Debug.Log(obj?.tag);
                 break;
         }
-
     }
 
     /// <summary>
@@ -106,7 +106,7 @@ public class CursorManger : MonoBehaviour
         //     }
         // }
         LayerMask layerMask = 1 << 5;
-        return Physics2D.OverlapPoint(cursorWorPos);//
+        return Physics2D.OverlapPoint(cursorWorPos, layerMask); //
     }
 
     public void GetItem()

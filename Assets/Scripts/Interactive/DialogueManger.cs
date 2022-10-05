@@ -10,6 +10,7 @@ public class DialogueManger : Singleton<DialogueManger>
     [Header("说话人名字")] public Text nameText;
 
     [TextArea(1, 3)] public string[] dialogueLine; //对话文本
+    public string currentLineText;
     [SerializeField] public int currentLine; //当前行
 
     private GameObject NPCgameobj; //NPC的游戏对象
@@ -35,6 +36,8 @@ public class DialogueManger : Singleton<DialogueManger>
                             currentLine++;
                         }
 
+                        currentLineText = dialogueLine[currentLine];
+                        Debug.Log(currentLineText);
                         StartCoroutine(ScrollLetter());
                         currentLine++;
                     }
@@ -100,7 +103,8 @@ public class DialogueManger : Singleton<DialogueManger>
         }
 
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
-
+        currentLineText = dialogueLine[currentLine];
+        Debug.Log(currentLineText);
         StartCoroutine(ScrollLetter());
         if (currentLine < dialogueLine.Length)
         {
