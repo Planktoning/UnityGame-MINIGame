@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CursorManger : MonoBehaviour
 {
@@ -12,7 +14,6 @@ public class CursorManger : MonoBehaviour
 
     private void Awake()
     {
-        GameObject currentObj = new GameObject();
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0)).Subscribe(_ =>
         {
@@ -32,11 +33,10 @@ public class CursorManger : MonoBehaviour
             action => Location.InteractiveEnter -= action).First().Subscribe(action =>
         {
             var interactive = action.GetComponent<BaseInteractive>();
-            DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);  
+            DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
         });
 
         #endregion
-        
     }
 
     // private void Update()
@@ -58,7 +58,7 @@ public class CursorManger : MonoBehaviour
     void ClickHappen(GameObject obj)
     {
         Debug.Log(obj?.tag);
-        switch (obj.tag)
+        switch (obj?.tag)
         {
             case "Teleport":
                 obj.GetComponent<Teleport>().Switch();
@@ -72,7 +72,14 @@ public class CursorManger : MonoBehaviour
                 if (interactive.isTalk)
                     DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, obj);
                 break;
+            case "Dialouge":
+                MatchManger.Instance.GetInformation();
+                break;
+            default:
+                // Debug.Log(obj?.tag);
+                break;
         }
+
     }
 
     /// <summary>
@@ -81,7 +88,25 @@ public class CursorManger : MonoBehaviour
     /// <returns></returns>
     Collider2D GetItemOnMousePos()
     {
-        return Physics2D.OverlapPoint(cursorWorPos);
+        // if (EventSystem.current.IsPointerOverGameObject())
+        // {
+        //     PointerEventData pointerData = new PointerEventData(EventSystem.current);
+        //     pointerData.position = Input.mousePosition;
+        //
+        //     List<RaycastResult> results = new List<RaycastResult>();
+        //     EventSystem.current.RaycastAll(pointerData, results);
+        //     for (int i = 0; i < results.Count; i++)
+        //     {
+        //         if (results[i].gameObject.layer == LayerMask.NameToLayer("BookUI"))
+        //         {
+        //             Debug.Log(results[i].gameObject.name);
+        //         }
+        //
+        //         Debug.Log(results[i].gameObject);
+        //     }
+        // }
+        LayerMask layerMask = 1 << 5;
+        return Physics2D.OverlapPoint(cursorWorPos);//
     }
 
     public void GetItem()

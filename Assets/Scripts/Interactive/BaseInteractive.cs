@@ -5,8 +5,7 @@ public class BaseInteractive : MonoBehaviour
     /// <summary>
     /// 更改对话文本的物品
     /// </summary>
-    [Header("更改到正确的对话需要的物品，不需要就不写")]
-    public ItemName requiredItem;
+    [Header("更改到正确的对话需要的物品，不需要就不写")] public ItemName requiredItem;
 
     #region 序列化字
 
@@ -29,6 +28,12 @@ public class BaseInteractive : MonoBehaviour
     /// 能否对话
     /// </summary>
     public bool isTalk;
+
+    public Transform thisTransform;
+
+    private void Start()
+    {
+    }
 
     #region 用不到的东西
 

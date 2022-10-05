@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,12 +10,12 @@ public class DialogueManger : Singleton<DialogueManger>
     [Header("说话人名字")] public Text nameText;
 
     [TextArea(1, 3)] public string[] dialogueLine; //对话文本
-    [SerializeField] private int currentLine; //当前行
+    [SerializeField] public int currentLine; //当前行
 
     private GameObject NPCgameobj; //NPC的游戏对象
     private ItemDetails currentItem; //当前物品
 
-    private bool isScrolling; //是否在显示字幕中
+    public bool isScrolling; //是否在显示字幕中
     public float scrollSpeed; //显示字幕速度
 
 
@@ -26,7 +27,7 @@ public class DialogueManger : Singleton<DialogueManger>
             {
                 if (isScrolling == false)
                 {
-                    if (currentLine < dialogueLine.Length - 1)
+                    if (currentLine < dialogueLine.Length)
                     {
                         if (dialogueLine[currentLine].StartsWith("n-"))
                         {
@@ -42,6 +43,11 @@ public class DialogueManger : Singleton<DialogueManger>
                         CheckToChange();
                         dialogueBox.SetActive(false);
                         FindObjectOfType<Move>().canMove = true;
+                        if (NPCgameobj == null)
+                        {
+                            return;
+                        }
+
                         NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
                     }
                 }
@@ -50,10 +56,9 @@ public class DialogueManger : Singleton<DialogueManger>
     }
 
     /// <summary>
-    /// 获取对话的文本信息，npc姓名，此时手上所持有的物品，对话者的gameobj
+    /// 获取对话的文本信息，此时手上所持有的物品，对话者的gameobj
     /// </summary>
     /// <param name="infor">文本信息</param>
-    /// <param name="newName">NPC姓名</param>
     /// <param name="item">此时手持物品信息</param>
     /// <param name="obj">对话者的gameobj</param>
     public void GetDialogueInformation(StringItemNameDictionary infor, ItemDetails item, GameObject obj)
@@ -69,23 +74,31 @@ public class DialogueManger : Singleton<DialogueManger>
             }
         }
 
+
+        dialogueLine = talkText;
+
+        currentLine = 0;
         //空文本时返回
         if (infor.Count == 0)
         {
             Debug.Log("infor.count==0");
             return;
         }
-        
-        
 
-        dialogueLine = talkText;
-
-        currentLine = 0;
-        if (dialogueLine[currentLine].StartsWith("n-"))
+        try
         {
-            nameText.text = dialogueLine[currentLine].Replace("n-", "");
-            currentLine++;
+            if (dialogueLine[currentLine].StartsWith("n-"))
+            {
+                nameText.text = dialogueLine[currentLine].Replace("n-", "");
+                currentLine++;
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
 
         StartCoroutine(ScrollLetter());
@@ -123,6 +136,12 @@ public class DialogueManger : Singleton<DialogueManger>
     /// </summary>
     void CheckToChange()
     {
+        if (NPCgameobj == null)
+        {
+            return;
+        }
+
+
         ItemName requireItem = NPCgameobj.GetComponent<BaseInteractive>().requiredItem;
         if (requireItem == ItemName.None)
         {
