@@ -8,6 +8,7 @@ TagManager:
   - Inv
   - Interactive
   - Dialouge
+  - Slots
   layers:
   - Default
   - TransparentFX

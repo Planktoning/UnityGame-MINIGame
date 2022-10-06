@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CursorManger : MonoBehaviour
+public class CursorManger : Singleton<CursorManger>
 {
     [Header("当前手持物品")] public ItemDetails currentItem;
 
@@ -29,12 +29,12 @@ public class CursorManger : MonoBehaviour
 
         #region 碰撞体进入对话区域的操作
 
-        Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
-            action => Location.InteractiveEnter -= action).First().Subscribe(action =>
-        {
-            var interactive = action.GetComponent<BaseInteractive>();
-            DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
-        });
+        // Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
+        //     action => Location.InteractiveEnter -= action).First().Subscribe(action =>
+        // {
+        //     var interactive = action.GetComponent<BaseInteractive>();
+        //     DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
+        // });
 
         #endregion
     }
@@ -74,8 +74,8 @@ public class CursorManger : MonoBehaviour
                 break;
             case "Dialouge":
                 MatchManger.Instance.GetInformation();
-                //TODO:尝试把UI对话框放在另外一层，激活时使用observable检测dialoguebox是否激活更改点击返回的层数
                 break;
+            //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)
             default:
                 // Debug.Log(obj?.tag);
                 break;
@@ -88,26 +88,26 @@ public class CursorManger : MonoBehaviour
     /// <returns></returns>
     Collider2D GetItemOnMousePos()
     {
-        // if (EventSystem.current.IsPointerOverGameObject())
-        // {
-        //     PointerEventData pointerData = new PointerEventData(EventSystem.current);
-        //     pointerData.position = Input.mousePosition;
-        //
-        //     List<RaycastResult> results = new List<RaycastResult>();
-        //     EventSystem.current.RaycastAll(pointerData, results);
-        //     for (int i = 0; i < results.Count; i++)
-        //     {
-        //         if (results[i].gameObject.layer == LayerMask.NameToLayer("BookUI"))
-        //         {
-        //             Debug.Log(results[i].gameObject.name);
-        //         }
-        //
-        //         Debug.Log(results[i].gameObject);
-        //     }
-        // }
         LayerMask layerMask = 1 << 5;
         return Physics2D.OverlapPoint(cursorWorPos, layerMask); //
     }
+    // if (EventSystem.current.IsPointerOverGameObject())
+    // {
+    //     PointerEventData pointerData = new PointerEventData(EventSystem.current);
+    //     pointerData.position = Input.mousePosition;
+    //
+    //     List<RaycastResult> results = new List<RaycastResult>();
+    //     EventSystem.current.RaycastAll(pointerData, results);
+    //     for (int i = 0; i < results.Count; i++)
+    //     {
+    //         if (results[i].gameObject.layer == LayerMask.NameToLayer("BookUI"))
+    //         {
+    //             Debug.Log(results[i].gameObject.name);
+    //         }
+    //
+    //         Debug.Log(results[i].gameObject);
+    //     }
+    // }
 
     public void GetItem()
     {

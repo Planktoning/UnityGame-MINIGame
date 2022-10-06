@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MatchManger : Singleton<MatchManger>
 {
@@ -16,7 +17,7 @@ public class MatchManger : Singleton<MatchManger>
     {
         if (!DialogueManger.Instance.isScrolling)
         {
-            print(DialogueManger.Instance.dialogueLine[DialogueManger.Instance.currentLine]);
+            print(DialogueManger.Instance.currentLineText);
         }
     }
 }

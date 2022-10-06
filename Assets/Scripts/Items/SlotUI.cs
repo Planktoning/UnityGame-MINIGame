@@ -1,5 +1,6 @@
 using System;
 using UniRx;
+using UniRx.Triggers;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -18,6 +19,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
 
     public string currentItemName;
 
+    private Vector3 startPosition;
+    public bool isDrag;
+
     private void Start()
     {
         Observable.EveryUpdate()
@@ -29,6 +33,30 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                     SetEmpty();
                 }
             }).AddTo(this);
+
+        itemSprite.OnBeginDragAsObservable().Subscribe(_ =>
+            {
+                startPosition = itemSprite.transform.position;
+                isDrag = true;
+            })
+            .AddTo(this);
+        itemSprite.OnDragAsObservable().Subscribe(_ =>
+        {
+            itemSprite.transform.position =
+                Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+        }).AddTo(this);
+        itemSprite.OnEndDragAsObservable().Subscribe(_ =>
+            {
+                itemSprite.transform.position = startPosition;
+                isDrag = false;
+            })
+            .AddTo(this);
+    }
+    
+    Collider2D GetItemOnMousePos()
+    {
+        LayerMask layerMask = 1 << 5;
+        return Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)), layerMask); //
     }
 
     /// <summary>

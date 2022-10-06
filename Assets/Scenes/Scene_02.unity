@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 471055731}
   - component: {fileID: 471055730}
   - component: {fileID: 471055729}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: TestInv (1)
   m_TagString: Inv
   m_Icon: {fileID: 0}
@@ -387,7 +387,7 @@ GameObject:
   - component: {fileID: 630272646}
   - component: {fileID: 630272645}
   - component: {fileID: 630272648}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: TestInv
   m_TagString: Inv
   m_Icon: {fileID: 0}
@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 948663707}
   - component: {fileID: 948663706}
   - component: {fileID: 948663708}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: TeleportTo01
   m_TagString: Teleport
   m_Icon: {fileID: 0}
@@ -1100,7 +1100,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredItem: 2
+  dialogue:
+    m_keys: []
+    m_values: 
+  doneDictionary:
+    m_keys: []
+    m_values: 
   isDone: 0
+  isTalk: 0
+  thisTransform: {fileID: 0}
 --- !u!61 &2072281227
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -24,7 +24,7 @@ public class DialogueManger : Singleton<DialogueManger>
     {
         if (dialogueBox.activeInHierarchy)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && GetItemOnMousePos().gameObject?.tag == "Dialouge")
             {
                 if (isScrolling == false)
                 {
@@ -37,7 +37,7 @@ public class DialogueManger : Singleton<DialogueManger>
                         }
 
                         currentLineText = dialogueLine[currentLine];
-                        Debug.Log(currentLineText);
+                        // Debug.Log(currentLineText);
                         StartCoroutine(ScrollLetter());
                         currentLine++;
                     }
@@ -162,5 +162,12 @@ public class DialogueManger : Singleton<DialogueManger>
                 NPCgameobj.SetActive(false);
             }
         }
+    }
+
+    Collider2D GetItemOnMousePos()
+    {
+        LayerMask layerMask = 1 << 5;
+        return Physics2D.OverlapPoint(
+            Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)), layerMask); //
     }
 }
