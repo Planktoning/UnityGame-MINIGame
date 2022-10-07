@@ -16,7 +16,7 @@ public class Move : MonoBehaviour
         _animator = this.GetComponent<Animator>();
     }
     
-    void Update()
+    void FixedUpdate()
     {
         if (canMove)
             MoveController();

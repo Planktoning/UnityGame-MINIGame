@@ -29,12 +29,15 @@ public class CursorManger : Singleton<CursorManger>
 
         #region 碰撞体进入对话区域的操作
 
-        // Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
-        //     action => Location.InteractiveEnter -= action).First().Subscribe(action =>
-        // {
-        //     var interactive = action.GetComponent<BaseInteractive>();
-        //     DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
-        // });
+        Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
+                action => Location.InteractiveEnter -= action)
+            .Subscribe(action =>
+            {
+                if (action.TryGetComponent(out BaseInteractive interactive))
+                {
+                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
+                }
+            });
 
         #endregion
     }
@@ -65,7 +68,7 @@ public class CursorManger : Singleton<CursorManger>
                 break;
             case "Inv":
                 var item = obj.GetComponent<Item>();
-                item.ItemClicked();
+                item?.ItemClicked();
                 break;
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();

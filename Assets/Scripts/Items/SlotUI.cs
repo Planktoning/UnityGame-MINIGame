@@ -34,6 +34,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 }
             }).AddTo(this);
 
+        #region DragSystem
+
         itemSprite.OnBeginDragAsObservable().Subscribe(_ =>
             {
                 startPosition = itemSprite.transform.position;
@@ -49,14 +51,24 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
             {
                 itemSprite.transform.position = startPosition;
                 isDrag = false;
+                if (GetItemOnMousePos())
+                {
+                    // Debug.Log(GetItemOnMousePos().gameObject.tag);//结束拖拽时检测鼠标位置是否有物品的tag
+                    //TODO:为dialogue时调用获得text的方法
+                    Debug.Log(DialogueManger.Instance.GetCurrentText() + "," +
+                              DialogueManger.Instance.GetCurrentItem().itemName);
+                }
             })
             .AddTo(this);
+
+        #endregion
     }
-    
+
     Collider2D GetItemOnMousePos()
     {
         LayerMask layerMask = 1 << 5;
-        return Physics2D.OverlapPoint(Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)), layerMask); //
+        return Physics2D.OverlapPoint(
+            Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)), layerMask); //
     }
 
     /// <summary>

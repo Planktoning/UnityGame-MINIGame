@@ -1,16 +1,18 @@
 using System;
 using UnityEngine;
+using UniRx;
+using UniRx.Triggers;
 
 public class Location : MonoBehaviour
 {
-    public bool isFirst;
+    public bool isDone;
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") || isFirst == false)
+        if (other.gameObject.CompareTag("Player") && isDone == false)
         {
-            InteractiveEnter?.Invoke(this.gameObject);
-            isFirst = true;
+            InteractiveEnter?.Invoke(gameObject);
+            isDone = true;
         }
     }
 

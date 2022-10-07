@@ -818,6 +818,8 @@ MonoBehaviour:
   currentLine: 0
   isScrolling: 0
   scrollSpeed: 0.05
+  isDialogue:
+    value: 0
 --- !u!4 &419620663
 Transform:
   m_ObjectHideFlags: 0
@@ -901,7 +903,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -31.9751, y: -29.7903}
+  m_AnchoredPosition: {x: -31.975098, y: -29.790298}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &450902882
@@ -2560,7 +2562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.38623047, y: -46.8}
+  m_AnchoredPosition: {x: 0.38623047, y: -46.799988}
   m_SizeDelta: {x: 1286.5435, y: 446.50388}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &916489217
@@ -2739,7 +2741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Inv
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_Pivot.x
@@ -3682,7 +3684,7 @@ GameObject:
   - component: {fileID: 1284529979}
   m_Layer: 5
   m_Name: DropDown
-  m_TagString: Untagged
+  m_TagString: Respawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3756,7 +3758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06332474fdb82341a28380ac9a711a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obj: {fileID: 1048271426}
+  rect: {fileID: 1048271426}
+  actionBar: {fileID: 1048271425}
   isUp: 0
 --- !u!1 &1290017225
 GameObject:
@@ -4128,7 +4131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Inv
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_Pivot.x
@@ -4380,7 +4383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1563545074}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.51, y: 6.37, z: -10.749965}
+  m_LocalPosition: {x: -22.01, y: 6.37, z: -10.749965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 728014818}
@@ -4560,7 +4563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584927073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.51, y: 6.37, z: -0.7499646}
+  m_LocalPosition: {x: -22.01, y: 6.37, z: -0.7499646}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4602,7 +4605,7 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -4645,7 +4648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1584927077}
-  speed: 30
+  speed: 5
   canMove: 1
 --- !u!1 &1644386964
 GameObject:
@@ -4949,7 +4952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Inv
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_Pivot.x
@@ -5416,7 +5419,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 20.81715}
+  m_AnchoredPosition: {x: 0, y: 20.817154}
   m_SizeDelta: {x: 0, y: 41.6343}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1910299302
@@ -5478,7 +5481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Inv
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_Pivot.x
@@ -6092,7 +6095,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2145942790}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5100765, y: 6.4510946, z: -10.749965}
+  m_LocalPosition: {x: -22.010065, y: 6.435169, z: -10.749965}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6157,7 +6160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_TagString
-      value: Respawn
+      value: Inv
       objectReference: {fileID: 0}
     - target: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
       propertyPath: m_Pivot.x

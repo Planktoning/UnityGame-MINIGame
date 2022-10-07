@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UniRx;
 
 public class DialogueManger : Singleton<DialogueManger>
 {
@@ -16,42 +17,73 @@ public class DialogueManger : Singleton<DialogueManger>
     private GameObject NPCgameobj; //NPC的游戏对象
     private ItemDetails currentItem; //当前物品
 
-    public bool isScrolling; //是否在显示字幕中
-    public float scrollSpeed; //显示字幕速度
+    /// <summary>
+    /// 是否在显示字幕中
+    /// </summary>
+    public bool isScrolling; //
+
+    /// <summary>
+    /// 显示字幕速度
+    /// </summary>
+    public float scrollSpeed; //
+
+    /// <summary>
+    /// 是否在对话中--Bool
+    /// </summary>
+    public BoolReactiveProperty isDialogue; //
+
+    private void Start()
+    {
+        isDialogue.ObserveEveryValueChanged(x => x.Value)
+            .DistinctUntilChanged()
+            .Subscribe(a =>
+            {
+                if (a)
+                    VisualInventory.Instance.OnInventoryDOWN();
+                else
+                    VisualInventory.Instance.OnInventoryUP();
+            })
+            .AddTo(this);
+    }
 
 
     private void Update()
     {
         if (dialogueBox.activeInHierarchy)
         {
-            if (Input.GetMouseButtonDown(0) && GetItemOnMousePos().gameObject?.tag == "Dialouge")
+            if (Input.GetMouseButtonDown(0))
             {
-                if (isScrolling == false)
+                if (GetItemOnMousePos().gameObject?.tag == "Dialouge")
                 {
-                    if (currentLine < dialogueLine.Length)
+                    isDialogue.Value = true;
+                    if (isScrolling == false)
                     {
-                        if (dialogueLine[currentLine].StartsWith("n-"))
+                        if (currentLine < dialogueLine.Length)
                         {
-                            nameText.text = dialogueLine[currentLine].Replace("n-", "");
+                            if (dialogueLine[currentLine].StartsWith("n-"))
+                            {
+                                nameText.text = dialogueLine[currentLine].Replace("n-", "");
+                                currentLine++;
+                            }
+
+                            currentLineText = dialogueLine[currentLine];
+                            Debug.Log(GetCurrentText());
+                            StartCoroutine(ScrollLetter());
                             currentLine++;
                         }
-
-                        currentLineText = dialogueLine[currentLine];
-                        // Debug.Log(currentLineText);
-                        StartCoroutine(ScrollLetter());
-                        currentLine++;
-                    }
-                    else
-                    {
-                        CheckToChange();
-                        dialogueBox.SetActive(false);
-                        FindObjectOfType<Move>().canMove = true;
-                        if (NPCgameobj == null)
+                        else
                         {
-                            return;
-                        }
+                            CheckToChange();
+                            dialogueBox.SetActive(false);
+                            FindObjectOfType<Move>().canMove = true;
+                            isDialogue.Value = false;
+                            if (NPCgameobj == null)
+                            {
+                                return;
+                            }
 
-                        NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
+                            NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
+                        }
                     }
                 }
             }
@@ -66,6 +98,9 @@ public class DialogueManger : Singleton<DialogueManger>
     /// <param name="obj">对话者的gameobj</param>
     public void GetDialogueInformation(StringItemNameDictionary infor, ItemDetails item, GameObject obj)
     {
+        if (isScrolling)
+            return;
+
         NPCgameobj = obj;
         currentItem = item;
         string[] talkText = new string[] { };
@@ -79,6 +114,7 @@ public class DialogueManger : Singleton<DialogueManger>
 
 
         dialogueLine = talkText;
+        isDialogue.Value = true;
 
         currentLine = 0;
         //空文本时返回
@@ -104,7 +140,7 @@ public class DialogueManger : Singleton<DialogueManger>
 
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
         currentLineText = dialogueLine[currentLine];
-        Debug.Log(currentLineText);
+        Debug.Log(GetCurrentText());
         StartCoroutine(ScrollLetter());
         if (currentLine < dialogueLine.Length)
         {
@@ -141,16 +177,13 @@ public class DialogueManger : Singleton<DialogueManger>
     void CheckToChange()
     {
         if (NPCgameobj == null)
-        {
             return;
-        }
 
 
         ItemName requireItem = NPCgameobj.GetComponent<BaseInteractive>().requiredItem;
         if (requireItem == ItemName.None)
-        {
             return;
-        }
+
 
         if (currentItem.itemName == requireItem)
         {
@@ -164,10 +197,32 @@ public class DialogueManger : Singleton<DialogueManger>
         }
     }
 
+    /// <summary>
+    /// 获取鼠标当前位置
+    /// </summary>
+    /// <returns></returns>
     Collider2D GetItemOnMousePos()
     {
         LayerMask layerMask = 1 << 5;
         return Physics2D.OverlapPoint(
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0)), layerMask); //
+    }
+
+    /// <summary>
+    /// 获得当前手持
+    /// </summary>
+    /// <returns></returns>
+    public string GetCurrentText()
+    {
+        return currentLineText;
+    }
+
+    /// <summary>
+    /// 获取当前手持物品
+    /// </summary>
+    /// <returns></returns>
+    public ItemDetails GetCurrentItem()
+    {
+        return currentItem;
     }
 }
