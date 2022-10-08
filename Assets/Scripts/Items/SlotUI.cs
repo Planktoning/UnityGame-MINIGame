@@ -34,9 +34,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 }
             }).AddTo(this);
 
-        #region DragSystem
+        #region 拖拽系统
 
-        itemSprite.OnBeginDragAsObservable().Subscribe(_ =>
+        itemSprite.OnBeginDragAsObservable().Subscribe(obj =>
             {
                 startPosition = itemSprite.transform.position;
                 isDrag = true;
@@ -56,7 +56,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                     // Debug.Log(GetItemOnMousePos().gameObject.tag);//结束拖拽时检测鼠标位置是否有物品的tag
                     //TODO:为dialogue时调用获得text的方法
                     Debug.Log(DialogueManger.Instance.GetCurrentText() + "," +
-                              DialogueManger.Instance.GetCurrentItem().itemName);
+                              currentitem.itemName);
+                    DialogueManger.Instance.DragItemGetDialogueInformation(
+                        DialogueManger.Instance.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue, currentitem);
                 }
             })
             .AddTo(this);
@@ -110,4 +112,6 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     }
 
     public static event Action<ItemDetails> ItemSelectedEvent;
+
+    public static event Action<ItemDetails> ItemDragDialogueEvent;
 }

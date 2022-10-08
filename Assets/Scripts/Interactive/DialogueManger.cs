@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using UnityEngine.UIElements;
 
 public class DialogueManger : Singleton<DialogueManger>
 {
@@ -14,8 +15,13 @@ public class DialogueManger : Singleton<DialogueManger>
     public string currentLineText;
     [SerializeField] public int currentLine; //当前行
 
-    private GameObject NPCgameobj; //NPC的游戏对象
+    public GameObject NPCgameobj; //NPC的游戏对象
     private ItemDetails currentItem; //当前物品
+
+    /// <summary>
+    /// 对话是否因为拖拽了物品而被改变
+    /// </summary>
+    private bool isChanged;
 
     /// <summary>
     /// 是否在显示字幕中
@@ -44,6 +50,10 @@ public class DialogueManger : Singleton<DialogueManger>
                     VisualInventory.Instance.OnInventoryUP();
             })
             .AddTo(this);
+
+        Observable.FromEvent<ItemDetails>(action => SlotUI.ItemDragDialogueEvent += action,
+            action => SlotUI.ItemDragDialogueEvent -= action).Subscribe(
+            Action => { Debug.Log(Action.itemName + "," + currentLineText); }).AddTo(this);
     }
 
 
@@ -73,6 +83,7 @@ public class DialogueManger : Singleton<DialogueManger>
                         }
                         else
                         {
+                            //关闭对话框
                             CheckToChange();
                             dialogueBox.SetActive(false);
                             FindObjectOfType<Move>().canMove = true;
@@ -81,6 +92,8 @@ public class DialogueManger : Singleton<DialogueManger>
                             {
                                 return;
                             }
+
+                            isChanged = false;
 
                             NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
                         }
@@ -91,7 +104,7 @@ public class DialogueManger : Singleton<DialogueManger>
     }
 
     /// <summary>
-    /// 获取对话的文本信息，此时手上所持有的物品，对话者的gameobj
+    /// 获取对话的文本信息，此时手上所持有的物品，对话者的gameobj，且只会触发any时的对话
     /// </summary>
     /// <param name="infor">文本信息</param>
     /// <param name="item">此时手持物品信息</param>
@@ -106,7 +119,7 @@ public class DialogueManger : Singleton<DialogueManger>
         string[] talkText = new string[] { };
         foreach (var kvp in infor)
         {
-            if (item.itemName == kvp.Value || kvp.Value == ItemName.Any)
+            if (kvp.Value == ItemName.Any)
             {
                 talkText = kvp.Key.Split(' ');
             }
@@ -150,6 +163,40 @@ public class DialogueManger : Singleton<DialogueManger>
         dialogueBox.SetActive(true); //激活场景
         FindObjectOfType<Move>().canMove = false;
         NPCgameobj.GetComponent<BoxCollider2D>().enabled = false;
+    }
+
+    public void DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
+    {
+        if (isScrolling || isChanged)
+            return;
+
+        isChanged = true; //TODO:对话框是否继续深入的相关逻辑
+        string[] talkText = new string[] { };
+        // Debug.Log("123++"+NPCgameobj.gameObject.name);
+        foreach (var currentInfor in infor)
+        {
+            if (item.itemName == currentInfor.Value)
+            {
+                talkText = currentInfor.Key.Split(' ');
+            }
+        }
+
+        dialogueLine = talkText;
+        currentLine = 0;
+        if (dialogueLine[currentLine].StartsWith("n-"))
+        {
+            nameText.text = dialogueLine[currentLine].Replace("n-", "");
+            currentLine++;
+        }
+
+        //TODO:需要添加 添加物品关键字"Add-"(暂定)
+        currentLineText = dialogueLine[currentLine];
+        Debug.Log(GetCurrentText());
+        StartCoroutine(ScrollLetter());
+        if (currentLine < dialogueLine.Length)
+        {
+            currentLine++;
+        }
     }
 
     /// <summary>
@@ -218,11 +265,11 @@ public class DialogueManger : Singleton<DialogueManger>
     }
 
     /// <summary>
-    /// 获取当前手持物品
+    /// 获取当前对话的NPC
     /// </summary>
     /// <returns></returns>
-    public ItemDetails GetCurrentItem()
+    public GameObject GetCurrentNpc()
     {
-        return currentItem;
+        return NPCgameobj;
     }
 }

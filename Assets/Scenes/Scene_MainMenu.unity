@@ -816,6 +816,7 @@ MonoBehaviour:
   - 
   currentLineText: 
   currentLine: 0
+  NPCgameobj: {fileID: 0}
   isScrolling: 0
   scrollSpeed: 0.05
   isDialogue:
@@ -3103,23 +3104,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048271425}
   m_CullTransparentMesh: 1
---- !u!1 &1069466001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8446987028812197893, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
-  m_PrefabInstance: {fileID: 8446987027745873602}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1069466006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069466001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbee6390c522e0a4386037a4040ecc55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1099886280 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8446987028812197898, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
@@ -3130,7 +3114,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8446987028812197902, guid: a27ff3ee0481d79409a1ace487d03a60, type: 3}
   m_PrefabInstance: {fileID: 8446987027745873602}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1069466001}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc73c48dd361c624d98cd4fcd2c9a372, type: 3}
@@ -4541,8 +4525,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1784080447
-  m_SortingLayer: 2
+  m_SortingLayerID: 1001652429
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 6912686599330684481, guid: a12f0418ec46b1d42a25c8c0abc606a8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5938,7 +5922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentItem:
-    itemName: 11
+    itemName: 0
     Sprite: {fileID: 0}
     Name: 
 --- !u!1 &2136906689
