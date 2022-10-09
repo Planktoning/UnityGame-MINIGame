@@ -12,14 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae55bea1cfc7b84498a357884de5af2, type: 3}
   m_Name: PlayerBag
   m_EditorClassIdentifier: 
-  ItemDetailsList:
+  itemDetailsList:
   - itemName: 0
     Sprite: {fileID: 0}
+    Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    Name: 

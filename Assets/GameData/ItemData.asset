@@ -12,13 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae55bea1cfc7b84498a357884de5af2, type: 3}
   m_Name: ItemData
   m_EditorClassIdentifier: 
-  ItemDetailsList:
-  - itemName: 0
-    Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    Name: "\u7269\u54C11"
-  - itemName: 1
-    Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-    Name: "\u7269\u54C12"
+  itemDetailsList:
   - itemName: 2
     Sprite: {fileID: 21300000, guid: 07d4f63ae8b9d6747b2c9d114f23df5a, type: 3}
     Name: "\u91D1\u5E01"
+  - itemName: 3
+    Sprite: {fileID: 21300000, guid: f32fdbbeac3468e4a890bbf33446befa, type: 3}
+    Name: "\u8BFB\u5FC3\u77F3"

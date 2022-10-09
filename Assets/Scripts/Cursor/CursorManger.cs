@@ -76,7 +76,10 @@ public class CursorManger : Singleton<CursorManger>
                     DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, obj);
                 break;
             case "Dialouge":
-                MatchManger.Instance.GetInformation();
+                if (!DialogueManger.Instance.isScrolling)
+                {
+                    print(DialogueManger.Instance.currentLineText);
+                }
                 break;
             //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)
             default:

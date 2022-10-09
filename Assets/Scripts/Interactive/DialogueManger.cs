@@ -50,15 +50,12 @@ public class DialogueManger : Singleton<DialogueManger>
                     VisualInventory.Instance.OnInventoryUP();
             })
             .AddTo(this);
-
-        Observable.FromEvent<ItemDetails>(action => SlotUI.ItemDragDialogueEvent += action,
-            action => SlotUI.ItemDragDialogueEvent -= action).Subscribe(
-            Action => { Debug.Log(Action.itemName + "," + currentLineText); }).AddTo(this);
     }
 
 
     private void Update()
     {
+        //对话帧事件相关事件
         if (dialogueBox.activeInHierarchy)
         {
             if (Input.GetMouseButtonDown(0))
@@ -75,6 +72,12 @@ public class DialogueManger : Singleton<DialogueManger>
                                 nameText.text = dialogueLine[currentLine].Replace("n-", "");
                                 currentLine++;
                             }
+                            if (dialogueLine[currentLine].StartsWith("a-"))
+                            {
+                                print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+                                AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+                                currentLine++;
+                            }
 
                             currentLineText = dialogueLine[currentLine];
                             Debug.Log(GetCurrentText());
@@ -87,12 +90,12 @@ public class DialogueManger : Singleton<DialogueManger>
                             CheckToChange();
                             dialogueBox.SetActive(false);
                             FindObjectOfType<Move>().canMove = true;
-                            isDialogue.Value = false;
                             if (NPCgameobj == null)
                             {
                                 return;
                             }
 
+                            isDialogue.Value = false;
                             isChanged = false;
 
                             NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
@@ -151,7 +154,13 @@ public class DialogueManger : Singleton<DialogueManger>
             throw;
         }
 
-        //TODO:需要添加 添加物品关键字"Add-"(暂定)
+        if (dialogueLine[currentLine].StartsWith("a-"))
+        {
+            print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
+            AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            currentLine++;
+        }
+        
         currentLineText = dialogueLine[currentLine];
         Debug.Log(GetCurrentText());
         StartCoroutine(ScrollLetter());
@@ -165,14 +174,12 @@ public class DialogueManger : Singleton<DialogueManger>
         NPCgameobj.GetComponent<BoxCollider2D>().enabled = false;
     }
 
-    public void DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
+    public bool DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
     {
         if (isScrolling || isChanged)
-            return;
+            return false;
 
-        isChanged = true; //TODO:对话框是否继续深入的相关逻辑
         string[] talkText = new string[] { };
-        // Debug.Log("123++"+NPCgameobj.gameObject.name);
         foreach (var currentInfor in infor)
         {
             if (item.itemName == currentInfor.Value)
@@ -181,6 +188,9 @@ public class DialogueManger : Singleton<DialogueManger>
             }
         }
 
+        if (talkText.Length == 0) return false;
+
+        isChanged = true;
         dialogueLine = talkText;
         currentLine = 0;
         if (dialogueLine[currentLine].StartsWith("n-"))
@@ -190,13 +200,21 @@ public class DialogueManger : Singleton<DialogueManger>
         }
 
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
+        if (dialogueLine[currentLine].StartsWith("a-"))
+        {
+            print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
+            AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            currentLine++;
+        }
+
         currentLineText = dialogueLine[currentLine];
-        Debug.Log(GetCurrentText());
         StartCoroutine(ScrollLetter());
         if (currentLine < dialogueLine.Length)
         {
             currentLine++;
         }
+
+        return true;
     }
 
     /// <summary>
@@ -272,4 +290,6 @@ public class DialogueManger : Singleton<DialogueManger>
     {
         return NPCgameobj;
     }
+
+    public static event Action<ItemDetails> AddItemEvent;
 }

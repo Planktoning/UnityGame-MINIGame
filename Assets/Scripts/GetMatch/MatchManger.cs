@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,22 @@ using UnityEngine.UI;
 
 public class MatchManger : Singleton<MatchManger>
 {
-    void Start()
+    public ItemDetails_SO itemData;
+
+    private void Start()
     {
+        
     }
 
-    void Update()
+    public ItemDetails GetItemFromItemData(ItemName itemName)
     {
+        return itemData.itemDetailsList.Find(i => i.itemName == itemName);
     }
 
-    public void GetInformation()
+    public ItemDetails GetItemFromItemData(string itemName)
     {
-        if (!DialogueManger.Instance.isScrolling)
-        {
-            print(DialogueManger.Instance.currentLineText);
-        }
+        return itemData.itemDetailsList.Find(i => i.Name == itemName);
     }
+    
+    
 }

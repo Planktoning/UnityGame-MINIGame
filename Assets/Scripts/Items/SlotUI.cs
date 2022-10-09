@@ -24,16 +24,6 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
 
     private void Start()
     {
-        Observable.EveryUpdate()
-            .First()
-            .Subscribe(_ =>
-            {
-                if (haveItem == false)
-                {
-                    SetEmpty();
-                }
-            }).AddTo(this);
-
         #region 拖拽系统
 
         itemSprite.OnBeginDragAsObservable().Subscribe(obj =>
@@ -53,12 +43,13 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 isDrag = false;
                 if (GetItemOnMousePos())
                 {
-                    // Debug.Log(GetItemOnMousePos().gameObject.tag);//结束拖拽时检测鼠标位置是否有物品的tag
-                    //TODO:为dialogue时调用获得text的方法
-                    Debug.Log(DialogueManger.Instance.GetCurrentText() + "," +
-                              currentitem.itemName);
-                    DialogueManger.Instance.DragItemGetDialogueInformation(
-                        DialogueManger.Instance.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue, currentitem);
+                    var a = DialogueManger.Instance.DragItemGetDialogueInformation(
+                        DialogueManger.Instance.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue,
+                        currentitem);
+                    Debug.Log(a);
+                    //执行拖拽后对话改变的逻辑
+                    DeleteItem(a);
+                    //TODO:重排物品
                 }
             })
             .AddTo(this);
@@ -84,16 +75,21 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         itemSprite.enabled = true;
         itemSprite.sprite = itemDetails.Sprite;
         currentItemName = itemDetails.Name;
+        InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = currentitem;
         haveItem = true;
     }
 
     /// <summary>
     /// 给该栏设置为空
     /// </summary>
-    public void SetEmpty()
+    public void DeleteItem(bool isDelete)
     {
+        if (isDelete==false) return;
         itemSprite.enabled = false;
         Button.interactable = false;
+        currentitem = null;
+        InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = null;
+        currentItemName = null;
         haveItem = false;
     }
 
@@ -112,6 +108,4 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     }
 
     public static event Action<ItemDetails> ItemSelectedEvent;
-
-    public static event Action<ItemDetails> ItemDragDialogueEvent;
 }
