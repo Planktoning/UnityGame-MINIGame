@@ -156,7 +156,7 @@ public class DialogueManger : Singleton<DialogueManger>
 
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
-            print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
+            // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
             AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
