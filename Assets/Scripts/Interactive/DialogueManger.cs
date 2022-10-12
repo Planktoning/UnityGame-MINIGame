@@ -72,13 +72,18 @@ public class DialogueManger : Singleton<DialogueManger>
                                 nameText.text = dialogueLine[currentLine].Replace("n-", "");
                                 currentLine++;
                             }
+
                             if (dialogueLine[currentLine].StartsWith("a-"))
                             {
-                                print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
-                                AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+                                print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine]
+                                    .Replace("a-", "")));
+                                AddItemEvent?.Invoke(
+                                    MatchManger.Instance.GetItemFromItemData(
+                                        dialogueLine[currentLine].Replace("a-", "")));
                                 currentLine++;
                             }
 
+                            if (currentLine >= dialogueLine.Length) return;
                             currentLineText = dialogueLine[currentLine];
                             Debug.Log(GetCurrentText());
                             StartCoroutine(ScrollLetter());
@@ -160,7 +165,7 @@ public class DialogueManger : Singleton<DialogueManger>
             AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
-        
+
         currentLineText = dialogueLine[currentLine];
         Debug.Log(GetCurrentText());
         StartCoroutine(ScrollLetter());
@@ -204,6 +209,14 @@ public class DialogueManger : Singleton<DialogueManger>
         {
             print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
             AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            currentLine++;
+        }
+
+        if (dialogueLine[currentLine].StartsWith("f-"))
+        {
+            // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+            AddFeelingEvent?.Invoke(
+                MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
             currentLine++;
         }
 
@@ -292,4 +305,6 @@ public class DialogueManger : Singleton<DialogueManger>
     }
 
     public static event Action<ItemDetails> AddItemEvent;
+
+    public static event Action<ItemDetails> AddFeelingEvent;
 }

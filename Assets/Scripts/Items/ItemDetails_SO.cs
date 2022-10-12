@@ -20,7 +20,16 @@ public class ItemDetails_SO : ScriptableObject
 [System.Serializable]
 public class ItemDetails
 {
-    [Header("物品类型")] public ItemName itemName; //物品类型
-    [Header("物品贴图")] public Sprite Sprite; //物品贴图
+    /// <summary>
+    /// 物品类型
+    /// </summary>
+    [Header("物品类型")] public ItemName itemName; //
+    /// <summary>
+    /// 物品贴图
+    /// </summary>
+    [Header("物品贴图")] public Sprite Sprite;
+    /// <summary>
+    /// 物品名字
+    /// </summary>
     [Header("物品名字（中文）")] public string Name;
 }

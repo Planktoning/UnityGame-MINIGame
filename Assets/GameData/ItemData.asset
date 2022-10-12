@@ -19,3 +19,6 @@ MonoBehaviour:
   - itemName: 3
     Sprite: {fileID: 21300000, guid: f32fdbbeac3468e4a890bbf33446befa, type: 3}
     Name: "\u8BFB\u5FC3\u77F3"
+  - itemName: 7
+    Sprite: {fileID: 21300000, guid: 3144720eedaf6ff4c8436af2e0cbd8f9, type: 3}
+    Name: "\u5FEB\u4E50"

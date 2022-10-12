@@ -1,22 +1,40 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
-using UniRx.InternalUtil;
+using UnityEngine.UI;
 
 public class InventotyManger : Singleton<InventotyManger>
 {
     public ItemDetails_SO bagData;
 
-    [SerializeField] private ReactiveCollection<ItemDetails> itemList = new ReactiveCollection<ItemDetails>();
+    [SerializeField]
+    private ReactiveCollection<ItemDetails> itemList = new ReactiveCollection<ItemDetails>(new ItemDetails[5]);
 
     public List<SlotUI> SlotUis; //物品栏的每一个格子
+
+    public Dropdown dropDown;
+
+    // private ItemDetails E = new ItemDetails(ItemName.None,);
 
     protected override void Awake()
     {
         Observable.FromEvent<ItemDetails>(action => DialogueManger.AddItemEvent += action,
                 action => DialogueManger.AddItemEvent -= action)
-            .Subscribe(item => { AddItem(item); }).AddTo(this);
+            .Subscribe(item =>
+            {
+                if (item != null)
+                {
+                    AddItem(item);
+                }
+            }).AddTo(this);
+        Observable.FromEvent<ItemDetails>(action => DialogueManger.AddFeelingEvent += action,
+                action => DialogueManger.AddFeelingEvent -= action)
+            .Subscribe(item =>
+            {
+                // print(item.itemName);
+                AddFeeling(item);
+            }).AddTo(this);
         base.Awake();
     }
 
@@ -35,17 +53,20 @@ public class InventotyManger : Singleton<InventotyManger>
     /// <param name="item"></param>
     public bool AddItem(ItemDetails item)
     {
-        foreach (var listItem in itemList)
+        if (item == null) return false;
+        for (int i = 0; i < itemList.Count; i++)
         {
-            if (item.itemName == listItem.itemName)
+            if (itemList[i] != null)
             {
-                return false; //检测该物品是否重复
+                if (item.itemName == itemList[i].itemName)
+                {
+                    return false; //检测该物品是否重复
+                }
             }
         }
 
         itemList.Add(item);
         itemList.ObserveEveryValueChanged(a => itemList)
-            .First()
             .Subscribe(b =>
             {
                 for (int i = 0; i < SlotUis.Count; i++)
@@ -61,13 +82,33 @@ public class InventotyManger : Singleton<InventotyManger>
         return true;
     }
 
+    /// <summary>
+    /// 添加物品
+    /// </summary>
+    /// <param name="item">物品信息</param>
+    /// <param name="index">添加在物品栏的第几位</param>
+    /// <returns></returns>
+    private void AddItem(ItemDetails item, int index)
+    {
+        if (itemList != null) itemList[index] = item;
+        SlotUis[index].SetItem(item);
+    }
+
+
+    public void AddFeeling(ItemDetails item)
+    {
+        print(item.itemName);
+    }
+
     void ReadItem()
     {
         for (var index = 0; index < bagData.itemDetailsList.Count; index++)
         {
             var item = bagData.itemDetailsList[index];
             if (item.itemName == ItemName.None) continue;
-            SlotUis[index].SetItem(item);
+            AddItem(item, index);
         }
     }
+    
+    
 }
