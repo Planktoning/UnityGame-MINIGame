@@ -4,7 +4,7 @@ using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
 
-public class InventotyManger : Singleton<InventotyManger>
+public class InventotyManger : MonoBehaviour
 {
     public ItemDetails_SO bagData;
 
@@ -17,7 +17,7 @@ public class InventotyManger : Singleton<InventotyManger>
 
     // private ItemDetails E = new ItemDetails(ItemName.None,);
 
-    protected override void Awake()
+    protected  void Awake()
     {
         Observable.FromEvent<ItemDetails>(action => DialogueManger.AddItemEvent += action,
                 action => DialogueManger.AddItemEvent -= action)
@@ -35,7 +35,6 @@ public class InventotyManger : Singleton<InventotyManger>
                 // print(item.itemName);
                 AddFeeling(item);
             }).AddTo(this);
-        base.Awake();
     }
 
     private void Start()
@@ -95,9 +94,9 @@ public class InventotyManger : Singleton<InventotyManger>
     }
 
 
-    public void AddFeeling(ItemDetails item)
+    void AddFeeling(ItemDetails item)
     {
-        print(item.itemName);
+        // print(item.itemName+" ");
     }
 
     void ReadItem()

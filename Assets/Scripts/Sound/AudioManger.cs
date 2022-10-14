@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 /// <summary>
 ///  这里是对于场景的音乐的管理
 /// </summary>
-public class AudioManger : Singleton<AudioManger>
+public class AudioManger : MonoBehaviour
 {
     [System.Serializable]
     public class Sound
@@ -33,7 +33,7 @@ public class AudioManger : Singleton<AudioManger>
     /// </summary>
     private Dictionary<string, AudioSource> _audioSources;
 
-    protected override void Awake()
+    protected void Awake()
     {
         _audioSources = new Dictionary<string, AudioSource>(); //初始化
     }

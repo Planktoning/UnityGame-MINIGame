@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MatchManger : Singleton<MatchManger>
+public class MatchManger : MonoBehaviour
 {
     public ItemDetails_SO itemData;
 

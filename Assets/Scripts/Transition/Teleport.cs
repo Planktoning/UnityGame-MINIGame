@@ -14,6 +14,6 @@ public class Teleport : MonoBehaviour
     /// </summary>
     public void Switch()
     {
-        TransitionManger.Instance.Switch(SceneSource, SceneDestination);
+        GameManager.Instance.transitionManger.Switch(SceneSource, SceneDestination);
     }
 }

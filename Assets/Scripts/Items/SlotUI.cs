@@ -43,8 +43,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 isDrag = false;
                 if (GetItemOnMousePos())
                 {
-                    var a = DialogueManger.Instance.DragItemGetDialogueInformation(
-                        DialogueManger.Instance.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue,
+                    var a = GameManager.Instance.dialogueManger.DragItemGetDialogueInformation(
+                        GameManager.Instance.dialogueManger.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue,
                         currentitem);
                     Debug.Log(a);
                     //执行拖拽后对话改变的逻辑
@@ -75,7 +75,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         itemSprite.enabled = true;
         itemSprite.sprite = itemDetails.Sprite;
         currentItemName = itemDetails.Name;
-        InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = currentitem;
+        // InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = currentitem;
+        GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = currentitem;
         haveItem = true;
     }
 
@@ -88,7 +89,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         itemSprite.enabled = false;
         Button.interactable = false;
         currentitem = null;
-        InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = null;
+        // InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = null;
+        GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = null;
         currentItemName = null;
         haveItem = false;
     }

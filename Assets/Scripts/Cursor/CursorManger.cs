@@ -3,7 +3,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CursorManger : Singleton<CursorManger>
+public class CursorManger : MonoBehaviour
 {
     [Header("当前手持物品")] public ItemDetails currentItem;
 
@@ -35,7 +35,8 @@ public class CursorManger : Singleton<CursorManger>
             {
                 if (action.TryGetComponent(out BaseInteractive interactive))
                 {
-                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
+                    // DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
+                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, action);
                 }
             });
 
@@ -73,12 +74,12 @@ public class CursorManger : Singleton<CursorManger>
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();
                 if (interactive.isTalk)
-                    DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, obj);
+                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj);
                 break;
             case "Dialouge":
-                if (!DialogueManger.Instance.isScrolling)
+                if (!GameManager.Instance.dialogueManger.isScrolling)
                 {
-                    print(DialogueManger.Instance.currentLineText);
+                    print(GameManager.Instance.dialogueManger.currentLineText);
                 }
                 break;
             //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)

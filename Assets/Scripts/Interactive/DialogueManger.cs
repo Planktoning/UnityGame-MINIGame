@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UniRx;
 using UnityEngine.UIElements;
 
-public class DialogueManger : Singleton<DialogueManger>
+public class DialogueManger : MonoBehaviour
 {
     [Header("对话框")] public GameObject dialogueBox;
     [Header("对话的Text")] public Text dialogueText;
@@ -75,10 +75,10 @@ public class DialogueManger : Singleton<DialogueManger>
 
                             if (dialogueLine[currentLine].StartsWith("a-"))
                             {
-                                print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine]
+                                print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine]
                                     .Replace("a-", "")));
                                 AddItemEvent?.Invoke(
-                                    MatchManger.Instance.GetItemFromItemData(
+                                    GameManager.Instance.matchManger.GetItemFromItemData(
                                         dialogueLine[currentLine].Replace("a-", "")));
                                 currentLine++;
                             }
@@ -162,7 +162,7 @@ public class DialogueManger : Singleton<DialogueManger>
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
             // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
-            AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            AddItemEvent?.Invoke(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
 
@@ -207,8 +207,8 @@ public class DialogueManger : Singleton<DialogueManger>
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
-            print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
-            AddItemEvent?.Invoke(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
+            AddItemEvent?.Invoke(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
 
@@ -216,7 +216,7 @@ public class DialogueManger : Singleton<DialogueManger>
         {
             // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
             AddFeelingEvent?.Invoke(
-                MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+                GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
             currentLine++;
         }
 
