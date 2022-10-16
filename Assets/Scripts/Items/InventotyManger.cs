@@ -8,7 +8,7 @@ public class InventotyManger : MonoBehaviour
 {
     public ItemDetails_SO bagData;
 
-    [SerializeField]
+    [SerializeField] [Header("物品列表")] //不需要drop down的格子
     private ReactiveCollection<ItemDetails> itemList = new ReactiveCollection<ItemDetails>(new ItemDetails[5]);
 
     public List<SlotUI> SlotUis; //物品栏的每一个格子
@@ -17,7 +17,7 @@ public class InventotyManger : MonoBehaviour
 
     // private ItemDetails E = new ItemDetails(ItemName.None,);
 
-    protected  void Awake()
+    protected void Awake()
     {
         Observable.FromEvent<ItemDetails>(action => DialogueManger.AddItemEvent += action,
                 action => DialogueManger.AddItemEvent -= action)
@@ -35,6 +35,17 @@ public class InventotyManger : MonoBehaviour
                 // print(item.itemName);
                 AddFeeling(item);
             }).AddTo(this);
+        dropDown.OnValueChangedAsObservable()
+            .Where(_ => dropDown.options.Count > 0)
+            .Subscribe(i =>
+            {
+                if (dropDown.options[i]?.image != null)
+                {
+                    //给dropdown赋值
+                    SlotUis[5].currentitem =
+                        GameManager.Instance.matchManger.GetItemFromItemData(dropDown.options[i].text);
+                }
+            });
     }
 
     private void Start()
@@ -94,9 +105,31 @@ public class InventotyManger : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// 在dropdown处添加情感 //TODO:应该替换为image
+    /// </summary>
+    /// <param name="item"></param>
     void AddFeeling(ItemDetails item)
     {
-        // print(item.itemName+" ");
+        foreach (var option in dropDown.options)
+        {
+            if(item.Name==option.text) return;
+        }
+        Dropdown.OptionData optionData = new Dropdown.OptionData
+        {
+            text = item.Name,
+            image = item.Sprite
+        };
+        
+        dropDown.options.Add(optionData);
+        if (dropDown.options.Count == 1)
+        {
+            dropDown.captionImage.sprite = optionData.image;
+            dropDown.captionImage.enabled = true;
+            SlotUis[5].currentitem = item;
+        }
+
+        print("add " + item.Name);
     }
 
     void ReadItem()
@@ -108,6 +141,4 @@ public class InventotyManger : MonoBehaviour
             AddItem(item, index);
         }
     }
-    
-    
 }

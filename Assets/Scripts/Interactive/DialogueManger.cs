@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
-using UnityEngine.UIElements;
 
 public class DialogueManger : MonoBehaviour
 {
@@ -60,6 +59,12 @@ public class DialogueManger : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (GetItemOnMousePos() == null)
+                {
+                    Debug.LogError("It's Null");
+                    return;
+                }
+
                 if (GetItemOnMousePos().gameObject?.tag == "Dialouge")
                 {
                     isDialogue.Value = true;
@@ -162,7 +167,8 @@ public class DialogueManger : MonoBehaviour
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
             // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
-            AddItemEvent?.Invoke(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            AddItemEvent?.Invoke(
+                GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
 
@@ -181,7 +187,7 @@ public class DialogueManger : MonoBehaviour
 
     public bool DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
     {
-        if (isScrolling || isChanged)
+        if (isScrolling || isChanged || item == null)
             return false;
 
         string[] talkText = new string[] { };
@@ -207,8 +213,10 @@ public class DialogueManger : MonoBehaviour
         //TODO:需要添加 添加物品关键字"Add-"(暂定)
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
-            print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
-            AddItemEvent?.Invoke(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", ""))
+                .itemName);
+            AddItemEvent?.Invoke(
+                GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
 

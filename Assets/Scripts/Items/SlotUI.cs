@@ -35,7 +35,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         itemSprite.OnDragAsObservable().Subscribe(_ =>
         {
             itemSprite.transform.position =
-                Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
+                Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
         }).AddTo(this);
         itemSprite.OnEndDragAsObservable().Subscribe(_ =>
             {
@@ -48,7 +48,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                         currentitem);
                     Debug.Log(a);
                     //执行拖拽后对话改变的逻辑
-                    DeleteItem(a);
+                    if (SlotIndex != 10) DeleteItem(a);
                     //TODO:重排物品
                 }
             })
@@ -71,7 +71,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public void SetItem(ItemDetails itemDetails)
     {
         currentitem = itemDetails;
-        Button.interactable = true;
+        // Button.interactable = true;
         itemSprite.enabled = true;
         itemSprite.sprite = itemDetails.Sprite;
         currentItemName = itemDetails.Name;
@@ -85,9 +85,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     /// </summary>
     public void DeleteItem(bool isDelete)
     {
-        if (isDelete==false) return;
+        if (isDelete == false) return;
         itemSprite.enabled = false;
-        Button.interactable = false;
+        // Button.interactable = false;
         currentitem = null;
         // InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = null;
         GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = null;
