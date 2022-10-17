@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
-    public bool isPaused;//
+    public bool isPaused;//ÓÎÏ·ÊÇ·ñÔİÍ£
     void Start()
     {
     }
