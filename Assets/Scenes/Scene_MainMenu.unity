@@ -4261,6 +4261,7 @@ MonoBehaviour:
   currentitem:
     itemName: 0
     Sprite: {fileID: 0}
+    SpriteID: 
     Name: 
   Button: {fileID: 0}
   haveItem: 0
@@ -4728,6 +4729,7 @@ Transform:
   - {fileID: 515601168}
   - {fileID: 419620663}
   - {fileID: 60508104}
+  - {fileID: 1968388989}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4749,6 +4751,8 @@ MonoBehaviour:
   audioManger: {fileID: 60508103}
   transitionManger: {fileID: 208541160}
   matchManger: {fileID: 1933770052}
+  saveLoadManager: {fileID: 1968388990}
+  isPaused: 0
 --- !u!1 &1486674705
 GameObject:
   m_ObjectHideFlags: 0
@@ -6822,6 +6826,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953824513}
   m_CullTransparentMesh: 1
+--- !u!1 &1968388988
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968388989}
+  - component: {fileID: 1968388990}
+  m_Layer: 0
+  m_Name: SaveLoadManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1968388989
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968388988}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1483735527}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1968388990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968388988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b7cede94fd5d141a12aae67c6e245a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1969628283
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,6 +6915,7 @@ MonoBehaviour:
   currentItem:
     itemName: 0
     Sprite: {fileID: 0}
+    SpriteID: 
     Name: 
 --- !u!1 &2077190830
 GameObject:

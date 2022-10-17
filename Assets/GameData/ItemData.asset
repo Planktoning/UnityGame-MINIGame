@@ -15,13 +15,17 @@ MonoBehaviour:
   itemDetailsList:
   - itemName: 2
     Sprite: {fileID: 21300000, guid: 07d4f63ae8b9d6747b2c9d114f23df5a, type: 3}
+    SpriteID: Coin
     Name: "\u91D1\u5E01"
   - itemName: 3
     Sprite: {fileID: 21300000, guid: f32fdbbeac3468e4a890bbf33446befa, type: 3}
+    SpriteID: Stone
     Name: "\u8BFB\u5FC3\u77F3"
   - itemName: 7
     Sprite: {fileID: 21300000, guid: 3144720eedaf6ff4c8436af2e0cbd8f9, type: 3}
+    SpriteID: Comfortable
     Name: "\u5FEB\u4E50"
   - itemName: 8
     Sprite: {fileID: 21300000, guid: 31acd2ea194307f4296c48865c23b4b4, type: 3}
+    SpriteID: Loneliness
     Name: "\u5B64\u72EC"

@@ -13,18 +13,23 @@ MonoBehaviour:
   m_Name: PlayerBag
   m_EditorClassIdentifier: 
   itemDetailsList:
+  - itemName: 3
+    Sprite: {fileID: 21300000, guid: f32fdbbeac3468e4a890bbf33446befa, type: 3}
+    SpriteID: Stone
+    Name: "\u8BFB\u5FC3\u77F3"
   - itemName: 0
     Sprite: {fileID: 0}
+    SpriteID: 
     Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    SpriteID: 
     Name: 
   - itemName: 0
     Sprite: {fileID: 0}
+    SpriteID: 
     Name: 
   - itemName: 0
     Sprite: {fileID: 0}
-    Name: 
-  - itemName: 0
-    Sprite: {fileID: 0}
+    SpriteID: 
     Name: 

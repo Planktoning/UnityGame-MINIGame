@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class InventotyManger : MonoBehaviour
 {
+    [SerializeField]
     public ItemDetails_SO bagData;
 
-    [SerializeField] [Header("物品列表")] //不需要drop down的格子
+    [Header("物品列表")] //不需要drop down的格子
     private ReactiveCollection<ItemDetails> itemList = new ReactiveCollection<ItemDetails>(new ItemDetails[5]);
 
     public List<SlotUI> SlotUis; //物品栏的每一个格子
@@ -106,7 +107,7 @@ public class InventotyManger : MonoBehaviour
 
 
     /// <summary>
-    /// 在dropdown处添加情感 //TODO:应该替换为image
+    /// 在dropdown处添加情感 
     /// </summary>
     /// <param name="item"></param>
     void AddFeeling(ItemDetails item)
