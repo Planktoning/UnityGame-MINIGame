@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class OptionMenuManager : MonoBehaviour
 {
+    public bool isActive;
     public GameObject OptionMenu;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,6 @@ public class OptionMenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.Instance.optionMenuOpened = false;
             OptionMenu.gameObject.SetActive(false);
         }
     }

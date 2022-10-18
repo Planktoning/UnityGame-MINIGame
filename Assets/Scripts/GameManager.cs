@@ -17,7 +17,6 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     public bool isPaused;//游戏是否暂停
-    public bool optionMenuOpened;//选项菜单是否开启
     void Start()
     {
     }
