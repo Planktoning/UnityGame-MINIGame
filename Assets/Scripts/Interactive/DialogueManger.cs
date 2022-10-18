@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
+using DG.Tweening;
 
 public class DialogueManger : MonoBehaviour
 {
@@ -87,11 +88,20 @@ public class DialogueManger : MonoBehaviour
                                         dialogueLine[currentLine].Replace("a-", "")));
                                 currentLine++;
                             }
+                            
+                            if (dialogueLine[currentLine].StartsWith("f-"))
+                            {
+                                // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+                                AddFeelingEvent?.Invoke(
+                                    GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+                                currentLine++;
+                            }
 
                             if (currentLine >= dialogueLine.Length) return;
                             currentLineText = dialogueLine[currentLine];
                             Debug.Log(GetCurrentText());
-                            StartCoroutine(ScrollLetter());
+                            // StartCoroutine(ScrollLetter());
+                            ScrollLetter();
                             currentLine++;
                         }
                         else
@@ -174,7 +184,8 @@ public class DialogueManger : MonoBehaviour
 
         currentLineText = dialogueLine[currentLine];
         Debug.Log(GetCurrentText());
-        StartCoroutine(ScrollLetter());
+        // StartCoroutine(ScrollLetter());
+        ScrollLetter();
         if (currentLine < dialogueLine.Length)
         {
             currentLine++;
@@ -229,7 +240,8 @@ public class DialogueManger : MonoBehaviour
         }
 
         currentLineText = dialogueLine[currentLine];
-        StartCoroutine(ScrollLetter());
+        // StartCoroutine(ScrollLetter());
+        ScrollLetter();
         if (currentLine < dialogueLine.Length)
         {
             currentLine++;
@@ -242,16 +254,18 @@ public class DialogueManger : MonoBehaviour
     /// ÊµÏÖ¹ö¶¯×ÖÄ»
     /// </summary>
     /// <returns></returns>
-    IEnumerator ScrollLetter()
+    void ScrollLetter()
     {
         isScrolling = true;
         dialogueText.text = "";
 
-        foreach (var letter in dialogueLine[currentLine].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(scrollSpeed);
-        }
+        dialogueText.DOText(dialogueLine[currentLine], .5f);
+
+        // foreach (var letter in dialogueLine[currentLine].ToCharArray())
+        // {
+        //     dialogueText.text += letter;
+        //     yield return new WaitForSeconds(scrollSpeed);
+        // }
 
         isScrolling = false;
     }

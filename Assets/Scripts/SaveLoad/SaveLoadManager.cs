@@ -5,6 +5,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SaveLoadManager : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class SaveLoadManager : MonoBehaviour
     public void Save()
     {
         var bagDataOnSave = GameManager.Instance.inventotyManger.bagData.itemDetailsList;
-
         List<ItemSave> bagData = new List<ItemSave>();
         if (bagDataOnSave != null)
         {
@@ -32,11 +32,9 @@ public class SaveLoadManager : MonoBehaviour
                 bagData.Add(ItemDetails_SO.ConvertToSave(bag));
             }
         }
-
         SaveLoadFile.SaveToJson("bagData.json", bagData);
 
         var itemDataOnSave = GameManager.Instance.matchManger.itemData.itemDetailsList;
-
         List<ItemSave> itemData = new List<ItemSave>();
         if (itemDataOnSave != null)
         {
@@ -50,7 +48,6 @@ public class SaveLoadManager : MonoBehaviour
                 itemData.Add(ItemDetails_SO.ConvertToSave(item));
             }
         }
-
         SaveLoadFile.SaveToJson("itemData.json", itemData);
 
         List<ItemSave> dropDownData = new List<ItemSave>();
@@ -59,14 +56,13 @@ public class SaveLoadManager : MonoBehaviour
             var item = GameManager.Instance.matchManger.GetItemFromItemData(optionData.text);
             dropDownData.Add(ItemDetails_SO.ConvertToSave(item));
         }
-
         SaveLoadFile.SaveToJson("DropDown.json", dropDownData);
     }
 
     public void Load()
     {
         var BagSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("BagData.json");
-        // GameManager.Instance.inventotyManger.bagData.itemDetailsList = ItemDetails_SO.ConvertToLoad()
+
         List<ItemDetails> bagData = new List<ItemDetails>();
         foreach (var bagSave in BagSaveData)
         {
@@ -74,6 +70,25 @@ public class SaveLoadManager : MonoBehaviour
         }
 
         GameManager.Instance.inventotyManger.bagData.itemDetailsList = bagData;
+
+        var DropDownSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("DropDown.json");
+
+        List<ItemDetails> dropDownData = new List<ItemDetails>();
+        foreach (var itemSave in DropDownSaveData)
+        {
+            var itemTemp = ItemDetails_SO.ConvertToLoad(itemSave);
+            // dropDownData.Add(ItemDetails_SO.ConvertToLoad(itemSave));
+            Dropdown.OptionData a = new Dropdown.OptionData()
+            {
+                text = itemTemp.Name,
+                image = itemTemp.Sprite
+            };
+            GameManager.Instance.inventotyManger.dropDown.options.Add(a);
+        }
+
+        foreach (var data in dropDownData)
+        {
+        }
     }
 
     void Update()

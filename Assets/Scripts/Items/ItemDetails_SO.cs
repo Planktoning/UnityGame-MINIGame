@@ -51,7 +51,8 @@ public class ItemDetails_SO : ScriptableObject
         itemDetails.SpriteID = itemSave.SpriteID;
         if (itemSave.SpriteID != "")
         {
-            itemDetails.Sprite = Resources.Load<Sprite>(itemSave.SpriteID);
+            var combine = Path.Combine("InventoryUI", itemSave.SpriteID);
+            itemDetails.Sprite = Resources.Load<Sprite>(combine);
             Debug.Log("Sprite Done! " + itemDetails.SpriteID);
         }
         else
