@@ -9,6 +9,7 @@ public class PausedMenuManager : MonoBehaviour
 
     private void PausedMenuControl()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameManager.Instance.isPaused)
@@ -33,14 +34,14 @@ public class PausedMenuManager : MonoBehaviour
         PausedMenuControl();
     }
 
-    private void Pause()
+    public void Pause()
     {
         PausedMenu.gameObject.SetActive(true);
         Time.timeScale = 0.0f;
         GameManager.Instance.isPaused = true;
     }
 
-    private void Resume()
+    public void Resume()
     {
         PausedMenu.gameObject.SetActive(false);
         Time.timeScale = 1.0f;
