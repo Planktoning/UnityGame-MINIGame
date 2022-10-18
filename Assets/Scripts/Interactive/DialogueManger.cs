@@ -51,7 +51,7 @@ public class DialogueManger : MonoBehaviour
             .AddTo(this);
     }
 
-
+    //TODO:当游戏暂停(GameManager.Instance.isPaused == true)时不触发[单机对话框继续]判定
     private void Update()
     {
         //对话帧事件相关事件
