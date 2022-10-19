@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class OptionMenuManager : MonoBehaviour
 {
-    public bool isActive;
     public GameObject OptionMenu;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +18,7 @@ public class OptionMenuManager : MonoBehaviour
         optionMenuControl();
     }
 
+    //当按下Esc,关闭选项菜单
     private void optionMenuControl()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
