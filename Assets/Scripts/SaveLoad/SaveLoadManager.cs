@@ -14,6 +14,7 @@ public class SaveLoadManager : MonoBehaviour
         Observable.OnceApplicationQuit()
             .Subscribe(_ => { Save(); });
         Load();
+        Debug.Log(GameObject.Find("MainCharactor"));
     }
 
     public void Save()
@@ -57,23 +58,23 @@ public class SaveLoadManager : MonoBehaviour
             dropDownData.Add(ItemDetails_SO.ConvertToSave(item));
         }
         SaveLoadFile.SaveToJson("DropDown.json", dropDownData);
+        
+        GameObject player=GameObject.Find("MainCharactor");
+        SaveLoadFile.SaveToJson("player.json",player.transform.position);
+        
     }
 
     public void Load()
     {
         var BagSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("BagData.json");
-
         List<ItemDetails> bagData = new List<ItemDetails>();
         foreach (var bagSave in BagSaveData)
         {
             bagData.Add(ItemDetails_SO.ConvertToLoad(bagSave));
         }
-
         GameManager.Instance.inventotyManger.bagData.itemDetailsList = bagData;
 
         var DropDownSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("DropDown.json");
-
-        List<ItemDetails> dropDownData = new List<ItemDetails>();
         foreach (var itemSave in DropDownSaveData)
         {
             var itemTemp = ItemDetails_SO.ConvertToLoad(itemSave);
@@ -86,9 +87,9 @@ public class SaveLoadManager : MonoBehaviour
             GameManager.Instance.inventotyManger.dropDown.options.Add(a);
         }
 
-        foreach (var data in dropDownData)
-        {
-        }
+        var PlayerPositionOnsave = SaveLoadFile.LoadFromJson<Vector3>("player.json");
+        GameObject player=GameObject.Find("MainCharactor");
+        player.transform.position = PlayerPositionOnsave;
     }
 
     void Update()
