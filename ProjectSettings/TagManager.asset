@@ -9,6 +9,7 @@ TagManager:
   - Interactive
   - Dialouge
   - Slots
+  - Letter
   layers:
   - Default
   - TransparentFX

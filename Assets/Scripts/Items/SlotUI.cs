@@ -43,13 +43,23 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 isDrag = false;
                 if (GetItemOnMousePos())
                 {
-                    var a = GameManager.Instance.dialogueManger.DragItemGetDialogueInformation(
-                        GameManager.Instance.dialogueManger.GetCurrentNpc().GetComponent<BaseInteractive>().dialogue,
-                        currentitem);
-                    Debug.Log(a);
-                    //执行拖拽后对话改变的逻辑
-                    if (SlotIndex != 10) DeleteItem(a);
-                    //TODO:重排物品
+                    GameObject obj = GetItemOnMousePos().gameObject;
+                    switch (obj.tag)
+                    {
+                        case "Dialouge":
+                            var a = GameManager.Instance.dialogueManger.DragItemGetDialogueInformation(
+                                GameManager.Instance.dialogueManger.GetCurrentNpc().GetComponent<BaseInteractive>()
+                                    .dialogue,
+                                currentitem);
+                            Debug.Log(a);
+                            //执行拖拽后对话改变的逻辑
+                            if (SlotIndex != 10) DeleteItem(a);
+                            //TODO:重排物品
+                            break;
+                        case "Letter":
+                            print(GetItemOnMousePos().gameObject.GetComponent<Text>().text);
+                            break;
+                    }
                 }
             })
             .AddTo(this);

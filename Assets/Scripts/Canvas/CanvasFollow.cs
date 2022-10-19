@@ -9,5 +9,6 @@ public class CanvasFollow : MonoBehaviour
     {
         this.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y,
             this.transform.position.z);
+        // GameManager.Instance.dialogueManger.isDialogue
     }
 }
