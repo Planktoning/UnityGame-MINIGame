@@ -16,12 +16,16 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
-    public bool isPaused;//ÓÎÏ·ÊÇ·ñÔÝÍ£
+    public bool isPaused;//ï¿½ï¿½Ï·ï¿½Ç·ï¿½ï¿½ï¿½Í£
     void Start()
     {
     }
 
     void Update()
     {
+    }
+
+    public void Quit(){
+        Application.Quit();
     }
 }
