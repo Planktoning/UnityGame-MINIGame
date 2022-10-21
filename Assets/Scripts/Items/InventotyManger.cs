@@ -110,7 +110,7 @@ public class InventotyManger : MonoBehaviour
     /// 在dropdown处添加情感 
     /// </summary>
     /// <param name="item"></param>
-    void AddFeeling(ItemDetails item)
+    public void AddFeeling(ItemDetails item)
     {
         foreach (var option in dropDown.options)
         {

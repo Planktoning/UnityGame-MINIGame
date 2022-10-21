@@ -13,10 +13,12 @@ public class GameManager : Singleton<GameManager>
     public TransitionManger transitionManger;
     public MatchManger matchManger;
     public SaveLoadManager saveLoadManager;
+    public LetterManager letterManager;
 
     #endregion
 
-    public bool isPaused;//ÓÎÏ·ÊÇ·ñÔİÍ£
+    public bool isPaused; //ÓÎÏ·ÊÇ·ñÔİÍ£
+
     void Start()
     {
     }

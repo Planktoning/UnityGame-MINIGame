@@ -36,6 +36,11 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         {
             itemSprite.transform.position =
                 Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
+            if (GetItemOnMousePos())
+            {
+                print(GetItemOnMousePos().gameObject.GetComponent<Text>().text);
+                // GameManager.Instance.letterManager.ChangeColor(GetItemOnMousePos().gameObject);
+            }
         }).AddTo(this);
         itemSprite.OnEndDragAsObservable().Subscribe(_ =>
             {
@@ -57,7 +62,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                             //TODO:÷ÿ≈≈ŒÔ∆∑
                             break;
                         case "Letter":
-                            print(GetItemOnMousePos().gameObject.GetComponent<Text>().text);
+                            GameManager.Instance.letterManager.GetLetterInfo(currentitem,
+                                GetItemOnMousePos().gameObject);
                             break;
                     }
                 }

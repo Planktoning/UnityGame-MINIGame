@@ -12,7 +12,10 @@ public class SaveLoadManager : MonoBehaviour
     private void Awake()
     {
         Observable.OnceApplicationQuit()
-            .Subscribe(_ => { Save(); });
+            .Subscribe(_ =>
+            {
+                Save();
+            });
         Load();
         Debug.Log(GameObject.Find("MainCharactor"));
     }
@@ -78,13 +81,7 @@ public class SaveLoadManager : MonoBehaviour
         foreach (var itemSave in DropDownSaveData)
         {
             var itemTemp = ItemDetails_SO.ConvertToLoad(itemSave);
-            // dropDownData.Add(ItemDetails_SO.ConvertToLoad(itemSave));
-            Dropdown.OptionData a = new Dropdown.OptionData()
-            {
-                text = itemTemp.Name,
-                image = itemTemp.Sprite
-            };
-            GameManager.Instance.inventotyManger.dropDown.options.Add(a);
+            GameManager.Instance.inventotyManger.AddFeeling(itemTemp);
         }
 
         var PlayerPositionOnsave = SaveLoadFile.LoadFromJson<Vector3>("player.json");
