@@ -16,9 +16,15 @@ public class GameManager : Singleton<GameManager>
     public LetterManager letterManager;
 
     #endregion
-    
+
     public bool isPaused; //游戏是否暂停
-    
+
+    /// <summary>
+    /// 游戏周目数
+    /// </summary>
+    public int GameWeek = 1;
+    //TODO:Add GameWeek exchange 
+
     void Start()
     {
     }
