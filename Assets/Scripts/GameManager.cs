@@ -16,14 +16,23 @@ public class GameManager : Singleton<GameManager>
     public LetterManager letterManager;
 
     #endregion
-
+    
     public bool isPaused; //”Œœ∑ «∑Ò‘›Õ£
-
+    
     void Start()
     {
     }
 
     void Update()
     {
+    }
+
+    public void quitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
     }
 }
