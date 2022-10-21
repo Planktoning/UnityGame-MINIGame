@@ -15,7 +15,11 @@ public class DialogueManger : MonoBehaviour
     public string currentLineText;
     [SerializeField] public int currentLine; //当前行
 
-    public GameObject NPCgameobj; //NPC的游戏对象
+    /// <summary>
+    /// NPC的游戏对象
+    /// </summary>
+    public GameObject NPCgameobj;
+
     private ItemDetails currentItem; //当前物品
 
     /// <summary>
@@ -88,12 +92,13 @@ public class DialogueManger : MonoBehaviour
                                         dialogueLine[currentLine].Replace("a-", "")));
                                 currentLine++;
                             }
-                            
+
                             if (dialogueLine[currentLine].StartsWith("f-"))
                             {
                                 // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
                                 AddFeelingEvent?.Invoke(
-                                    GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+                                    GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine]
+                                        .Replace("f-", "")));
                                 currentLine++;
                             }
 
@@ -279,7 +284,17 @@ public class DialogueManger : MonoBehaviour
         if (NPCgameobj == null)
             return;
 
+        //根据周目判断不同的对话
+        if (GameManager.Instance.GameWeek == 2)
+        {
+            if (NPCgameobj.GetComponent<BaseInteractive>().haveWeek2Dia)
+            {
+                NPCgameobj.GetComponent<BaseInteractive>().dialogue =
+                    NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge;
+            }
+        }
 
+        //如果拖拽过来的物品和
         ItemName requireItem = NPCgameobj.GetComponent<BaseInteractive>().requiredItem;
         if (requireItem == ItemName.None)
             return;

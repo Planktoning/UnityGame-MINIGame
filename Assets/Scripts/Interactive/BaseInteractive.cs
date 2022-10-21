@@ -15,19 +15,22 @@ public class BaseInteractive : MonoBehaviour
     [Header("触发了正确的物品后的对话")] [SerializeField]
     public StringItemNameDictionary doneDictionary;
 
+    public StringItemNameDictionary Week2Dialouge;
+
     #endregion
 
     // /// <summary>
     // /// 点击交互时手上的物品
     // /// </summary>
     // public ItemName nowItem;
-
     public bool isDone;
 
     /// <summary>
     /// 能否对话
     /// </summary>
     public bool isTalk;
+
+    public bool haveWeek2Dia;
 
     public Transform thisTransform;
 

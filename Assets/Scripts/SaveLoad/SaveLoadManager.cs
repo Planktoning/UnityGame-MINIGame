@@ -12,10 +12,7 @@ public class SaveLoadManager : MonoBehaviour
     private void Awake()
     {
         Observable.OnceApplicationQuit()
-            .Subscribe(_ =>
-            {
-                Save();
-            });
+            .Subscribe(_ => { Save(); });
         Load();
         Debug.Log(GameObject.Find("MainCharactor"));
     }
@@ -36,6 +33,7 @@ public class SaveLoadManager : MonoBehaviour
                 bagData.Add(ItemDetails_SO.ConvertToSave(bag));
             }
         }
+
         SaveLoadFile.SaveToJson("bagData.json", bagData);
 
         var itemDataOnSave = GameManager.Instance.matchManger.itemData.itemDetailsList;
@@ -52,6 +50,7 @@ public class SaveLoadManager : MonoBehaviour
                 itemData.Add(ItemDetails_SO.ConvertToSave(item));
             }
         }
+
         SaveLoadFile.SaveToJson("itemData.json", itemData);
 
         List<ItemSave> dropDownData = new List<ItemSave>();
@@ -60,11 +59,14 @@ public class SaveLoadManager : MonoBehaviour
             var item = GameManager.Instance.matchManger.GetItemFromItemData(optionData.text);
             dropDownData.Add(ItemDetails_SO.ConvertToSave(item));
         }
+
         SaveLoadFile.SaveToJson("DropDown.json", dropDownData);
-        
-        GameObject player=GameObject.Find("MainCharactor");
-        SaveLoadFile.SaveToJson("player.json",player.transform.position);
-        
+
+        GameObject player = GameObject.Find("MainCharactor");
+        SaveLoadFile.SaveToJson("player.json", player.transform.position);
+
+        int week = GameManager.Instance.GameWeek;
+        SaveLoadFile.SaveToJson("GameWeek.json", week);
     }
 
     public void Load()
@@ -75,6 +77,7 @@ public class SaveLoadManager : MonoBehaviour
         {
             bagData.Add(ItemDetails_SO.ConvertToLoad(bagSave));
         }
+
         GameManager.Instance.inventotyManger.bagData.itemDetailsList = bagData;
 
         var DropDownSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("DropDown.json");
@@ -85,8 +88,11 @@ public class SaveLoadManager : MonoBehaviour
         }
 
         var PlayerPositionOnsave = SaveLoadFile.LoadFromJson<Vector3>("player.json");
-        GameObject player=GameObject.Find("MainCharactor");
+        GameObject player = GameObject.Find("MainCharactor");
         player.transform.position = PlayerPositionOnsave;
+
+        var ThisGameWeek = SaveLoadFile.LoadFromJson<int>("GameWeek.json");
+        GameManager.Instance.GameWeek = ThisGameWeek;
     }
 
     void Update()
