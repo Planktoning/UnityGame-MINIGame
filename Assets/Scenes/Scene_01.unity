@@ -176,8 +176,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 100490826}
 --- !u!61 &100490828
 BoxCollider2D:
@@ -273,8 +277,12 @@ MonoBehaviour:
     m_keys:
     - 12344
     m_values: 0c000000
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 0}
 --- !u!114 &319684222
 MonoBehaviour:
@@ -426,8 +434,12 @@ MonoBehaviour:
       n-\u963F\u8A00 \u6C34\u81F3\u6E05\u5219\u65E0\u9C7C\uFF0C\u770B\u6765\u53CD\u8FC7\u6765\u540C\u6837\u6210\u7ACB\u5462\u3002"
     - "n- \u83B7\u5F97\u9053\u5177\u201C\u523A\u773C\u201D"
     m_values: 0c00000003000000
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 362548653}
 --- !u!4 &362548653
 Transform:
@@ -527,8 +539,12 @@ MonoBehaviour:
     - "n-\u5C0F\u67F3 \u554A\u554A\uFF0C\u559D\u9971\u6C34\u7684\u611F\u89C9\u771F\u4E0D\u9519"
     - "n- \u83B7\u5F97\u4E86\"\u6EE1\u8DB3\"\uFF01"
     m_values: 0c00000003000000
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 521957028}
 --- !u!1 &544110256
 GameObject:
@@ -596,8 +612,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 544110260}
 --- !u!114 &544110259
 MonoBehaviour:
@@ -668,8 +688,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 677243670}
 --- !u!61 &677243669
 BoxCollider2D:
@@ -1083,6 +1107,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: -6470672713173923661, guid: 216409ae47b91424fab006fdc8ef8368, type: 3}
+--- !u!1 &1079234264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1079234266}
+  - component: {fileID: 1079234265}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1079234265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079234264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340834e5ed9443c4486e59ee3cb1b1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitializationSettings: {fileID: 11400000, guid: 40af7f4b2a3ab5f4488ca80de1753de0, type: 2}
+  basePath: 
+  language: 
+  defaultPoolSize: 0
+  lowerPoolSize: 0
+  streamingPoolSize: 0
+  memoryCutoffThreshold: 0
+  monitorPoolSize: 0
+  monitorQueuePoolSize: 0
+  callbackManagerBufferSize: 0
+  spatialAudioPoolSize: 0
+  maxSoundPropagationDepth: 0
+  engineLogging: 0
+--- !u!4 &1079234266
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079234264}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1209564734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1486,6 +1566,90 @@ RectTransform:
   m_AnchoredPosition: {x: -30.12, y: 6.66}
   m_SizeDelta: {x: 0.16, y: 0.16}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1407035075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1828412155940834407, guid: 216409ae47b91424fab006fdc8ef8368, type: 3}
+  m_PrefabInstance: {fileID: 1017404077}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1407035076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407035075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a621c6f57c47f92499baf939d562be15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1407035078
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407035075}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1407035079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407035075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c9a07001598894d9fc17bd2e093221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerList: f7e1664c
+  useOtherObject: 0
+  actionOnEventType: 0
+  curveInterpolation: 4
+  enableActionOnEvent: 0
+  data:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 01074fe8c6672db4295d1bdc500b7b3f, type: 2}
+  useCallbacks: 0
+  Callbacks: []
+  playingId: 0
+  soundEmitterObject: {fileID: 0}
+  transitionDuration: 0
+  eventIdInternal: 0
+  valueGuidInternal: 
+  m_callbackDataInternal: {fileID: 0}
+--- !u!114 &1407035080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407035075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf62b8ce0a7bc2f409c70b1796197969, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_listeners:
+    initialListenerList: []
+    useDefaultListeners: 1
+  isEnvironmentAware: 1
+  isStaticObject: 0
+  m_positionOffsetData:
+    KeepMe: 0
+    positionOffset: {x: 0, y: 0, z: 0}
+  m_posOffsetData: {fileID: 0}
+  listenerMask: 1
 --- !u!1 &1650696841
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,8 +1746,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 1697653752}
 --- !u!4 &1697653752
 Transform:
@@ -1643,8 +1811,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 1962776984}
 --- !u!114 &1962776983
 MonoBehaviour:
@@ -1741,8 +1913,12 @@ MonoBehaviour:
   doneDictionary:
     m_keys: []
     m_values: 
+  Week2Dialouge:
+    m_keys: []
+    m_values: 
   isDone: 0
   isTalk: 0
+  haveWeek2Dia: 0
   thisTransform: {fileID: 2064572738}
 --- !u!61 &2064572736
 BoxCollider2D:
