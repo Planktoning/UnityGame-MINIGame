@@ -67,6 +67,9 @@ public class SaveLoadManager : MonoBehaviour
 
         int week = GameManager.Instance.GameWeek;
         SaveLoadFile.SaveToJson("GameWeek.json", week);
+
+        int SceneIndex = GameManager.Instance.transitionManger.SceneIdex;
+        SaveLoadFile.SaveToJson("SceneInfo.json", SceneIndex);
     }
 
     public void Load()
@@ -93,6 +96,10 @@ public class SaveLoadManager : MonoBehaviour
 
         var ThisGameWeek = SaveLoadFile.LoadFromJson<int>("GameWeek.json");
         GameManager.Instance.GameWeek = ThisGameWeek;
+
+        var ThisSceneIndex = SaveLoadFile.LoadFromJson<int>("SceneInfo.json");
+        GameManager.Instance.transitionManger.SceneIdex = ThisSceneIndex;
+        if (ThisSceneIndex >= 2) GameManager.Instance.transitionManger.Switch(1, ThisSceneIndex);   
     }
 
     void Update()

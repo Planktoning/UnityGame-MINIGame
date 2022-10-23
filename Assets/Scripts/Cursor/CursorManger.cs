@@ -12,6 +12,8 @@ public class CursorManger : MonoBehaviour
 
     private bool canCilcked;
 
+    public bool canPass = false;
+
     private void Awake()
     {
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
@@ -29,6 +31,14 @@ public class CursorManger : MonoBehaviour
 
         #region 碰撞体进入对话区域的操作
 
+        Observable.FromEvent<ItemName>(action => Location.InteractiveEnterDetect += action,
+            action => Location.InteractiveEnterDetect -= action).Subscribe(action =>
+        {
+            if (currentItem.itemName == action)
+            {
+                canPass = true;
+            }
+        });
         Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
                 action => Location.InteractiveEnter -= action)
             .Subscribe(action =>
@@ -36,7 +46,16 @@ public class CursorManger : MonoBehaviour
                 if (action.TryGetComponent(out BaseInteractive interactive))
                 {
                     // DialogueManger.Instance.GetDialogueInformation(interactive.dialogue, currentItem, action);
-                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, action);
+                    if (!canPass)
+                    {
+                        GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
+                            action);
+                        action.GetComponent<BoxCollider2D>().enabled = false;
+                    }
+                    else
+                    {
+                        action.GetComponent<Location>().isDone = true;
+                    }
                 }
             });
 
@@ -81,6 +100,7 @@ public class CursorManger : MonoBehaviour
                 {
                     print(GameManager.Instance.dialogueManger.currentLineText);
                 }
+
                 break;
             //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)
             default:

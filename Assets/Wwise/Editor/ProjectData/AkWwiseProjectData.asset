@@ -24,7 +24,7 @@ MonoBehaviour:
     ParentPath: Virtual Acoustics\Default Work Unit
     guid: ac2e6455c47a704787461d4783df18c1
     GuidInternal: 
-    m_lastTime: -8585352494737126024
+    m_lastTime: -8585352494734775808
     List: []
   AuxBusWwu:
   - PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
@@ -38,7 +38,7 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: d29464e47f50a942bca792d26c53f079
     GuidInternal: 
-    m_lastTime: -8585352494737086140
+    m_lastTime: -8585352494734775808
     List:
     - name: Master Audio Bus
       guid: d8a41415a61d2a41a17e75ca0c2149f3
@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e37e6a932befad44882c57b0de764229
     GuidInternal: 
-    m_lastTime: -8585352042704217692
+    m_lastTime: -8585352042694775808
     List:
     - name: Main
       guid: aad5370142240f4694375e716432d673
@@ -108,7 +108,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a36746e6d9c9fe4c8aea983dce7dc714
     GuidInternal: 
-    m_lastTime: -8585352042704197501
+    m_lastTime: -8585352042694775808
     List:
     - name: Footstep
       guid: bfd8fb61b1b6a1449884630d4fa3d415
@@ -253,7 +253,7 @@ MonoBehaviour:
     ParentPath: Game Parameters\Default Work Unit
     guid: 6954156157ed3e44aff42769064f9588
     GuidInternal: 
-    m_lastTime: -8585352451497148092
+    m_lastTime: -8585352451494775808
     List:
     - name: MusicVolum
       guid: 76029ef8d3b457449c42690df3f9b005
@@ -295,7 +295,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: fd4ae8501984f944a353d2b40cc82662
     GuidInternal: 
-    m_lastTime: -8585352451497108208
+    m_lastTime: -8585352451494775808
     List:
     - name: Music
       guid: 30af3c6aeb53db4d83e3cf7f9d324740
@@ -523,7 +523,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 7ba333ad5df5e74e82341b0c92212ea9
     GuidInternal: 
-    m_lastTime: -8585352060382387778
+    m_lastTime: -8585352060374775808
     List:
     - name: FootstepSwitcher
       guid: 8603d7664bfe87479f70cc8edbbe6b2c
@@ -587,10 +587,10 @@ MonoBehaviour:
     ParentPath: Triggers\Default Work Unit
     guid: 51cfe64bcb0f8e4399dc09d482dced20
     GuidInternal: 
-    m_lastTime: -8585352494737116054
+    m_lastTime: -8585352494734775808
     List: []
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 0600000007000000090000001000000011000000
+  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000f0000001000000011000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

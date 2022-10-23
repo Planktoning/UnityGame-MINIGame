@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class PlagBGM : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         AkSoundEngine.SetState("Scene", "Scene1");
-       // AkSoundEngine.PostEvent("PlayBGM", gameObject);
-
+        //AkSoundEngine.PostEvent("PlayBGM", gameObject);
+        // AkSoundEngine.SetSwitch("FootstepSwitcher", "Grass");
     }
 
     // Update is called once per frame
