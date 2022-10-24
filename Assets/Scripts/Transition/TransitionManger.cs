@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,12 @@ public class TransitionManger : MonoBehaviour
 
     private bool isFade;
 
+    public PolygonCollider2D[] colliders;
+
+    public CinemachineConfiner confiner;
+
+    public int SceneIdex = 0;
+
     private void Start()
     {
         SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive);
@@ -27,7 +34,11 @@ public class TransitionManger : MonoBehaviour
     public void Switch(int from, int to)
     {
         if (!isFade)
+        {
             StartCoroutine(SwitchAsny(from, to));
+            confiner.m_BoundingShape2D = colliders[to - 2];
+            GameManager.Instance.transitionManger.SceneIdex = to;
+        }
     }
 
     //协程 先变黑然后卸载场景然后加载新场景然后设为被激活的场景，变透明
@@ -59,5 +70,10 @@ public class TransitionManger : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
 
         isFade = false;
+    }
+
+    public void LoadScene()
+    {
+        Switch(0,SceneIdex);
     }
 }

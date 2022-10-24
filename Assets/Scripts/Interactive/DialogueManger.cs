@@ -198,7 +198,8 @@ public class DialogueManger : MonoBehaviour
 
         dialogueBox.SetActive(true); //¼¤»î³¡¾°
         FindObjectOfType<Move>().canMove = false;
-        NPCgameobj.GetComponent<BoxCollider2D>().enabled = false;
+        // if (GameManager.Instance.cursorManger.canPass)
+        //     NPCgameobj.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public bool DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
