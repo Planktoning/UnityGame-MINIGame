@@ -6,12 +6,7 @@ public class MainMenuStart : MonoBehaviour
 {
     void Start()
     {
-        
         GameManager.Instance.audioManger.SwitchPlay(0);
-    }
-
-    void Update()
-    {
     }
 
     public void OnLoad()

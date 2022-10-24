@@ -1,6 +1,5 @@
 #define Sprite_SaveLoad
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -33,8 +32,10 @@ public class ItemDetails_SO : ScriptableObject
             Console.WriteLine(e);
             throw;
         }
+
         itemSave.Name = itemDetails.Name;
         itemSave.SpriteID = itemDetails.SpriteID;
+        itemSave.canBeDelete = itemDetails.canBeDelete;
         return itemSave;
     }
 
@@ -49,6 +50,7 @@ public class ItemDetails_SO : ScriptableObject
         itemDetails.itemName = itemSave.itemName;
         itemDetails.Name = itemSave.Name;
         itemDetails.SpriteID = itemSave.SpriteID;
+        itemDetails.canBeDelete = itemSave.canBeDelete;
         if (itemSave.SpriteID != "")
         {
             var combine = Path.Combine("InventoryUI", itemSave.SpriteID);
@@ -91,8 +93,7 @@ public class ItemDetails
     /// <summary>
     /// 是否为使用后消失
     /// </summary>
-    [Header("物品能否被删除")]
-    public bool canBeDelete;
+    [Header("物品能否被删除")] public bool canBeDelete;
 }
 
 public class ItemSave
@@ -111,4 +112,9 @@ public class ItemSave
     /// 物品名字
     /// </summary>
     [Header("物品名字（中文）")] public string Name;
+
+    /// <summary>
+    /// 是否为使用后消失
+    /// </summary>
+    [Header("物品能否被删除")] public bool canBeDelete;
 }

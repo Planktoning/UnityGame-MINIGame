@@ -6,7 +6,7 @@ public class PlagBGM : MonoBehaviour
 {
     void Start()
     {
-        AkSoundEngine.SetState("Scene", "Scene1");
+        // AkSoundEngine.SetState("Scene", "Scene1");
         //AkSoundEngine.PostEvent("PlayBGM", gameObject);
         // AkSoundEngine.SetSwitch("FootstepSwitcher", "Grass");
     }
