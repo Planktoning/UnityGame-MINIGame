@@ -11,6 +11,7 @@ public class TelePortTo02 : Teleport
         {
             Switch();
             other.transform.position = new Vector3(-27, 6.5f, 0);
+            GameManager.Instance.audioManger.SwitchPlay(2);
         }
     }
 }

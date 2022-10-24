@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e37e6a932befad44882c57b0de764229
     GuidInternal: 
-    m_lastTime: -8585352042694775808
+    m_lastTime: -8585350175327202934
     List:
     - name: Main
       guid: aad5370142240f4694375e716432d673
@@ -108,7 +108,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a36746e6d9c9fe4c8aea983dce7dc714
     GuidInternal: 
-    m_lastTime: -8585352042694775808
+    m_lastTime: -8585350175327137470
     List:
     - name: Footstep
       guid: bfd8fb61b1b6a1449884630d4fa3d415
@@ -125,8 +125,8 @@ MonoBehaviour:
         guid: bfd8fb61b1b6a1449884630d4fa3d415
       Path: Events\Default Work Unit\Footstep
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.291323
+      minDuration: 0.253612
     - name: ItemFail
       guid: 1c6fc8cfe0b0104c956a9de40443673e
       id: 2439693236
@@ -145,8 +145,8 @@ MonoBehaviour:
         guid: 1c6fc8cfe0b0104c956a9de40443673e
       Path: Events\Default Work Unit\UI\ItemFail
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.029093
+      minDuration: 2.029093
     - name: ItemSuccess
       guid: 7d26c95b2cb9274fb48b840d5a4555c5
       id: 2552786281
@@ -165,8 +165,8 @@ MonoBehaviour:
         guid: 7d26c95b2cb9274fb48b840d5a4555c5
       Path: Events\Default Work Unit\UI\ItemSuccess
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 2.029093
+      minDuration: 2.029093
     - name: Music
       guid: 50f7acf6b728d24fb87674c49612c473
       id: 3991942870
@@ -239,8 +239,8 @@ MonoBehaviour:
         guid: 389170dbc3abb04eb35c3c8206729f5c
       Path: Events\Default Work Unit\UI\UIClick
       maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
+      maxDuration: 0.141791
+      minDuration: 0.141791
   RtpcWwu:
   - PhysicalPath: Game Parameters\Default Work Unit.wwu
     PathAndIcons:
@@ -589,8 +589,8 @@ MonoBehaviour:
     GuidInternal: 
     m_lastTime: -8585352494734775808
     List: []
-  ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 05000000060000000700000008000000090000000f0000001000000011000000
+  ExpandedFileSystemItemIds: 01000000020000000300000004000000050000000700000008000000
+  ExpandedWaapiItemIds: 0100000002000000030000000400000005000000060000000700000008000000090000000a0000000b0000000c0000000d0000000e0000000f00000010000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0

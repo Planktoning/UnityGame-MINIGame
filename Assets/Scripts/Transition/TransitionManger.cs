@@ -38,6 +38,7 @@ public class TransitionManger : MonoBehaviour
             StartCoroutine(SwitchAsny(from, to));
             confiner.m_BoundingShape2D = colliders[to - 2];
             GameManager.Instance.transitionManger.SceneIdex = to;
+            GameManager.Instance.audioManger.SwitchPlay(to-1);
         }
     }
 
@@ -70,10 +71,5 @@ public class TransitionManger : MonoBehaviour
         canvasGroup.blocksRaycasts = false;
 
         isFade = false;
-    }
-
-    public void LoadScene()
-    {
-        Switch(0,SceneIdex);
     }
 }

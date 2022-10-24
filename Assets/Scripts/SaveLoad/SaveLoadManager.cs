@@ -13,8 +13,7 @@ public class SaveLoadManager : MonoBehaviour
     {
         Observable.OnceApplicationQuit()
             .Subscribe(_ => { Save(); });
-        Load();
-        Debug.Log(GameObject.Find("MainCharactor"));
+        // Load();
     }
 
     public void Save()
@@ -99,7 +98,8 @@ public class SaveLoadManager : MonoBehaviour
 
         var ThisSceneIndex = SaveLoadFile.LoadFromJson<int>("SceneInfo.json");
         GameManager.Instance.transitionManger.SceneIdex = ThisSceneIndex;
-        if (ThisSceneIndex >= 2) GameManager.Instance.transitionManger.Switch(1, ThisSceneIndex);   
+        if (ThisSceneIndex >= 2) GameManager.Instance.transitionManger.Switch(1, ThisSceneIndex);
+        if (ThisSceneIndex == 0) GameManager.Instance.transitionManger.Switch(1, 2);
     }
 
     void Update()

@@ -32,6 +32,11 @@ public class BaseInteractive : MonoBehaviour
 
     public bool haveWeek2Dia;
 
+    /// <summary>
+    /// 对话是否切换至Donedia
+    /// </summary>
+    public bool isChangeDia;
+
     public Transform thisTransform;
 
     private void Start()

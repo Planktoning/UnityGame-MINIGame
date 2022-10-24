@@ -17,23 +17,34 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 07d4f63ae8b9d6747b2c9d114f23df5a, type: 3}
     SpriteID: Coin
     Name: "\u91D1\u5E01"
+    canBeDelete: 1
   - itemName: 3
     Sprite: {fileID: 21300000, guid: da31a287e0fe37f44b24861fa28ef2be, type: 3}
     SpriteID: Stone
     Name: "\u8BFB\u5FC3\u77F3"
+    canBeDelete: 0
   - itemName: 7
-    Sprite: {fileID: 21300000, guid: 3144720eedaf6ff4c8436af2e0cbd8f9, type: 3}
-    SpriteID: Comfortable
-    Name: "\u5FEB\u4E50"
+    Sprite: {fileID: 21300000, guid: c9408f52a49435243ab116e3fc4a2c41, type: 3}
+    SpriteID: "\u60EC\u610F"
+    Name: "\u60EC\u610F"
+    canBeDelete: 0
   - itemName: 8
-    Sprite: {fileID: 21300000, guid: 31acd2ea194307f4296c48865c23b4b4, type: 3}
-    SpriteID: Loneliness
+    Sprite: {fileID: 21300000, guid: d70ecdc4be549334485c0351e385490a, type: 3}
+    SpriteID: "\u5B64\u72EC"
     Name: "\u5B64\u72EC"
+    canBeDelete: 0
   - itemName: 4
     Sprite: {fileID: 21300000, guid: f20242ade94220745bb20a38d1ffca5f, type: 3}
     SpriteID: BucketWater
     Name: "\u6C34\u6876"
+    canBeDelete: 1
   - itemName: 5
     Sprite: {fileID: 21300000, guid: 5ee21c47341e26849a20678efebb2f60, type: 3}
     SpriteID: FishRod
     Name: "\u9493\u7AFF"
+    canBeDelete: 1
+  - itemName: 10
+    Sprite: {fileID: 21300000, guid: 5cac35ff373b4e34d931d8fa08a555ad, type: 3}
+    SpriteID: "\u6EE1\u8DB3"
+    Name: "\u6EE1\u8DB3"
+    canBeDelete: 1

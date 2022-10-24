@@ -38,7 +38,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 15));
             if (GetItemOnMousePos())
             {
-                print(GetItemOnMousePos().gameObject.GetComponent<Text>().text);
+                // print(GetItemOnMousePos().gameObject.GetComponent<Text>().text);
                 // GameManager.Instance.letterManager.ChangeColor(GetItemOnMousePos().gameObject);
             }
         }).AddTo(this);
@@ -57,6 +57,8 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                                     .dialogue,
                                 currentitem);
                             Debug.Log(a);
+                            if(a) GameManager.Instance.audioManger.ItemDragSuccess();
+                            else GameManager.Instance.audioManger.ItemDragFailed();
                             //执行拖拽后对话改变的逻辑
                             if (SlotIndex != 10) DeleteItem(a);
                             //TODO:重排物品
@@ -87,11 +89,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public void SetItem(ItemDetails itemDetails)
     {
         currentitem = itemDetails;
-        // Button.interactable = true;
         itemSprite.enabled = true;
         itemSprite.sprite = itemDetails.Sprite;
         currentItemName = itemDetails.Name;
-        // InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = currentitem;
         GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = currentitem;
         haveItem = true;
     }
@@ -102,10 +102,9 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public void DeleteItem(bool isDelete)
     {
         if (isDelete == false) return;
+        if(currentitem.canBeDelete==false) return;
         itemSprite.enabled = false;
-        // Button.interactable = false;
         currentitem = null;
-        // InventotyManger.Instance.bagData.itemDetailsList[SlotIndex] = null;
         GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = null;
         currentItemName = null;
         haveItem = false;

@@ -227,13 +227,12 @@ public class DialogueManger : MonoBehaviour
             currentLine++;
         }
 
-        //TODO:需要添加 添加物品关键字"Add-"(暂定)
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
             print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", ""))
                 .itemName);
-            AddItemEvent?.Invoke(
-                GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+            AddItemEvent?.Invoke
+                (GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
         }
 
@@ -306,8 +305,11 @@ public class DialogueManger : MonoBehaviour
             NPCgameobj.GetComponent<BaseInteractive>().dialogue =
                 NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
 
+            NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
+
             if (NPCgameobj.GetComponent<BaseInteractive>().dialogue == null)
             {
+                Debug.Log("wrong use");
                 NPCgameobj.SetActive(false);
             }
         }

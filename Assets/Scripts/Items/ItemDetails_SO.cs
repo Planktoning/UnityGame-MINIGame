@@ -87,6 +87,12 @@ public class ItemDetails
     /// 物品名字
     /// </summary>
     [Header("物品名字（中文）")] public string Name;
+
+    /// <summary>
+    /// 是否为使用后消失
+    /// </summary>
+    [Header("物品能否被删除")]
+    public bool canBeDelete;
 }
 
 public class ItemSave

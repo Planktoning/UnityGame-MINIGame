@@ -27,7 +27,11 @@ public class CursorManger : MonoBehaviour
 
         //订阅ItemSelectedEvent
         Observable.FromEvent<ItemDetails>(action => SlotUI.ItemSelectedEvent += action,
-            action => SlotUI.ItemSelectedEvent -= action).Subscribe(action => { currentItem = action; });
+            action => SlotUI.ItemSelectedEvent -= action).Subscribe(action =>
+            {
+                currentItem = action;
+                GameManager.Instance.audioManger.ItemClicked();
+            });
 
         #region 碰撞体进入对话区域的操作
 
@@ -54,6 +58,8 @@ public class CursorManger : MonoBehaviour
                     }
                     else
                     {
+                        GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
+                            action);
                         action.GetComponent<Location>().isDone = true;
                     }
                 }
