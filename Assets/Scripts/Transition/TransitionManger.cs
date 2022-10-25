@@ -11,7 +11,7 @@ public class TransitionManger : MonoBehaviour
     /// <summary>
     /// 切换场景的(动画)需要的时间
     /// </summary>
-    public float fadeDuration = 0.5f; //TODO:场景切换时的动画的时间要多久--暂定0.5f
+    public float fadeDuration = 10.0f; //TODO:场景切换时的动画的时间要多久--暂定0.5f
 
     private bool isFade;
 

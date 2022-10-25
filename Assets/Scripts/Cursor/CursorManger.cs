@@ -19,6 +19,10 @@ public class CursorManger : MonoBehaviour
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0)).Subscribe(_ =>
         {
+            // if (GameManager.Instance.dialogueManger.isScrolling)
+            // {
+            //     
+            // }
             if (GetItemOnMousePos())
             {
                 ClickHappen(GetItemOnMousePos().gameObject);
@@ -102,11 +106,10 @@ public class CursorManger : MonoBehaviour
                     GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj);
                 break;
             case "Dialouge":
-                if (!GameManager.Instance.dialogueManger.isScrolling)
-                {
-                    print(GameManager.Instance.dialogueManger.currentLineText);
-                }
-
+                // if (!GameManager.Instance.dialogueManger.isScrolling)
+                // {
+                //     print(GameManager.Instance.dialogueManger.currentLineText);
+                // }
                 break;
             //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)
             default:

@@ -37,11 +37,10 @@ public class BaseInteractive : MonoBehaviour
     /// </summary>
     public bool isChangeDia;
 
-    public Transform thisTransform;
-
-    private void Start()
-    {
-    }
+    /// <summary>
+    /// 显示提示的物体
+    /// </summary>
+    public GameObject obj;
 
     #region 用不到的东西
 
@@ -103,6 +102,7 @@ public class BaseInteractive : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isTalk = true;
+            obj.SetActive(true);
         }
     }
 
@@ -111,6 +111,7 @@ public class BaseInteractive : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isTalk = false;
+            obj.SetActive(false);
         }
     }
 }

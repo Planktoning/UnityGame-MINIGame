@@ -18,6 +18,8 @@ public class LetterManager : MonoBehaviour
     public GameObject hideButton;
     public GameObject showButton;
 
+    private Dictionary<int, bool> _dic = new Dictionary<int, bool>();
+
     void Start()
     {
         OpenLetter();
@@ -25,12 +27,15 @@ public class LetterManager : MonoBehaviour
 
     void OpenLetter()
     {
+        int a = 0;
         foreach (var kvp in dic)
         {
             var obj = Instantiate(objText, parentObj.transform);
             obj.GetComponent<Text>().text = kvp.Key;
             obj.GetComponent<BaseLetter>().index = index++;
             obj.GetComponent<BaseLetter>().itemName = kvp.Value;
+            obj.GetComponent<BaseLetter>().index = a;
+            _dic.Add(a++, false);
         }
     }
 
@@ -38,6 +43,9 @@ public class LetterManager : MonoBehaviour
     {
         obj.GetComponent<Text>().color = Color.red;
         // GameManager.Instance.dialogueManger.is
+        obj.GetComponent<BaseLetter>().isDone = true;
+        _dic[obj.GetComponent<BaseLetter>().index] = true;
+        DectedTogive(); 
     }
 
     public void GetLetterInfo(ItemDetails item, GameObject letterText)
@@ -50,11 +58,29 @@ public class LetterManager : MonoBehaviour
         }
     }
 
+    void DectedTogive()
+    {
+        int count = 0;
+        foreach (var kvp in _dic)
+        {
+            if (kvp.Value)
+            {
+                count++;
+            }
+        }
+
+        if (count == _dic.Count)
+        {
+            print("Addletterplease!");
+            // GameManager.Instance.inventotyManger.AddItem()
+        }
+    }
+
     public void Show()
     {
         parentObj.SetActive(true);
         hideButton.SetActive(true);
-        showButton.SetActive(false);    
+        showButton.SetActive(false);
     }
 
     public void Hide()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class TeleportBack02 : Teleport
@@ -9,7 +10,10 @@ public class TeleportBack02 : Teleport
         if (other.gameObject.CompareTag("Player"))
         {
             Switch();
-            other.transform.position = new Vector3(-27, 6.5f, 0);
+            // other.transform.position = new Vector3(27, 7, 0);
+            Vector3 a = new Vector3(27, 7, 0);
+            other.transform.DOMove(a, 1);
+            GameManager.Instance.audioManger.SwitchPlay(1);
         }
     }
 }

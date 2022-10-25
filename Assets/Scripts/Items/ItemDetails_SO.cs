@@ -8,13 +8,8 @@ using UnityEngine;
 [Serializable]
 public class ItemDetails_SO : ScriptableObject
 {
-    public List<ItemDetails> itemDetailsList = new List<ItemDetails>(); //数据持久化，让背包/世界物品在被使用/拾取/消失 后下次进入游戏不会再刷
-
-    public ItemDetails GetItemDetails(ItemName itemName)
-    {
-        return itemDetailsList.Find(i => i.itemName == itemName);
-    }
-
+    public List<ItemDetails> itemDetailsList = new List<ItemDetails>(5); //数据持久化，让背包/世界物品在被使用/拾取/消失 后下次进入游戏不会再刷
+    
     /// <summary>
     /// 在存档时将ItemDetails转换为ItemSave
     /// </summary>

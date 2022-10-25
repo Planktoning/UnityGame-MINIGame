@@ -30,6 +30,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
             {
                 startPosition = itemSprite.transform.position;
                 isDrag = true;
+                GameManager.Instance.audioManger.ItemClicked();
             })
             .AddTo(this);
         itemSprite.OnDragAsObservable().Subscribe(_ =>

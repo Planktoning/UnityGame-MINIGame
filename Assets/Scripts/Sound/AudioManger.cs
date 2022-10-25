@@ -64,12 +64,12 @@ public class AudioManger : MonoBehaviour
     public AK.Wwise.Event itemDragSuccessEventSound;
     public AK.Wwise.Event itemDragFailedEventSound;
 
-    public Scrollbar scrollbar;
+    public Scrollbar scrollbarVol;
+    public Scrollbar scrollbarSFX;
 
     private void PlayScene01()
     {
         AkSoundEngine.SetState("Scene", "Scene1");
-        AkSoundEngine.PostEvent("PlayBGM", gameObject);
     }
 
     private void PlayMainMenu()
@@ -81,7 +81,6 @@ public class AudioManger : MonoBehaviour
     private void PlayScene02()
     {
         AkSoundEngine.SetState("Scene", "Scene2");
-        AkSoundEngine.PostEvent("PlayBGM", gameObject);
     }
 
     public void PlayScene03()
@@ -134,9 +133,11 @@ public class AudioManger : MonoBehaviour
 
     private void Awake()
     {
-        scrollbar.OnValueChangedAsObservable().Subscribe(a =>
+        scrollbarVol.OnValueChangedAsObservable().Subscribe(a =>
         {
-            AkSoundEngine.SetRTPCValue("MusicVolum", a*100);
+            AkSoundEngine.SetRTPCValue("MusicVolum", a * 100);
         });
+
+        scrollbarSFX.OnValueChangedAsObservable().Subscribe(a => { AkSoundEngine.SetRTPCValue("SFXVolum", a * 100); });
     }
 }

@@ -27,7 +27,6 @@ public enum ItemName
     /// 一桶水
     /// </summary>
     BucketOfWater,
-
     
     /// <summary>
     /// 钓竿
@@ -35,11 +34,16 @@ public enum ItemName
     FishingRod,
     
     /// <summary>
-    /// 空的水桶
+    /// 水桶
     /// </summary>
     Bucket,
-    
-//下面是情感
+
+    /// <summary>
+    /// 令签
+    /// </summary>
+    Order,
+
+    //下面是情感
     /// <summary>
     /// 惬意
     /// </summary>
@@ -64,6 +68,21 @@ public enum ItemName
     /// 刺眼
     /// </summary>
     Dazzling,
+
+    /// <summary>
+    /// 威严
+    /// </summary>
+    Stateliness,
+
+    /// <summary>
+    /// 清醒
+    /// </summary>
+    Sobriety,
+
+    /// <summary>
+    /// 温情
+    /// </summary>
+    Tenderness,
 
     /// <summary>
     /// 任意物品都可以触发对话

@@ -12,6 +12,16 @@ public class Location : MonoBehaviour
 
     private int time = 0;
 
+    public bool IsReapet;
+
+    public float awayDistance;
+
+    [Header("是否添加物品")] public bool canAddItem;
+    public ItemName itemName;
+
+    [Header("是否添加感情")] public bool canAdFeeling;
+    public ItemName feelingName;
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && time == 0)
@@ -19,20 +29,19 @@ public class Location : MonoBehaviour
             InteractiveEnterDetect?.Invoke(requireItem);
             InteractiveEnter?.Invoke(gameObject);
             time++;
-            other.gameObject.transform.DOMoveX(31, 1);
+            if (IsReapet) other.gameObject.transform.DOMoveX(awayDistance, 1);
+            if (canAddItem)
+                GameManager.Instance.inventotyManger.AddItem(
+                    GameManager.Instance.matchManger.GetItemFromItemData(itemName));
+            if (canAdFeeling)
+                GameManager.Instance.inventotyManger.AddFeeling(
+                    GameManager.Instance.matchManger.GetItemFromItemData(feelingName));
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        // if (other.gameObject.CompareTag("Player"))
-        // {
-        //     if (!isDone)
-        //     {
-        //         GetComponent<BoxCollider2D>().enabled = true;
-        //         time = 0;
-        //     }
-        // }
+        if (!IsReapet)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public static event Action<GameObject> InteractiveEnter;

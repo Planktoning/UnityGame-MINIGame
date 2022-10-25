@@ -56,21 +56,19 @@ public class DialogueManger : MonoBehaviour
             .AddTo(this);
     }
 
-    //TODO:当游戏暂停(GameManager.Instance.isPaused == true)时不触发[单机对话框继续]判定
     private void Update()
     {
         //对话帧事件相关事件
         if (dialogueBox.activeInHierarchy)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                if (GetItemOnMousePos() == null)
-                {
-                    Debug.LogError("It's Null");
-                    return;
-                }
-
-                if (GetItemOnMousePos().gameObject?.tag == "Dialouge")
+                // if (GetItemOnMousePos() == null)
+                // {
+                //     Debug.LogError("It's Null");
+                //     return;
+                // }
+                if (GetItemOnMousePos().gameObject?.tag == "Dialouge" || GetItemOnMousePos() == null && isDialogue.Value)
                 {
                     isDialogue.Value = true;
                     if (isScrolling == false)
@@ -119,7 +117,6 @@ public class DialogueManger : MonoBehaviour
                             {
                                 return;
                             }
-
                             isDialogue.Value = false;
                             isChanged = false;
 

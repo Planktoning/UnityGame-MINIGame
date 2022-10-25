@@ -16,13 +16,11 @@ public class BaseLetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public ItemName itemName;
 
+    public bool isDone;
+
     void Start()
     {
         GetComponent<Text>().color = _color;
-    }
-
-    void Update()
-    {
     }
 
     public void OnPointerEnter(PointerEventData eventData)

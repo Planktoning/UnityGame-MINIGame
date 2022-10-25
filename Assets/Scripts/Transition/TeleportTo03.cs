@@ -10,6 +10,7 @@ public class TeleportTo03 : Teleport
         {
             Switch();
             other.transform.position = new Vector3(-25, 6f, 0);
+            GameManager.Instance.audioManger.SwitchPlay(3);
         }
     }
 }
