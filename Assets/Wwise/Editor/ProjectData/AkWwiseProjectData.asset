@@ -66,7 +66,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: e37e6a932befad44882c57b0de764229
     GuidInternal: 
-    m_lastTime: -8585350175327202934
+    m_lastTime: -8585350175314775808
     List:
     - name: Main
       guid: aad5370142240f4694375e716432d673
@@ -108,7 +108,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: a36746e6d9c9fe4c8aea983dce7dc714
     GuidInternal: 
-    m_lastTime: -8585350175327137470
+    m_lastTime: -8585350175314775808
     List:
     - name: Footstep
       guid: bfd8fb61b1b6a1449884630d4fa3d415
@@ -295,7 +295,7 @@ MonoBehaviour:
     ParentPath: States\Default Work Unit
     guid: fd4ae8501984f944a353d2b40cc82662
     GuidInternal: 
-    m_lastTime: -8585352451494775808
+    m_lastTime: -8585349375094775808
     List:
     - name: Music
       guid: 30af3c6aeb53db4d83e3cf7f9d324740
@@ -442,6 +442,22 @@ MonoBehaviour:
         - ElementName: Scene2
           ObjectType: 8
           guid: d152f6fd4d4a974baa8ec27342c060cd
+      - name: Scene3
+        guid: 341aff52d5e45d429c606678b612deba
+        id: 1544306478
+        PathAndIcons:
+        - ElementName: States
+          ObjectType: 5
+          guid: 00000000000000000000000000000000
+        - ElementName: Default Work Unit
+          ObjectType: 12
+          guid: fd4ae8501984f944a353d2b40cc82662
+        - ElementName: Scene
+          ObjectType: 9
+          guid: 967c5255f89b9e409ae48ee3b921c8a0
+        - ElementName: Scene3
+          ObjectType: 8
+          guid: 341aff52d5e45d429c606678b612deba
       ValueGuids: []
       ValueIcons: []
       valuesInternal: []
@@ -523,7 +539,7 @@ MonoBehaviour:
     ParentPath: Switches\Default Work Unit
     guid: 7ba333ad5df5e74e82341b0c92212ea9
     GuidInternal: 
-    m_lastTime: -8585352060374775808
+    m_lastTime: -8585349375094775808
     List:
     - name: FootstepSwitcher
       guid: 8603d7664bfe87479f70cc8edbbe6b2c

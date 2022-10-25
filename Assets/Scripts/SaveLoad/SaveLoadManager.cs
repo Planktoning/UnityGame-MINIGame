@@ -1,6 +1,15 @@
+using System;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+
+[Serializable]
+public class SceneObj
+{
+    public bool isActive;
+    public string name;
+    public StringItemNameDictionary dic;
+}
 
 public class SaveLoadManager : MonoBehaviour
 {
@@ -69,6 +78,7 @@ public class SaveLoadManager : MonoBehaviour
     public void Load()
     {
         var BagSaveData = SaveLoadFile.LoadFromJson<List<ItemSave>>("BagData.json");
+        if (BagSaveData == null) return;
         List<ItemDetails> bagData = new List<ItemDetails>();
         foreach (var bagSave in BagSaveData)
         {
@@ -97,7 +107,73 @@ public class SaveLoadManager : MonoBehaviour
         if (ThisSceneIndex == 0) GameManager.Instance.transitionManger.Switch(1, 2);
     }
 
-    void Update()
+    public void SaveScene(List<SceneObj> obj, int index)
     {
+        try
+        {
+            switch (index)
+            {
+                case 1:
+                    SaveLoadFile.SaveToJson("scene01.json", obj);
+                    break;
+                case 2:
+                    SaveLoadFile.SaveToJson("scene02.json", obj);
+                    break;
+                case 3:
+                    SaveLoadFile.SaveToJson("scene03.json", obj);
+                    break;
+                default:
+                    Debug.LogError("´íÎóµÄ³¡¾°ÐòºÅ£¬Çë¼ì²é³¡¾°ÐòºÅ£¡");
+                    return;
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
+
+    public bool LoadScene(int index)
+    {
+        List<SceneObj> temp = new List<SceneObj>();
+        switch (index)
+        {
+            case 1:
+                temp = SaveLoadFile.LoadFromJson<List<SceneObj>>("scene01.json");
+                break;
+            case 2:
+                temp = SaveLoadFile.LoadFromJson<List<SceneObj>>("scene02.json");
+                break;
+            case 3:
+                temp = SaveLoadFile.LoadFromJson<List<SceneObj>>("scene03.json");
+                break;
+            default:
+                Debug.LogError("´íÎóµÄ³¡¾°ÐòºÅ£¬Çë¼ì²é³¡¾°ÐòºÅ£¡");
+                return false;
+        }
+
+        if (temp == null)
+        {
+            return false;
+        }
+
+        foreach (var obj in temp)
+        {
+            var tObj = GameObject.Find(obj.name);
+            tObj.SetActive(obj.isActive);
+            tObj.GetComponent<BaseInteractive>().dialogue = obj.dic;
+        }
+
+        return true;
+    }
+
+    public static SceneObj ConvertToSObj(GameObject gobj)
+    {
+        SceneObj obj = new SceneObj();
+        obj.dic = gobj.GetComponent<BaseInteractive>().dialogue;
+        obj.name = gobj.name;
+        obj.isActive = gobj.activeSelf;
+        return obj;
     }
 }

@@ -11,7 +11,7 @@ public class TransitionManger : MonoBehaviour
     /// <summary>
     /// 切换场景的(动画)需要的时间
     /// </summary>
-    public float fadeDuration = 10.0f; //TODO:场景切换时的动画的时间要多久--暂定0.5f
+    public float fadeDuration; //TODO:场景切换时的动画的时间要多久--暂定0.5f
 
     private bool isFade;
 
@@ -20,6 +20,8 @@ public class TransitionManger : MonoBehaviour
     public CinemachineConfiner confiner;
 
     public int SceneIdex = 0;
+
+    public int blackTime;
 
     private void Start()
     {
@@ -38,7 +40,7 @@ public class TransitionManger : MonoBehaviour
             StartCoroutine(SwitchAsny(from, to));
             confiner.m_BoundingShape2D = colliders[to - 2];
             GameManager.Instance.transitionManger.SceneIdex = to;
-            GameManager.Instance.audioManger.SwitchPlay(to-1);
+            GameManager.Instance.audioManger.SwitchPlay(to - 1);
         }
     }
 
@@ -47,6 +49,8 @@ public class TransitionManger : MonoBehaviour
     {
         yield return Fade(1);
         yield return SceneManager.UnloadSceneAsync(form);
+        AkSoundEngine.SetState("Scene", "None");
+        yield return new WaitForSeconds(5);
         yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(to));
         yield return Fade(0);

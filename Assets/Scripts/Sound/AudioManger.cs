@@ -83,8 +83,9 @@ public class AudioManger : MonoBehaviour
         AkSoundEngine.SetState("Scene", "Scene2");
     }
 
-    public void PlayScene03()
+    private void PlayScene03()
     {
+        AkSoundEngine.SetState("Scene", "Scene3");
     }
 
     public void ItemClicked()

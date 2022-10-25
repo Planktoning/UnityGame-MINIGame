@@ -40,7 +40,7 @@ public class Location : MonoBehaviour
 
         if (!IsReapet)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

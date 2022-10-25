@@ -29,6 +29,12 @@ public class SaveLoadFile
     {
         var path = Path.Combine(Application.persistentDataPath, fileName);
 
+        // if (Directory.Exists(path))
+        // {
+        //     var result = JsonConvert.DeserializeObject<T>(null!);
+        //     return result;
+        // }
+
         try
         {
             var result = JsonConvert.DeserializeObject<T>(ReadJson(path));
@@ -36,10 +42,13 @@ public class SaveLoadFile
         }
         catch (Exception e)
         {
-            Debug.LogError("读取存储时出现错误，请检查LoadFromJson \n 错误为:" + e);
-            throw;
+            var result = JsonConvert.DeserializeObject<T>(null!);
+            Debug.LogError("读取存储时出现错误，请检查LoadFromJson \n 错误为:" + e + "Add" + result);
+            return result;
+            // throw;
         }
     }
+
 
     static string ReadJson(string path)
     {
