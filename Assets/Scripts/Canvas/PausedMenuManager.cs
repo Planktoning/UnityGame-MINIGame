@@ -22,7 +22,6 @@ public class PausedMenuManager : MonoBehaviour
 
     private void PausedMenuControl()
     {
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameManager.Instance.isPaused)
