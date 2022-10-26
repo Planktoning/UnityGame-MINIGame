@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     public MatchManger matchManger;
     public SaveLoadManager saveLoadManager;
     public LetterManager letterManager;
+    public PausedMenuManager PausedMenuManager;
 
     #endregion
 
