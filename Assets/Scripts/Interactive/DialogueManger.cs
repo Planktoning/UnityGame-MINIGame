@@ -42,6 +42,11 @@ public class DialogueManger : MonoBehaviour
     /// </summary>
     public BoolReactiveProperty isDialogue; //
 
+    /// <summary>
+    /// 按下空格键
+    /// </summary>
+    public bool GetSpaceDown;
+
     private void Start()
     {
         isDialogue.ObserveEveryValueChanged(x => x.Value)
@@ -56,6 +61,33 @@ public class DialogueManger : MonoBehaviour
             .AddTo(this);
     }
 
+    bool CheckState()
+    {
+        if (GetSpaceDown)
+        {
+            return true;
+        }
+        if (GetItemOnMousePos().gameObject?.tag == "Interactive")
+        {
+            if (isDialogue.Value)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        else if (GetItemOnMousePos().gameObject?.tag == "Trigger")
+        {
+            if (isDialogue.Value)
+            {
+                return true;
+            }
+        }
+        
+
+        return false;
+    }
+
     private void Update()
     {
         //对话帧事件相关事件
@@ -63,13 +95,16 @@ public class DialogueManger : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
-                // if (GetItemOnMousePos() == null)
-                // {
-                //     Debug.LogError("It's Null");
-                //     return;
-                // }
-                if (GetItemOnMousePos().gameObject?.tag == "Dialouge" || GetItemOnMousePos() == null && isDialogue.Value)
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
+                    GetSpaceDown = true;
+                }
+
+                print("CheckState" + CheckState());
+                var b = CheckState();
+                if (b)
+                {
+                    GetSpaceDown = false;
                     isDialogue.Value = true;
                     if (isScrolling == false)
                     {
@@ -117,6 +152,7 @@ public class DialogueManger : MonoBehaviour
                             {
                                 return;
                             }
+
                             isDialogue.Value = false;
                             isChanged = false;
 
@@ -134,10 +170,20 @@ public class DialogueManger : MonoBehaviour
     /// <param name="infor">文本信息</param>
     /// <param name="item">此时手持物品信息</param>
     /// <param name="obj">对话者的gameobj</param>
-    public void GetDialogueInformation(StringItemNameDictionary infor, ItemDetails item, GameObject obj)
+    /// 
+    public void GetDialogueInformation(StringItemNameDictionary infor, ItemDetails item, GameObject obj,
+        bool isTriggerIn)
     {
         if (isScrolling)
             return;
+
+        if (isTriggerIn == false)
+        {
+            if (!CheckState())
+            {
+                return;
+            }
+        }
 
         NPCgameobj = obj;
         currentItem = item;

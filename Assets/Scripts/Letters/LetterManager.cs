@@ -9,7 +9,7 @@ public class LetterManager : MonoBehaviour
     /// <summary>
     /// 文本内容
     /// </summary>
-    public StringItemNameDictionary dic;
+    public StringItemNameDictionary dicW1;
 
     //TODO:添加一个监测
     [Header("每行的预制体的实例化")] public GameObject objText;
@@ -20,6 +20,8 @@ public class LetterManager : MonoBehaviour
 
     private Dictionary<int, bool> _dic = new Dictionary<int, bool>();
 
+    public int fixNumOnW1;
+
     void Start()
     {
         OpenLetter();
@@ -28,10 +30,20 @@ public class LetterManager : MonoBehaviour
     void OpenLetter()
     {
         int a = 0;
-        foreach (var kvp in dic)
+        foreach (var kvp in dicW1)
         {
             var obj = Instantiate(objText, parentObj.transform);
             obj.GetComponent<Text>().text = kvp.Key;
+            if (a == 1)
+            {
+                obj.GetComponent<Text>().color = Color.grey;
+            }
+
+            if (a == 4)
+            {
+                obj.GetComponent<Text>().color = Color.grey;
+            }
+
             obj.GetComponent<BaseLetter>().index = index++;
             obj.GetComponent<BaseLetter>().itemName = kvp.Value;
             obj.GetComponent<BaseLetter>().index = a;
@@ -41,11 +53,10 @@ public class LetterManager : MonoBehaviour
 
     public void ChangeColor(GameObject obj)
     {
-        obj.GetComponent<Text>().color = Color.red;
-        // GameManager.Instance.dialogueManger.is
+        obj.GetComponent<Text>().color = Color.black;
         obj.GetComponent<BaseLetter>().isDone = true;
         _dic[obj.GetComponent<BaseLetter>().index] = true;
-        DectedTogive(); 
+        DectedTogive();
     }
 
     public void GetLetterInfo(ItemDetails item, GameObject letterText)
@@ -60,19 +71,12 @@ public class LetterManager : MonoBehaviour
 
     void DectedTogive()
     {
-        int count = 0;
-        foreach (var kvp in _dic)
-        {
-            if (kvp.Value)
-            {
-                count++;
-            }
-        }
+        fixNumOnW1--;
 
-        if (count == _dic.Count)
+        if (fixNumOnW1 == 0)
         {
             print("Addletterplease!");
-            // GameManager.Instance.inventotyManger.AddItem()
+            GameManager.Instance.inventotyManger.AddItem(GameManager.Instance.matchManger.GetItemFromItemData(ItemName.Letter));
         }
     }
 

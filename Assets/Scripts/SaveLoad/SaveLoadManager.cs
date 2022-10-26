@@ -123,7 +123,7 @@ public class SaveLoadManager : MonoBehaviour
                     SaveLoadFile.SaveToJson("scene03.json", obj);
                     break;
                 default:
-                    Debug.LogError("´íÎóµÄ³¡¾°ÐòºÅ£¬Çë¼ì²é³¡¾°ÐòºÅ£¡");
+                    Debug.LogError("???????????????÷ ??????");
                     return;
             }
         }
@@ -149,7 +149,7 @@ public class SaveLoadManager : MonoBehaviour
                 temp = SaveLoadFile.LoadFromJson<List<SceneObj>>("scene03.json");
                 break;
             default:
-                Debug.LogError("´íÎóµÄ³¡¾°ÐòºÅ£¬Çë¼ì²é³¡¾°ÐòºÅ£¡");
+                Debug.LogError("???????????????÷ ??????");
                 return false;
         }
 

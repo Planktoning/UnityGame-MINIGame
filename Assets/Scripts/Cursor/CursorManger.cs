@@ -57,13 +57,13 @@ public class CursorManger : MonoBehaviour
                     if (!canPass)
                     {
                         GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
-                            action);
+                            action,true);
                         action.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     else
                     {
                         GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
-                            action);
+                            action,true);
                         action.GetComponent<Location>().isDone = true;
                     }
                 }
@@ -90,7 +90,7 @@ public class CursorManger : MonoBehaviour
     /// <param name="obj"></param>
     void ClickHappen(GameObject obj)
     {
-        Debug.Log(obj?.tag);
+        Debug.Log(obj.tag);
         switch (obj?.tag)
         {
             case "Teleport":
@@ -103,15 +103,8 @@ public class CursorManger : MonoBehaviour
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();
                 if (interactive.isTalk)
-                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj);
+                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj,false);
                 break;
-            case "Dialouge":
-                // if (!GameManager.Instance.dialogueManger.isScrolling)
-                // {
-                //     print(GameManager.Instance.dialogueManger.currentLineText);
-                // }
-                break;
-            //TODO:**这里无法对slots进行判断，因为2D画面，会被其他的挡住(原因未知)
             default:
                 // Debug.Log(obj?.tag);
                 break;

@@ -20,7 +20,7 @@ public class BaseLetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void Start()
     {
-        GetComponent<Text>().color = _color;
+        _color = GetComponent<Text>().color;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

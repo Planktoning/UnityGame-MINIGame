@@ -23,7 +23,7 @@ MonoBehaviour:
     SpriteID: Stone
     Name: "\u8BFB\u5FC3\u77F3"
     canBeDelete: 0
-  - itemName: 7
+  - itemName: 9
     Sprite: {fileID: 21300000, guid: c9408f52a49435243ab116e3fc4a2c41, type: 3}
     SpriteID: "\u60EC\u610F"
     Name: "\u60EC\u610F"
@@ -47,4 +47,49 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 5cac35ff373b4e34d931d8fa08a555ad, type: 3}
     SpriteID: "\u6EE1\u8DB3"
     Name: "\u6EE1\u8DB3"
+    canBeDelete: 0
+  - itemName: 7
+    Sprite: {fileID: 21300000, guid: 324d23d55d204f94cb6b77a1666f8d16, type: 3}
+    SpriteID: "\u4EE4\u724C"
+    Name: "\u4EE4\u724C"
     canBeDelete: 1
+  - itemName: 8
+    Sprite: {fileID: 21300000, guid: 07d4f63ae8b9d6747b2c9d114f23df5a, type: 3}
+    SpriteID: Coin
+    Name: "\u8001\u4F2F\u7684\u4FE1"
+    canBeDelete: 1
+  - itemName: 11
+    Sprite: {fileID: 21300000, guid: 07e2ab3e6f97b5a4f915b75426aa5da6, type: 3}
+    SpriteID: "\u56DE\u5FC6"
+    Name: "\u56DE\u5FC6"
+    canBeDelete: 0
+  - itemName: 12
+    Sprite: {fileID: 21300000, guid: 5cac35ff373b4e34d931d8fa08a555ad, type: 3}
+    SpriteID: "\u6EE1\u8DB3"
+    Name: "\u6EE1\u8DB3"
+    canBeDelete: 0
+  - itemName: 13
+    Sprite: {fileID: 21300000, guid: a71d6501e08e57d49b82a8d4e4bce5ad, type: 3}
+    SpriteID: "\u523A\u773C"
+    Name: "\u523A\u773C"
+    canBeDelete: 0
+  - itemName: 13
+    Sprite: {fileID: 21300000, guid: 041173775430a4142bf1be32ae04836b, type: 3}
+    SpriteID: "\u5A01\u4E25"
+    Name: "\u5A01\u4E25"
+    canBeDelete: 0
+  - itemName: 15
+    Sprite: {fileID: 21300000, guid: 20be3570279f7dc4a8ce0fbaa9ab40e0, type: 3}
+    SpriteID: "\u6E05\u9192"
+    Name: "\u6E05\u9192"
+    canBeDelete: 0
+  - itemName: 16
+    Sprite: {fileID: 21300000, guid: b6329c8fdfa522b4690f1a57ac5f0cb4, type: 3}
+    SpriteID: "\u6E29\u60C5"
+    Name: "\u6E29\u60C5"
+    canBeDelete: 0
+  - itemName: 17
+    Sprite: {fileID: 21300000, guid: b6329c8fdfa522b4690f1a57ac5f0cb4, type: 3}
+    SpriteID: "\u601D\u5FF5"
+    Name: "\u601D\u5FF5"
+    canBeDelete: 0

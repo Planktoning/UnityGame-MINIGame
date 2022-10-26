@@ -50,7 +50,7 @@ public class TransitionManger : MonoBehaviour
         yield return Fade(1);
         yield return SceneManager.UnloadSceneAsync(form);
         AkSoundEngine.SetState("Scene", "None");
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(1);
         yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(to));
         yield return Fade(0);

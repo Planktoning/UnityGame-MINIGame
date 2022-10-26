@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class TelebackTo02 : Teleport
@@ -13,7 +10,7 @@ public class TelebackTo02 : Teleport
         {
             Switch();
             Vector3 a = new Vector3(25, 6, 0);
-            other.transform.DOMove(a, 1);
+            other.transform.position = a;
             GameManager.Instance.audioManger.SwitchPlay(2);
             GameManager.Instance.saveLoadManager.SaveScene(saveLoad.GetList(), saveLoad.index);
         }

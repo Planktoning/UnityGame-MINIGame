@@ -10,6 +10,7 @@ TagManager:
   - Dialouge
   - Slots
   - Letter
+  - Trigger
   layers:
   - Default
   - TransparentFX

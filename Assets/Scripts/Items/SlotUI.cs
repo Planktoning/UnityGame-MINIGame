@@ -52,7 +52,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                     GameObject obj = GetItemOnMousePos().gameObject;
                     switch (obj.tag)
                     {
-                        case "Dialouge":
+                        case "Trigger":
                             var a = GameManager.Instance.dialogueManger.DragItemGetDialogueInformation(
                                 GameManager.Instance.dialogueManger.GetCurrentNpc().GetComponent<BaseInteractive>()
                                     .dialogue,

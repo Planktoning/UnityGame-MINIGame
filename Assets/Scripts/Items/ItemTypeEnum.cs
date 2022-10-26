@@ -43,6 +43,11 @@ public enum ItemName
     /// </summary>
     Order,
 
+    /// <summary>
+    /// 老伯的信
+    /// </summary>
+    Letter,
+
     //下面是情感
     /// <summary>
     /// 惬意
@@ -83,6 +88,11 @@ public enum ItemName
     /// 温情
     /// </summary>
     Tenderness,
+
+    /// <summary>
+    /// 思念
+    /// </summary>
+    Missing,
 
     /// <summary>
     /// 任意物品都可以触发对话

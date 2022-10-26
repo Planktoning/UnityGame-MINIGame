@@ -11,11 +11,13 @@ public class Move : MonoBehaviour
 
     public bool canMove = true;
 
+    public AK.Wwise.Event sound;
+
     void Start()
     {
         _animator = this.GetComponent<Animator>();
     }
-    
+
     void FixedUpdate()
     {
         if (canMove)
@@ -44,5 +46,10 @@ public class Move : MonoBehaviour
 
 
         // this.transform.localScale = new Vector3(, 1, 1);
+    }
+
+    void FootStep()
+    {
+        sound.Post(gameObject);
     }
 }

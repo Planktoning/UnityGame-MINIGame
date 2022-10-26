@@ -28,8 +28,13 @@ public class Location : MonoBehaviour
         {
             InteractiveEnterDetect?.Invoke(requireItem);
             InteractiveEnter?.Invoke(gameObject);
-            time++;
+
             if (IsReapet) other.gameObject.transform.DOMoveX(awayDistance, 1);
+            else
+            {
+                time++;
+            }
+
             if (canAddItem)
                 GameManager.Instance.inventotyManger.AddItem(
                     GameManager.Instance.matchManger.GetItemFromItemData(itemName));
@@ -40,7 +45,32 @@ public class Location : MonoBehaviour
 
         if (!IsReapet)
         {
-            gameObject.SetActive(false);
+            if (!GameManager.Instance.dialogueManger.isDialogue.Value)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!IsReapet)
+        {
+            if (!GameManager.Instance.dialogueManger.isDialogue.Value)
+            {
+                gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!IsReapet)
+        {
+            if (!GameManager.Instance.dialogueManger.isDialogue.Value)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 
