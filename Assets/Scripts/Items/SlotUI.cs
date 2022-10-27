@@ -31,6 +31,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 startPosition = itemSprite.transform.position;
                 isDrag = true;
                 GameManager.Instance.audioManger.ItemClicked();
+                GameManager.Instance.cursorManger.currentItem = currentitem;
             })
             .AddTo(this);
         itemSprite.OnDragAsObservable().Subscribe(_ =>
@@ -50,6 +51,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                 if (GetItemOnMousePos())
                 {
                     GameObject obj = GetItemOnMousePos().gameObject;
+                    print(obj.tag);
                     switch (obj.tag)
                     {
                         case "Trigger":
@@ -58,15 +60,22 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                                     .dialogue,
                                 currentitem);
                             Debug.Log(a);
-                            if(a) GameManager.Instance.audioManger.ItemDragSuccess();
+                            if (a) GameManager.Instance.audioManger.ItemDragSuccess();
                             else GameManager.Instance.audioManger.ItemDragFailed();
                             //执行拖拽后对话改变的逻辑
                             if (SlotIndex != 10) DeleteItem(a);
+                            if (SlotIndex == 10) GameManager.Instance.inventotyManger.DeleteFeeling(currentitem);
+                            
+
                             //TODO:重排物品
+                            ItemDetails fDetailsa = new ItemDetails();
+                            GameManager.Instance.cursorManger.currentItem = fDetailsa.SetAnyOn();
                             break;
                         case "Letter":
                             GameManager.Instance.letterManager.GetLetterInfo(currentitem,
                                 GetItemOnMousePos().gameObject);
+                            ItemDetails fDetails = new ItemDetails();
+                            GameManager.Instance.cursorManger.currentItem = fDetails.SetAnyOn();
                             break;
                     }
                 }
@@ -93,7 +102,15 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         itemSprite.enabled = true;
         itemSprite.sprite = itemDetails.Sprite;
         currentItemName = itemDetails.Name;
-        GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = currentitem;
+        try
+        {
+            GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = currentitem;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
         haveItem = true;
     }
 
@@ -103,10 +120,18 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public void DeleteItem(bool isDelete)
     {
         if (isDelete == false) return;
-        if(currentitem.canBeDelete==false) return;
+        if (currentitem.canBeDelete == false) return;
         itemSprite.enabled = false;
         currentitem = null;
-        GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = null;
+        try
+        {
+            GameManager.Instance.inventotyManger.bagData.itemDetailsList[SlotIndex] = null;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
         currentItemName = null;
         haveItem = false;
     }

@@ -154,19 +154,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 13
+  requiredItem: 14
   dialogue:
     m_keys:
     - "n-\u963F\u8A00 \u4ED6\u770B\u8D77\u6765\u5F88\u56F0\u7684\u6837\u5B50\u3002
       n-\u9B3C\u5DEE\u4E59 \uFF08\u5453\u8BED\uFF09\u2026\u2026\u4F55\u4EBA\u60CA\u6270\u543E\u4E4B\u6E05\u68A6\uFF1F"
-    - "n-\u963F\u8A00 \u2026\u2026\u8FD8\u662F\u7B97\u4E86\u5427\uFF0C\u6211\u6015\u6328\u63CD\u3002"
+    - "n-\u963F\u8A00 \u2026\u2026\u8FD8\u662F\u7B97\u4E86\u5427\uFF0C\u6211\u6015\u6328\u63CD\u3002
+      a-\u4E00\u6876\u6C34"
     - "n-\u9B3C\u5DEE\u4E59 \u54C7\u554A\uFF01\u4F55\u4EBA\u5802\u524D\u51FB\u9F13\uFF01"
-    m_values: 12000000040000000d000000
+    m_values: 15000000040000000e000000
   doneDictionary:
     m_keys:
     - "n-\u9B3C\u5DEE\u4E59 \uFF08\u597D\u60F3\u7761\u4E00\u89C9\u554A\uFF09"
     - "n- \u83B7\u5F97\u4E86\u201C\u6E05\u9192\u201D\uFF01 f-\u6E05\u9192"
-    m_values: 1200000003000000
+    m_values: 1500000003000000
   Week2Dialouge:
     m_keys: []
     m_values: 
@@ -175,6 +176,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 1168028969}
+  w2DiaisDone: 0
 --- !u!61 &100621342
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 4.87}
+    oldSize: {x: 1.2, y: 3.88}
     newSize: {x: 1.5, y: 4.87}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -378,7 +380,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 4.87}
+    oldSize: {x: 1.19, y: 3.87}
     newSize: {x: 1.5, y: 4.87}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -414,7 +416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 10
+  requiredItem: 11
   dialogue:
     m_keys:
     - "n-\u9B3C\u5DEE\u7532 \u2026\u2026"
@@ -424,11 +426,11 @@ MonoBehaviour:
       n-\u9B3C\u5DEE\u7532 \u5341\u4E94\u5E74\u524D\uFF0C\u4E5F\u662F\u5728\u6B64\u5904\uFF0C\u4E00\u6869\u8C1C\u6848\u88AB\u4E0D\u751A\u6E05\u695A\u5730\u4E66\u5199\u4E86\u3002
       n-\u9B3C\u5DEE\u7532 \u90A3\u65F6\u7684\u9F13\u58F0\u771F\u662F\u6C89\u91CD\u554A\uFF0C\u8FDE\u5E26\u7740\u81F3\u4EB2\u7684\u60B2\u6CE3\uFF0C\u8FDE\u65C1\u4EBA\u90FD\u89C9\u5F97\u523B\u9AA8\u94ED\u5FC3\u3002
       n-\u9B3C\u5DEE\u7532 \u770B\u4F60\u5982\u4ECA\u7684\u6837\u5B50\uFF0C\u6216\u8BB8\u5FD8\u5374\u4E5F\u662F\u4E00\u4EF6\u597D\u4E8B\u2026\u2026"
-    m_values: 12000000030000000a000000
+    m_values: 15000000030000000b000000
   doneDictionary:
     m_keys:
     - "n-\u9B3C\u5DEE\u7532 \u8BB0\u5FC6\u6216\u8BB8\u4F1A\u88AB\u9057\u5FD8\uFF0C\u4F46\u60C5\u611F\u4E5F\u5982\u6B64\u5417\uFF1F"
-    m_values: 12000000
+    m_values: 15000000
   Week2Dialouge:
     m_keys: []
     m_values: 
@@ -437,6 +439,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 463241078}
+  w2DiaisDone: 0
 --- !u!212 &207182379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -517,7 +520,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 23
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &247749545
 EdgeCollider2D:
@@ -570,7 +573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 21
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &294394033
 BoxCollider2D:
@@ -627,7 +630,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 24
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &405484694
 EdgeCollider2D:
@@ -830,7 +833,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 20
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &549870084
 BoxCollider2D:
@@ -887,7 +890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 25
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &578110323
 EdgeCollider2D:
@@ -959,7 +962,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 19
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &664764378
 BoxCollider2D:
@@ -1024,12 +1027,12 @@ MonoBehaviour:
       n-\u963F\u8A00 \u6478\u8D77\u6765\u624B\u611F\u633A\u597D\u7684\uFF0C\u771F\u60F3\u627E\u4E2A\u4E1C\u897F\u6765\u6572\u6572\u770B\u3002"
     - "n- \u9F13\u58F0\u54CD\u5F7B\u5EAD\u9662\uFF0C\u51DB\u51DB\u751F\u5A01\u3002
       n-\u963F\u8A00 \u6CA1\u60F3\u5230\u8BFB\u5FC3\u77F3\u8FD8\u6709\u5982\u6B64\u5999\u7528\uFF0C\u4E0D\u7136\u4E0B\u6B21\u6211\u4E5F\u4E70\u9762\u9F13\u6765\u6572\u7740\u73A9\u597D\u4E86\u3002"
-    m_values: 1200000003000000
+    m_values: 1500000003000000
   doneDictionary:
     m_keys:
     - "n- \u9F13\u58F0\u54CD\u5F7B\u5EAD\u9662\uFF0C\u51DB\u51DB\u751F\u5A01\u3002"
     - "n- \u83B7\u5F97\u4E86\u201C\u5A01\u4E25\u201D\uFF01 f-\u5A01\u4E25"
-    m_values: 1200000003000000
+    m_values: 1500000003000000
   Week2Dialouge:
     m_keys: []
     m_values: 
@@ -1038,6 +1041,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 484894246}
+  w2DiaisDone: 0
 --- !u!61 &730656223
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1108,7 +1112,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 22
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!68 &754746046
 EdgeCollider2D:
@@ -1199,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneSource: 3
   SceneDestination: 4
-  saveLoad: {fileID: 1625950590}
+  saveLoad: {fileID: 0}
 --- !u!4 &892535264
 Transform:
   m_ObjectHideFlags: 0
@@ -1246,7 +1250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SceneSource: 3
   SceneDestination: 2
-  saveLoad: {fileID: 1625950590}
+  saveLoad: {fileID: 0}
 --- !u!61 &1152008627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1362,6 +1366,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4062910721079755679, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
   m_PrefabInstance: {fileID: 1168028968}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1419488665
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1419488666}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1419488666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419488665}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1625950588
 GameObject:
   m_ObjectHideFlags: 0
@@ -1443,7 +1477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 14
+  requiredItem: 15
   dialogue:
     m_keys:
     - "n- \u6B64\u684C\u4E3A\u960E\u7F57\u5347\u5802\u65AD\u6848\u6240\u7528\u4E4B\u7269\uFF0C\u4F46\u684C\u4E0A\u79EF\u4E86\u539A\u539A\u4E00\u5C42\u7070\u5C18\uFF0C\u5176\u4E3B\u4EBA\u4F3C\u5DF2\u6C89\u7761\u591A\u5E74\u3002"
@@ -1452,12 +1486,12 @@ MonoBehaviour:
       n- \u4E00\u77AC\u95F4\uFF0C\u5E84\u4E25\u7684\u9F13\u58F0\u3001\u9B3C\u5DEE\u4E4B\u95F4\u7684\u7A83\u8BED\uFF0C\u4EE5\u53CA\u4E0D\u53EF\u540D\u72B6\u7684\u60B2\u4F24\uFF0C\u90FD\u5FFD\u7136\u9192\u4E86\u8FC7\u6765\uFF0C\u6D8C\u73B0\u5728\u611F\u5B98\u4E4B\u4E2D\u3002
       n-\u795E\u79D8\u7684\u58F0\u97F3 \u201C\u79BB\u5F00\u8FD9\u91CC\uFF0C\u53BB\u627E\u5BFB\u4F60\u8FC7\u53BB\u9057\u5931\u7684\u4E8B\u7269\u5427\u201D
       n- \u60CA\u5802\u6728\u4E00\u58F0\u9707\u54CD\uFF0C\u4E00\u6761\u4EE4\u7B7E\u4ECE\u7B52\u4E2D\u6389\u4E86\u51FA\u6765\u3002
-      n- \u83B7\u5F97\u4E86\u4EE4\u7B7E\uFF01 a-\u4EE4\u7B7E"
-    m_values: 120000000e000000
+      n- \u83B7\u5F97\u4E86\u4EE4\u7B7E\uFF01 a-\u4EE4\u724C"
+    m_values: 150000000f000000
   doneDictionary:
     m_keys:
     - "n- \u6B64\u684C\u518D\u6B21\u5F52\u4E8E\u6C89\u5BC2\u3002"
-    m_values: 12000000
+    m_values: 15000000
   Week2Dialouge:
     m_keys: []
     m_values: 
@@ -1466,6 +1500,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 1651456405}
+  w2DiaisDone: 0
 --- !u!61 &1635853714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1611,7 +1646,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1755012259}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1665987656
 BoxCollider2D:
@@ -1674,7 +1709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 8
+  requiredItem: 9
   dialogue:
     m_keys:
     - "n- \u4E00\u9762\u5C4F\u98CE\uFF0C\u4E0A\u7ED8\u960E\u7F57\u5730\u72F1\uFF0C\u4E1A\u706B\u718A\u718A\uFF0C\u767E\u9B3C\u568E\u54ED\uFF0C\u6559\u4EBA\u6BDB\u9AA8\u609A\u7136\u3002
@@ -1682,12 +1717,12 @@ MonoBehaviour:
     - "n- \u5C4F\u98CE\u6240\u7ED8\u56FE\u6848\u53D1\u751F\u4E86\u795E\u5947\u7684\u53D8\u5316\uFF1A\u7EFF\u8349\u84DD\u5929\uFF0C\u5C0F\u6865\u6D41\u6C34\uFF0C\u4E00\u6D3E\u4EBA\u95F4\u7965\u548C\u666F\u8C61\u3002
       n-\u963F\u8A00 \u8FD9\u6837\u987A\u773C\u591A\u4E86\u3002 n-\u963F\u8A00 \u4E0D\u8FC7\uFF0C\u8FD9\u7B97\u4E0D\u7B97\u5728\u516C\u5171\u573A\u5408\u6D82\u9E26\u554A\uFF1F
       n-\u963F\u8A00 \u4F1A\u4E0D\u4F1A\u88AB\u6293\u2026\u2026"
-    m_values: 1200000008000000
+    m_values: 1500000009000000
   doneDictionary:
     m_keys:
     - "n- \u4EBA\u95F4\u548C\u7166\u7684\u98CE\uFF0C\u5076\u5C14\u4E5F\u5439\u5411\u8FD9\u91CC\u3002"
     - "n- \u83B7\u5F97\u4E86\u201C\u6E29\u60C5\u201D\uFF01 f-\u6E29\u60C5"
-    m_values: 1200000003000000
+    m_values: 1500000003000000
   Week2Dialouge:
     m_keys: []
     m_values: 
@@ -1696,6 +1731,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 205422039}
+  w2DiaisDone: 0
 --- !u!61 &1875894616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1768,12 +1804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 0
+  requiredItem: 7
   dialogue:
     m_keys:
     - "n-\u795E\u79D8\u7684\u58F0\u97F3 \u4EE4\u884C\uFF0C\u7981\u6B62\u3002"
     - "n-\u795E\u79D8\u7684\u58F0\u97F3 \u4EBA\u9B3C\u5DF2\u6B8A\u9014\uFF0C\u524D\u884C\u9700\u8C28\u614E\u3002"
-    m_values: 1200000007000000
+    m_values: 1500000007000000
   doneDictionary:
     m_keys: []
     m_values: 
@@ -1785,6 +1821,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 0}
+  w2DiaisDone: 0
 --- !u!61 &2049239294
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1841,10 +1878,6 @@ MonoBehaviour:
   requireItem: 0
   IsReapet: 1
   awayDistance: 25
-  canAddItem: 0
-  itemName: 0
-  canAdFeeling: 0
-  feelingName: 0
 --- !u!1001 &2125874255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1872,9 +1905,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8556942414167719282, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: -8253715007914693064, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: -8213410321951224877, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8043917675348643645, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: -7599279941855631227, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -7349378941128911715, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_Name
@@ -1892,6 +1941,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1784080447
       objectReference: {fileID: 0}
+    - target: {fileID: -5893013565016996230, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: -5613366317146297669, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayer
       value: 1
@@ -1903,6 +1956,10 @@ PrefabInstance:
     - target: {fileID: -5613366317146297669, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayerID
       value: -2010376435
+      objectReference: {fileID: 0}
+    - target: {fileID: -5335190123501220807, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: -5173154628910880848, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayer
@@ -1916,9 +1973,25 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1740465805
       objectReference: {fileID: 0}
+    - target: {fileID: -4598457441770449376, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -4585891431492694697, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: -4537867219635586138, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4427597543605190570, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: -4069800038633854440, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: -3172004954120983569, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayer
@@ -1952,6 +2025,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1740465805
       objectReference: {fileID: 0}
+    - target: {fileID: -1900031764281947611, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: -1582682498248037473, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -1091910701515589025, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: -645836877484520294, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1968,6 +2053,10 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: 1784080447
       objectReference: {fileID: 0}
+    - target: {fileID: -458443582457420599, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: -335763454172786469, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -1979,6 +2068,10 @@ PrefabInstance:
     - target: {fileID: -335763454172786469, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayerID
       value: 1784080447
+      objectReference: {fileID: 0}
+    - target: {fileID: -325996671517391339, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: -304317622675640830, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayer
@@ -2035,6 +2128,10 @@ PrefabInstance:
     - target: {fileID: 3681484154242254507, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayerID
       value: -1740465805
+      objectReference: {fileID: 0}
+    - target: {fileID: 3731562951794647322, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4193997971713182232, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_IsActive
@@ -2107,6 +2204,14 @@ PrefabInstance:
     - target: {fileID: 6400921063143708469, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_SortingLayerID
       value: -1740465805
+      objectReference: {fileID: 0}
+    - target: {fileID: 7241747710589010281, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 24
+      objectReference: {fileID: 0}
+    - target: {fileID: 7258630244925414861, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7996724567977751893, guid: f35549f8a2c61c74182a2f45dc1b9865, type: 3}
       propertyPath: m_IsActive

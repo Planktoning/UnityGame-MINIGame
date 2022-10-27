@@ -12,7 +12,7 @@ public class TeleportTo03 : Teleport
             Vector3 a = new Vector3(-25, 6f, 0);
             other.transform.position = a;
             GameManager.Instance.audioManger.SwitchPlay(3);
-            GameManager.Instance.saveLoadManager.SaveScene(saveLoad.GetList(), saveLoad.index);
+            // GameManager.Instance.saveLoadManager.SaveScene(saveLoad.GetList(), saveLoad.index);
         }
     }
 }

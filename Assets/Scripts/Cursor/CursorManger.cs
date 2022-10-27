@@ -17,6 +17,7 @@ public class CursorManger : MonoBehaviour
     private void Awake()
     {
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
+        // currentItem.ObserveEveryValueChanged(a => { print(a); });
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0)).Subscribe(_ =>
         {
             // if (GameManager.Instance.dialogueManger.isScrolling)
@@ -33,8 +34,11 @@ public class CursorManger : MonoBehaviour
         Observable.FromEvent<ItemDetails>(action => SlotUI.ItemSelectedEvent += action,
             action => SlotUI.ItemSelectedEvent -= action).Subscribe(action =>
             {
-                currentItem = action;
-                GameManager.Instance.audioManger.ItemClicked();
+                if (GameManager.Instance.dialogueManger.isDialogue.Value)
+                {
+                    currentItem = action;
+                    GameManager.Instance.audioManger.ItemClicked();
+                }
             });
 
         #region 碰撞体进入对话区域的操作
@@ -57,13 +61,13 @@ public class CursorManger : MonoBehaviour
                     if (!canPass)
                     {
                         GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
-                            action,true);
+                            action, true);
                         action.GetComponent<BoxCollider2D>().enabled = false;
                     }
                     else
                     {
                         GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem,
-                            action,true);
+                            action, true);
                         action.GetComponent<Location>().isDone = true;
                     }
                 }
@@ -103,7 +107,8 @@ public class CursorManger : MonoBehaviour
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();
                 if (interactive.isTalk)
-                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj,false);
+                    GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj,
+                        false);
                 break;
             default:
                 // Debug.Log(obj?.tag);

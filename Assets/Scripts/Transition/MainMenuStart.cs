@@ -20,12 +20,10 @@ public class MainMenuStart : MonoBehaviour
     {
         if (File.Exists(pPath))
         {
-            print(1); 
             continueGame.SetActive(true);
         }
         else
         {
-            print(2);
             continueGame.SetActive(false);
         }
     }

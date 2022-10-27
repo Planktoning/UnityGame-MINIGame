@@ -9,7 +9,7 @@ using UnityEngine;
 public class ItemDetails_SO : ScriptableObject
 {
     public List<ItemDetails> itemDetailsList = new List<ItemDetails>(5); //数据持久化，让背包/世界物品在被使用/拾取/消失 后下次进入游戏不会再刷
-    
+
     /// <summary>
     /// 在存档时将ItemDetails转换为ItemSave
     /// </summary>
@@ -89,6 +89,26 @@ public class ItemDetails
     /// 是否为使用后消失
     /// </summary>
     [Header("物品能否被删除")] public bool canBeDelete;
+
+    public void SetAny()
+    {
+        itemName = ItemName.Any;
+        Sprite = null;
+        SpriteID = null;
+        Name = null;
+        canBeDelete = false;
+    }
+
+    public ItemDetails SetAnyOn()
+    {
+        ItemDetails a = new ItemDetails();
+        a.itemName = ItemName.Any;
+        a.Sprite = null;
+        a.SpriteID = null;
+        a.Name = null;
+        a.canBeDelete = false;
+        return a;
+    }
 }
 
 public class ItemSave

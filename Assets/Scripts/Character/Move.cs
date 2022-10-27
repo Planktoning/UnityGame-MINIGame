@@ -1,3 +1,5 @@
+using System;
+using UniRx;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -13,9 +15,27 @@ public class Move : MonoBehaviour
 
     public AK.Wwise.Event sound;
 
+    private void Awake()
+    {
+        Observable.FromEvent<Vector3>(action => Teleport.gameObjectChange += action,
+            action => Teleport.gameObjectChange -= action).Subscribe(
+            a =>
+            {
+                gameObject.transform.position = a;
+            });
+    }
+
     void Start()
     {
         _animator = this.GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.dialogueManger.isDialogue.Value)
+        {
+            _animator.Play("Idle");
+        }
     }
 
     void FixedUpdate()

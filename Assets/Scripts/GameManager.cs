@@ -26,14 +26,6 @@ public class GameManager : Singleton<GameManager>
     public int GameWeek = 1;
     //TODO:Add GameWeek exchange 
 
-    void Start()
-    {
-    }
-
-    void Update()
-    {
-    }
-
     public void quitGame()
     {
 #if UNITY_EDITOR

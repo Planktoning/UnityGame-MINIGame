@@ -13,7 +13,7 @@ public class TelePortTo02 : Teleport
             var pos = new Vector3(-27, 6.5f, 0);
             other.transform.position = pos;
             GameManager.Instance.audioManger.SwitchPlay(2);
-            GameManager.Instance.saveLoadManager.SaveScene(saveLoad01.GetList(), saveLoad01.index);
+            // GameManager.Instance.saveLoadManager.SaveScene(saveLoad01.GetList(), saveLoad01.index);
         }
     }
 }

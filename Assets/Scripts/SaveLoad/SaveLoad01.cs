@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class SaveLoad01 : MonoBehaviour
@@ -7,17 +9,32 @@ public class SaveLoad01 : MonoBehaviour
 
     public int index;
 
+    private void Awake()
+    {
+        // Observable.OnceApplicationQuit().Subscribe(_ =>
+        // {
+        //     GameManager.Instance.saveLoadManager.SaveScene(GetList(),index);
+        //     print("save success"+index);
+        // });
+    }
+
     private void Start()
     {
         GameManager.Instance.audioManger.SwitchPlay(index);
-        var a = GameManager.Instance.saveLoadManager.LoadScene(index);
-        if (!a)
-        {
-            foreach (var o in objs)
-            {
-                o.SetActive(true);
-            }
-        }
+        print(index);
+        // var a = GameManager.Instance.saveLoadManager.LoadScene(index);
+        // if (!a)
+        // {
+        //     if (objs == null)
+        //     {
+        //         return;
+        //     }
+        //
+        //     foreach (var o in objs)
+        //     {
+        //         o.SetActive(true);
+        //     }
+        // }
     }
 
     public List<SceneObj> GetList()

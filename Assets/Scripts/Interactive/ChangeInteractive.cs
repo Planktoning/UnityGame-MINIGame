@@ -6,6 +6,10 @@ public class ChangeInteractive : MonoBehaviour
 {
     public GameObject interactive;
 
+    public StringItemNameDictionary dic;
+
+    private int a = 0;
+
     void Start()
     {
     }
@@ -17,9 +21,10 @@ public class ChangeInteractive : MonoBehaviour
 
     void Dected()
     {
-        if (interactive.GetComponent<BaseInteractive>().isChangeDia)
+        if (interactive.GetComponent<BaseInteractive>().isChangeDia && a == 0)
         {
-            gameObject.GetComponent<BaseInteractive>().dialogue = interactive.GetComponent<BaseInteractive>().dialogue;
+            gameObject.GetComponent<BaseInteractive>().dialogue = dic;
+            a++;
         }
     }
 }

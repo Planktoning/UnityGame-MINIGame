@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class InventotyManger : MonoBehaviour
 {
-    [SerializeField]
-    public ItemDetails_SO bagData;
+    [SerializeField] public ItemDetails_SO bagData;
 
     [Header("物品列表")] //不需要drop down的格子
     private ReactiveCollection<ItemDetails> itemList = new ReactiveCollection<ItemDetails>(new ItemDetails[5]);
@@ -26,6 +25,7 @@ public class InventotyManger : MonoBehaviour
             {
                 if (item != null)
                 {
+                    Debug.Log(item.Name);
                     AddItem(item);
                 }
             }).AddTo(this);
@@ -65,18 +65,39 @@ public class InventotyManger : MonoBehaviour
     public bool AddItem(ItemDetails item)
     {
         if (item == null) return false;
-        for (int i = 0; i < itemList.Count; i++)
+        // for (int i = 0; i < 5; i++)
+        // {
+        //     if (itemList[i] != null)
+        //     {
+        //         if (item.itemName == itemList[i].itemName)
+        //         {
+        //             print("重复");
+        //             return false; //检测该物品是否重复
+        //         }
+        //     }
+        // }
+
+        foreach (var slot in SlotUis)
         {
-            if (itemList[i] != null)
+            if (slot.currentitem == null)
             {
-                if (item.itemName == itemList[i].itemName)
-                {
-                    return false; //检测该物品是否重复
-                }
+                continue;
+            }
+
+            if (item.itemName == slot.currentitem.itemName)
+            {
+                return false;
             }
         }
 
-        itemList.Add(item);
+        foreach (var slot in SlotUis)
+        {
+            if (slot.haveItem == false)
+            {
+                itemList.Add(item);
+            }
+        }
+
         itemList.ObserveEveryValueChanged(a => itemList)
             .Subscribe(b =>
             {
@@ -114,14 +135,15 @@ public class InventotyManger : MonoBehaviour
     {
         foreach (var option in dropDown.options)
         {
-            if(item.Name==option.text) return;
+            if (item.Name == option.text) return;
         }
+
         Dropdown.OptionData optionData = new Dropdown.OptionData
         {
             text = item.Name,
             image = item.Sprite
         };
-        
+
         dropDown.options.Add(optionData);
         if (dropDown.options.Count == 1)
         {
@@ -131,6 +153,23 @@ public class InventotyManger : MonoBehaviour
         }
 
         print("add " + item.Name);
+    }
+
+    public void DeleteFeeling(ItemDetails item)
+    {
+        foreach (var option in dropDown.options)
+        {
+            if (item.Name == option.text)
+            {
+                dropDown.options.Remove(option);
+                break;
+            }
+        }
+
+        if (dropDown.options.Count == 0)
+        {
+            dropDown.captionImage.enabled = false;
+        }
     }
 
     void ReadItem()

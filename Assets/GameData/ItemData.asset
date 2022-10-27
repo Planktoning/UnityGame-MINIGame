@@ -27,69 +27,84 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: c9408f52a49435243ab116e3fc4a2c41, type: 3}
     SpriteID: "\u60EC\u610F"
     Name: "\u60EC\u610F"
-    canBeDelete: 0
-  - itemName: 8
+    canBeDelete: 1
+  - itemName: 10
     Sprite: {fileID: 21300000, guid: d70ecdc4be549334485c0351e385490a, type: 3}
     SpriteID: "\u5B64\u72EC"
     Name: "\u5B64\u72EC"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 4
-    Sprite: {fileID: 21300000, guid: f20242ade94220745bb20a38d1ffca5f, type: 3}
-    SpriteID: BucketWater
-    Name: "\u6C34\u6876"
+    Sprite: {fileID: 21300000, guid: f0de66aeccb6fc34695c2c1205f24339, type: 3}
+    SpriteID: "\u6C34\u6876\u6709\u6C34"
+    Name: "\u4E00\u6876\u6C34"
     canBeDelete: 1
   - itemName: 5
     Sprite: {fileID: 21300000, guid: 5ee21c47341e26849a20678efebb2f60, type: 3}
     SpriteID: FishRod
     Name: "\u9493\u7AFF"
     canBeDelete: 1
-  - itemName: 10
+  - itemName: 12
     Sprite: {fileID: 21300000, guid: 5cac35ff373b4e34d931d8fa08a555ad, type: 3}
     SpriteID: "\u6EE1\u8DB3"
     Name: "\u6EE1\u8DB3"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 7
     Sprite: {fileID: 21300000, guid: 324d23d55d204f94cb6b77a1666f8d16, type: 3}
     SpriteID: "\u4EE4\u724C"
     Name: "\u4EE4\u724C"
     canBeDelete: 1
   - itemName: 8
-    Sprite: {fileID: 21300000, guid: 07d4f63ae8b9d6747b2c9d114f23df5a, type: 3}
-    SpriteID: Coin
+    Sprite: {fileID: 21300000, guid: 54ac224b846457647b9c83a8b32162a9, type: 3}
+    SpriteID: "\u4FE1"
     Name: "\u8001\u4F2F\u7684\u4FE1"
     canBeDelete: 1
   - itemName: 11
     Sprite: {fileID: 21300000, guid: 07e2ab3e6f97b5a4f915b75426aa5da6, type: 3}
     SpriteID: "\u56DE\u5FC6"
     Name: "\u56DE\u5FC6"
-    canBeDelete: 0
-  - itemName: 12
-    Sprite: {fileID: 21300000, guid: 5cac35ff373b4e34d931d8fa08a555ad, type: 3}
-    SpriteID: "\u6EE1\u8DB3"
-    Name: "\u6EE1\u8DB3"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 13
     Sprite: {fileID: 21300000, guid: a71d6501e08e57d49b82a8d4e4bce5ad, type: 3}
     SpriteID: "\u523A\u773C"
     Name: "\u523A\u773C"
-    canBeDelete: 0
-  - itemName: 13
+    canBeDelete: 1
+  - itemName: 14
     Sprite: {fileID: 21300000, guid: 041173775430a4142bf1be32ae04836b, type: 3}
     SpriteID: "\u5A01\u4E25"
     Name: "\u5A01\u4E25"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 15
     Sprite: {fileID: 21300000, guid: 20be3570279f7dc4a8ce0fbaa9ab40e0, type: 3}
     SpriteID: "\u6E05\u9192"
     Name: "\u6E05\u9192"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 16
     Sprite: {fileID: 21300000, guid: b6329c8fdfa522b4690f1a57ac5f0cb4, type: 3}
     SpriteID: "\u6E29\u60C5"
     Name: "\u6E29\u60C5"
-    canBeDelete: 0
+    canBeDelete: 1
   - itemName: 17
-    Sprite: {fileID: 21300000, guid: b6329c8fdfa522b4690f1a57ac5f0cb4, type: 3}
+    Sprite: {fileID: 21300000, guid: c7f41fba5bfbf324c823e38a4ae16ddf, type: 3}
     SpriteID: "\u601D\u5FF5"
     Name: "\u601D\u5FF5"
-    canBeDelete: 0
+    canBeDelete: 1
+  - itemName: 6
+    Sprite: {fileID: 21300000, guid: 809c3900b97220a49b6e3c6271b4b8b3, type: 3}
+    SpriteID: "\u6C34\u6876"
+    Name: "\u6C34\u6876"
+    canBeDelete: 1
+  - itemName: 18
+    Sprite: {fileID: 21300000, guid: 5787f6d054677ea4c8c393b0aebd5e4f, type: 3}
+    SpriteID: "\u7406\u89E3"
+    Name: "\u7406\u89E3"
+    canBeDelete: 1
+  - itemName: 19
+    Sprite: {fileID: 21300000, guid: 1ce90b9e90d7fda4ab6b6f7688f1e4a3, type: 3}
+    SpriteID: "\u7231"
+    Name: "\u7231a"
+    canBeDelete: 1
+  - itemName: 20
+    Sprite: {fileID: 21300000, guid: 1ce90b9e90d7fda4ab6b6f7688f1e4a3, type: 3}
+    SpriteID: "\u7231"
+    Name: "\u7231b"
+    canBeDelete: 1

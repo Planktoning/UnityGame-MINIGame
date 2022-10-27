@@ -22,9 +22,11 @@ public class LetterManager : MonoBehaviour
 
     public int fixNumOnW1;
 
+    public GameObject backGround;
+
     void Start()
     {
-        OpenLetter();
+        // OpenLetter();
     }
 
     void OpenLetter()
@@ -76,7 +78,8 @@ public class LetterManager : MonoBehaviour
         if (fixNumOnW1 == 0)
         {
             print("Addletterplease!");
-            GameManager.Instance.inventotyManger.AddItem(GameManager.Instance.matchManger.GetItemFromItemData(ItemName.Letter));
+            GameManager.Instance.inventotyManger.AddItem(
+                GameManager.Instance.matchManger.GetItemFromItemData(ItemName.Letter));
         }
     }
 
@@ -85,6 +88,7 @@ public class LetterManager : MonoBehaviour
         parentObj.SetActive(true);
         hideButton.SetActive(true);
         showButton.SetActive(false);
+        backGround.SetActive(true);
     }
 
     public void Hide()
@@ -92,5 +96,6 @@ public class LetterManager : MonoBehaviour
         parentObj.SetActive(false);
         hideButton.SetActive(false);
         showButton.SetActive(true);
+        backGround.SetActive(false);
     }
 }

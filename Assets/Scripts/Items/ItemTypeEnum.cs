@@ -84,7 +84,7 @@ public enum ItemName
     /// </summary>
     Sobriety,
 
-    /// <summary>
+    /// <summary>   
     /// 温情
     /// </summary>
     Tenderness,
@@ -93,6 +93,21 @@ public enum ItemName
     /// 思念
     /// </summary>
     Missing,
+
+    /// <summary>
+    /// 理解
+    /// </summary>
+    Understanding,
+
+    /// <summary>
+    /// 爱a
+    /// </summary>
+    Lovea,
+
+    /// <summary>
+    /// 爱b
+    /// </summary>
+    Loveb,
 
     /// <summary>
     /// 任意物品都可以触发对话

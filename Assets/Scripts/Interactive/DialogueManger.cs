@@ -47,6 +47,8 @@ public class DialogueManger : MonoBehaviour
     /// </summary>
     public bool GetSpaceDown;
 
+    public ItemName itemName;
+
     private void Start()
     {
         isDialogue.ObserveEveryValueChanged(x => x.Value)
@@ -67,6 +69,7 @@ public class DialogueManger : MonoBehaviour
         {
             return true;
         }
+
         if (GetItemOnMousePos().gameObject?.tag == "Interactive")
         {
             if (isDialogue.Value)
@@ -83,7 +86,7 @@ public class DialogueManger : MonoBehaviour
                 return true;
             }
         }
-        
+
 
         return false;
     }
@@ -123,22 +126,35 @@ public class DialogueManger : MonoBehaviour
                                 AddItemEvent?.Invoke(
                                     GameManager.Instance.matchManger.GetItemFromItemData(
                                         dialogueLine[currentLine].Replace("a-", "")));
+                                Debug.Log("a- is done");
                                 currentLine++;
                             }
 
-                            if (dialogueLine[currentLine].StartsWith("f-"))
+                            try
                             {
-                                // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
-                                AddFeelingEvent?.Invoke(
-                                    GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine]
-                                        .Replace("f-", "")));
-                                currentLine++;
+                                if (dialogueLine[currentLine].StartsWith("f-"))
+                                {
+                                    // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
+                                    AddFeelingEvent?.Invoke(
+                                        GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine]
+                                            .Replace("f-", "")));
+                                    currentLine++;
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine(e);
+                                return;
                             }
 
-                            if (currentLine >= dialogueLine.Length) return;
+
+                            if (currentLine >= dialogueLine.Length)
+                            {
+                                return;
+                            }
+
                             currentLineText = dialogueLine[currentLine];
                             Debug.Log(GetCurrentText());
-                            // StartCoroutine(ScrollLetter());
                             ScrollLetter();
                             currentLine++;
                         }
@@ -154,13 +170,29 @@ public class DialogueManger : MonoBehaviour
                             }
 
                             isDialogue.Value = false;
-                            isChanged = false;
+                            // isChanged = false;
 
                             NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
                         }
                     }
                 }
+                else
+                {
+                    // CheckToChange();
+                    // dialogueBox.SetActive(false);
+                    // FindObjectOfType<Move>().canMove = true;
+                    // if (NPCgameobj == null)
+                    // {
+                    //     return;
+                    // }
+                    //
+                    // isDialogue.Value = false;
+                    // isChanged = false;
+                    //
+                    // NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
+                }
             }
+            
         }
     }
 
@@ -177,6 +209,11 @@ public class DialogueManger : MonoBehaviour
         if (isScrolling)
             return;
 
+        if (item.itemName == ItemName.None)
+        {
+            item.itemName = ItemName.Any;
+        }
+
         if (isTriggerIn == false)
         {
             if (!CheckState())
@@ -188,18 +225,33 @@ public class DialogueManger : MonoBehaviour
         NPCgameobj = obj;
         currentItem = item;
         string[] talkText = new string[] { };
-        foreach (var kvp in infor)
+
+        //一周目加载
+        foreach (var currentInfor in infor)
         {
-            if (kvp.Value == ItemName.Any)
+            if (item.itemName == currentInfor.Value)
             {
-                talkText = kvp.Key.Split(' ');
+                talkText = currentInfor.Key.Split(' ');
             }
         }
 
+        //二周目
+        if (GameManager.Instance.GameWeek == 2)
+        {
+            if (NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge != null)
+            {
+                foreach (var currentInfor in NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge)
+                {
+                    if (item.itemName == currentInfor.Value)
+                    {
+                        talkText = currentInfor.Key.Split(' ');
+                    }
+                }
+            }
+        }
 
+        isChanged = true;
         dialogueLine = talkText;
-        isDialogue.Value = true;
-
         currentLine = 0;
         //空文本时返回
         if (infor.Count == 0)
@@ -219,20 +271,37 @@ public class DialogueManger : MonoBehaviour
         catch (Exception e)
         {
             Console.WriteLine(e);
-            throw;
         }
 
-        if (dialogueLine[currentLine].StartsWith("a-"))
+        try
         {
-            // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
-            AddItemEvent?.Invoke(
-                GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
-            currentLine++;
+            if (dialogueLine[currentLine].StartsWith("a-"))
+            {
+                // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")).itemName);
+                AddItemEvent?.Invoke(
+                    GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
+                currentLine++;
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        
 
-        currentLineText = dialogueLine[currentLine];
+        isDialogue.Value = true;
+
+        try
+        {
+            currentLineText = dialogueLine[currentLine];
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return;
+        }
+        
         Debug.Log(GetCurrentText());
-        // StartCoroutine(ScrollLetter());
         ScrollLetter();
         if (currentLine < dialogueLine.Length)
         {
@@ -241,16 +310,42 @@ public class DialogueManger : MonoBehaviour
 
         dialogueBox.SetActive(true); //激活场景
         FindObjectOfType<Move>().canMove = false;
-        // if (GameManager.Instance.cursorManger.canPass)
-        //     NPCgameobj.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public bool DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
     {
-        if (isScrolling || isChanged || item == null)
-            return false;
+        // if (isChanged)
+        //     return false;
+
+        // bool beChanged = false;
+        //
+        // if (NPCgameobj.GetComponent<BaseInteractive>().isChangeDia == false)
+        // {
+        //     if (item.itemName == NPCgameobj.GetComponent<BaseInteractive>().requiredItem)
+        //     {
+        //         if (GameManager.Instance.GameWeek == 1)
+        //         {
+        //             infor = NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
+        //
+        //             // NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
+        //             beChanged = true;
+        //         }
+        //         else if (NPCgameobj.GetComponent<BaseInteractive>().haveWeek2Dia == false &&
+        //                  GameManager.Instance.GameWeek == 2)
+        //         {
+        //             infor = NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
+        //
+        //             beChanged = true;
+        //         }
+        //     }
+        // }
+
+
+        itemName = item.itemName;
 
         string[] talkText = new string[] { };
+
+        //一周目加载
         foreach (var currentInfor in infor)
         {
             if (item.itemName == currentInfor.Value)
@@ -259,11 +354,31 @@ public class DialogueManger : MonoBehaviour
             }
         }
 
-        if (talkText.Length == 0) return false;
+        //二周目
+        if (GameManager.Instance.GameWeek == 2)
+        {
+            if (NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge != null)
+            {
+                foreach (var currentInfor in NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge)
+                {
+                    if (item.itemName == currentInfor.Value)
+                    {
+                        talkText = currentInfor.Key.Split(' ');
+                    }
+                }
+            }
+        }
+
+        if (talkText.Length == 0)
+        {
+            print(talkText);
+            return false;
+        }
 
         isChanged = true;
         dialogueLine = talkText;
         currentLine = 0;
+
         if (dialogueLine[currentLine].StartsWith("n-"))
         {
             nameText.text = dialogueLine[currentLine].Replace("n-", "");
@@ -272,8 +387,6 @@ public class DialogueManger : MonoBehaviour
 
         if (dialogueLine[currentLine].StartsWith("a-"))
         {
-            print(GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", ""))
-                .itemName);
             AddItemEvent?.Invoke
                 (GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("a-", "")));
             currentLine++;
@@ -281,11 +394,12 @@ public class DialogueManger : MonoBehaviour
 
         if (dialogueLine[currentLine].StartsWith("f-"))
         {
-            // print(MatchManger.Instance.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
             AddFeelingEvent?.Invoke(
                 GameManager.Instance.matchManger.GetItemFromItemData(dialogueLine[currentLine].Replace("f-", "")));
             currentLine++;
         }
+
+        isDialogue.Value = true;
 
         currentLineText = dialogueLine[currentLine];
         // StartCoroutine(ScrollLetter());
@@ -295,6 +409,7 @@ public class DialogueManger : MonoBehaviour
             currentLine++;
         }
 
+        // if (beChanged) NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
         return true;
     }
 
@@ -306,14 +421,8 @@ public class DialogueManger : MonoBehaviour
     {
         isScrolling = true;
         dialogueText.text = "";
-
+        
         dialogueText.DOText(dialogueLine[currentLine], .5f);
-
-        // foreach (var letter in dialogueLine[currentLine].ToCharArray())
-        // {
-        //     dialogueText.text += letter;
-        //     yield return new WaitForSeconds(scrollSpeed);
-        // }
 
         isScrolling = false;
     }
@@ -327,33 +436,39 @@ public class DialogueManger : MonoBehaviour
         if (NPCgameobj == null)
             return;
 
-        //根据周目判断不同的对话
-        if (GameManager.Instance.GameWeek == 2)
-        {
-            if (NPCgameobj.GetComponent<BaseInteractive>().haveWeek2Dia)
-            {
-                NPCgameobj.GetComponent<BaseInteractive>().dialogue =
-                    NPCgameobj.GetComponent<BaseInteractive>().Week2Dialouge;
-            }
-        }
-
         //如果拖拽过来的物品和
         ItemName requireItem = NPCgameobj.GetComponent<BaseInteractive>().requiredItem;
         if (requireItem == ItemName.None)
             return;
 
-
-        if (currentItem.itemName == requireItem)
+        if (!NPCgameobj.GetComponent<BaseInteractive>().haveWeek2Dia)
         {
-            NPCgameobj.GetComponent<BaseInteractive>().dialogue =
-                NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
-
-            NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
-
-            if (NPCgameobj.GetComponent<BaseInteractive>().dialogue == null)
+            if (itemName == requireItem)
             {
-                Debug.Log("wrong use");
-                NPCgameobj.SetActive(false);
+                NPCgameobj.GetComponent<BaseInteractive>().dialogue =
+                    NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
+
+                Debug.LogError("changed dialouge");
+                NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
+            }
+        }
+        else
+        {
+            if (GameManager.Instance.GameWeek == 1)
+            {
+                if (itemName == requireItem)
+                {
+                    NPCgameobj.GetComponent<BaseInteractive>().dialogue =
+                        NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
+
+                    Debug.LogError("changed dialouge");
+                    NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
+                }
+            }
+
+            if (GameManager.Instance.GameWeek == 2)
+            {
+                NPCgameobj.GetComponent<BaseInteractive>().w2DiaisDone = true;
             }
         }
     }

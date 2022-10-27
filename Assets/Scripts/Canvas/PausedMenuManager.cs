@@ -50,4 +50,9 @@ public class PausedMenuManager : MonoBehaviour
         Time.timeScale = 1.0f;
         GameManager.Instance.isPaused = false;
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }

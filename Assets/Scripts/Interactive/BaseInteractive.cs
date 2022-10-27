@@ -44,6 +44,8 @@ public class BaseInteractive : MonoBehaviour
     /// </summary>
     public GameObject obj;
 
+    public bool w2DiaisDone;
+
     #region 用不到的东西
 
     // /// <summary>
@@ -104,7 +106,7 @@ public class BaseInteractive : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isTalk = true;
-            obj.SetActive(true);
+            if (obj != null) obj.SetActive(true);
         }
     }
 
@@ -113,7 +115,7 @@ public class BaseInteractive : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isTalk = false;
-            obj.SetActive(false);
+            if (obj != null) obj.SetActive(false);
         }
     }
 }

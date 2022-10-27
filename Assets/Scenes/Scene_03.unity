@@ -187,6 +187,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8080068271312433691, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8026481765616726687, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7595693283227438572, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4250040237558947876, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2626020956478608724, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -2222141625601675193, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -203,6 +223,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 183526465811379724, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 578687653881423659, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -212,6 +236,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1357352599841243251, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831640769150661787, guid: 0bf5d8de2a0972b4a802a6f734b13fe0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -285,6 +313,7 @@ GameObject:
   - component: {fileID: 372507380}
   - component: {fileID: 372507379}
   - component: {fileID: 372507382}
+  - component: {fileID: 372507383}
   m_Layer: 5
   m_Name: "\u4E66\u751F"
   m_TagString: Untagged
@@ -304,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 0
+  requiredItem: 8
   dialogue:
     m_keys:
     - "n-\u4E66\u751F \u5FC6\u6614\u897F\u6C60\u6C60\u4E0A\u996E\uFF0C\u5E74\u5E74\u591A\u5C11\u6B22\u5A31\u3002\u522B\u6765\u4E0D\u5BC4\u4E00\u884C\u4E66\u2026\u2026
@@ -313,26 +342,28 @@ MonoBehaviour:
       \u2026\u2026\u54C8\u54C8\u54C8\uFF0C\u8A00\u5144\uFF0C\u522B\u6765\u65E0\u6059\u554A\u2026\u2026
       n-\u4E66\u751F \u2026\u2026\u539F\u6765\u5982\u6B64\uFF0C\u539F\u6765\u5982\u6B64\uFF0C\u5DF2\u7ECF\u5341\u4E94\u5E74\u4E86\u4E48\u2026\u2026
       n-\u4E66\u751F \u2026\u2026\u2026\u2026\u2026\u2026 n-\u963F\u8A00 \u5B8C\u5168\u6C89\u6D78\u5728\u60C5\u611F\u4E2D\u4E86\uFF0C\u8FD8\u662F\u5148\u522B\u6253\u6270\u4ED6\u5427\u3002"
-    m_values: 1200000008000000
+    m_values: 1500000008000000
   doneDictionary:
-    m_keys: []
-    m_values: 
-  Week2Dialouge:
     m_keys:
     - "n-\u4E66\u751F \u5C0F\u53CB\u8BF7\u7559\u6B65\u3002 n-\u963F\u8A00 \u54A6\uFF1F\u662F\u53EB\u6211\u5417\uFF1F
-      n-\u4E66\u751F \u5C0F\u53CB\u53EF\u613F\u5E2E\u543E\u4E00\u4E2A\u5C0F\u5FD9\uFF1F
+      n-\u4E66\u751F \u5C0F\u53CB\u53EF\u613F\u5E2E\u5728\u4E0B\u4E00\u4E2A\u5C0F\u5FD9\uFF1F
       n-\u963F\u8A00 \u53EF\u662F\u6211\u8981\u4E0B\u73ED\u4E86\u8036\u3002 n-\u4E66\u751F
-      \u5C0F\u53CB\u5FC3\u4E2D\u4E00\u76F4\u6D41\u6DCC\u7740\u83AB\u540D\u7684\u60C5\u611F\uFF0C\u96BE\u9053\u5C0F\u53CB\u81EA\u5DF1\u4E0D\u597D\u5947\u4E48\uFF1F
-      n-\u4E66\u751F \u800C\u543E\u8981\u62DC\u6258\u5C0F\u53CB\u7684\u4E8B\uFF0C\u4FBF\u5173\u4E4E\u5C0F\u53CB\u81EA\u8EAB\u7684\u8FD9\u4E2A\u79D8\u5BC6\u3002
+      \u5C0F\u53CB\u5FC3\u4E2D\u662F\u5426\u5B58\u5728\u4E00\u4E9B\uFF0C\u81EA\u5DF1\u90FD\u4E0D\u77E5\u4ECE\u4F55\u800C\u6765\u7684\u60C5\u611F\uFF1F\u96BE\u9053\u5C0F\u53CB\u81EA\u5DF1\u4FBF\u4E0D\u7591\u60D1\u4E48\uFF1F
+      n-\u4E66\u751F \u5728\u4E0B\u8981\u62DC\u6258\u5C0F\u53CB\u7684\u4E8B\uFF0C\u4FBF\u5173\u4E4E\u5C0F\u53CB\u81EA\u8EAB\u7684\u8FD9\u4E2A\u79D8\u5BC6\u3002
       n-\u963F\u8A00 \u2026\u2026\u5148\u8BF4\u6765\u542C\u542C\uFF0C\u4EC0\u4E48\u4E8B\uFF1F
-      n-\u4E66\u751F \u8FD9\u4E2A\u561B\uFF0C\u54B3\u54B3\uFF0C\u5176\u5B9E\u662F\u6211\u6B20\u4E86\u65C1\u8FB9\u90A3\u4F4D\u6728\u5320\u4E09\u8D2F\u7EB8\u94B1\uFF0C\u4F46\u4ED6\u2026\u2026\u54CE\u54CE\uFF0C\u5C0F\u53CB\u522B\u8D70\u3002
-      n-\u4E66\u751F \u53EA\u8981\u4F60\u52A9\u543E\u89E3\u51B3\u6B64\u4E8B\uFF0C\u5173\u4E8E\u5C0F\u53CB\u5FC3\u4E2D\u7684\u60C5\u611F\uFF0C\u543E\u5B9A\u7136\u503E\u56CA\u76F8\u544A\u3002"
-    m_values: 12000000
+      n-\u4E66\u751F \u8FD9\u4E2A\u561B\uFF0C\u54B3\u54B3\uFF0C\u5176\u5B9E\u662F\u5728\u4E0B\u6B20\u4E86\u65C1\u8FB9\u90A3\u4F4D\u6728\u5320\u4E09\u8D2F\u7EB8\u94B1\uFF0C\u4F46\u4ED6\u2026\u2026\u54CE\u54CE\uFF0C\u5C0F\u53CB\u522B\u8D70\u3002
+      n-\u4E66\u751F \u53EA\u8981\u52A9\u5728\u4E0B\u89E3\u51B3\u6B64\u4E8B\uFF0C\u5173\u4E8E\u5C0F\u53CB\u5FC3\u4E2D\u7684\u60C5\u611F\uFF0C\u5728\u4E0B\u5B9A\u7136\u5168\u76D8\u6258\u51FA\uFF0C\u6BEB\u65E0\u4FDD\u7559\u3002"
+    m_values: 15000000
+  Week2Dialouge:
+    m_keys:
+    - "n-\u4E66\u751F \u5982\u4F55\uFF0C\u5C0F\u53CB\u89E3\u51B3\u4E86\u5728\u4E0B\u7684\u503A\u52A1\u5417\uFF1F"
+    m_values: 15000000
   isDone: 0
   isTalk: 0
   haveWeek2Dia: 1
   isChangeDia: 0
-  obj: {fileID: 0}
+  obj: {fileID: 941643405}
+  w2DiaisDone: 0
 --- !u!61 &372507380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -350,7 +381,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.7, y: 4.74}
+    oldSize: {x: 1.13, y: 3.14}
     newSize: {x: 1.7, y: 4.74}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -367,7 +398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 372507378}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.51, y: 7.47, z: -10.57417}
+  m_LocalPosition: {x: 14.51, y: 7.47, z: 0}
   m_LocalScale: {x: 0.8824, y: 0.7469423, z: 1}
   m_Children:
   - {fileID: 941643404}
@@ -425,6 +456,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &372507383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372507378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 112c21ee552c9664f8ab78bfe556af9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 372507378}
 --- !u!1 &441116218
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,6 +586,36 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!1 &520673460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 520673461}
+  m_Layer: 0
+  m_Name: WwiseGlobal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &520673461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520673460}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &528048860
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,7 +842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
@@ -900,13 +974,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
 --- !u!4 &941643404 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4062910721079755679, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
+  m_PrefabInstance: {fileID: 941643403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &941643405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
   m_PrefabInstance: {fileID: 941643403}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1015310359
@@ -970,7 +1049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
@@ -1018,7 +1097,7 @@ MonoBehaviour:
   dialogue:
     m_keys:
     - "n- \u4E00\u4E2A\u7B97\u547D\u7684\u644A\u4F4D\u3002 n-\u963F\u8A00 \u8BDD\u8BF4\uFF0C\u9B3C\u4E5F\u6709\u547D\u6570\u8FD9\u79CD\u4E1C\u897F\u5417\uFF1F"
-    m_values: 12000000
+    m_values: 15000000
   doneDictionary:
     m_keys: []
     m_values: 
@@ -1030,6 +1109,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 1826263621}
+  w2DiaisDone: 0
 --- !u!61 &1061138806
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1105,7 +1185,7 @@ MonoBehaviour:
   dialogue:
     m_keys:
     - "n- \u4E00\u95F4\u9152\u8086\uFF0C\u91CC\u9762\u4F20\u6765\u70ED\u95F9\u7684\u4EBA\u58F0\u548C\u6251\u9F3B\u7684\u9152\u9999\u3002"
-    m_values: 12000000
+    m_values: 15000000
   doneDictionary:
     m_keys: []
     m_values: 
@@ -1117,6 +1197,7 @@ MonoBehaviour:
   haveWeek2Dia: 0
   isChangeDia: 0
   obj: {fileID: 674530171}
+  w2DiaisDone: 0
 --- !u!61 &1153391459
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1229,6 +1310,7 @@ GameObject:
   - component: {fileID: 1356520227}
   - component: {fileID: 1356520226}
   - component: {fileID: 1356520229}
+  - component: {fileID: 1356520230}
   m_Layer: 5
   m_Name: "\u8001\u5987"
   m_TagString: Untagged
@@ -1248,24 +1330,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1aac707f091bd48b93be59e423ad0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredItem: 0
+  requiredItem: 3
   dialogue:
     m_keys:
     - "n-\u8001\u5987 \u543E\u513F\u554A\u2026\u2026 n-\u963F\u8A00 \u6BCF\u5929\u5728\u6B64\u6000\u5FF5\u513F\u5B50\uFF0C\u4E0D\u77E5\u9053\u5979\u513F\u5B50\u8EAB\u5728\u4F55\u65B9\u3002
       n-\u963F\u8A00 \uFF08\u2026\u2026\u600E\u4E48\u7A81\u7136\u6709\u79CD\u719F\u6089\u7684\u611F\u89C9\uFF09"
     - "n- \u83B7\u5F97\u4E86\u201C\u601D\u5FF5\u201D\uFF01 f-\u601D\u5FF5"
-    m_values: 1200000003000000
+    m_values: 1500000003000000
   doneDictionary:
-    m_keys: []
-    m_values: 
+    m_keys:
+    - "n-\u8001\u5987 \u543E\u513F\u554A\u2026\u2026 n-\u963F\u8A00 \u6BCF\u5929\u5728\u6B64\u6000\u5FF5\u513F\u5B50\uFF0C\u4E0D\u77E5\u9053\u5979\u513F\u5B50\u8EAB\u5728\u4F55\u65B9\u3002
+      n-\u963F\u8A00 \uFF08\u2026\u2026\u600E\u4E48\u7A81\u7136\u6709\u79CD\u719F\u6089\u7684\u611F\u89C9\uFF09"
+    m_values: 15000000
   Week2Dialouge:
-    m_keys: []
-    m_values: 
+    m_keys:
+    - "n-\u8001\u5987 \u8FD9\u662F\u2026\u2026 n-\u8001\u5987 \u543E\u513F\uFF0C\u662F\u4F60\u5417\uFF1F
+      n-\u8001\u5987 \u5341\u4E94\u5E74\u524D\uFF0C\u5E76\u975E\u4F60\u6240\u89C1\u7684\u90A3\u6837\u2026\u2026
+      n-\u8001\u5987\uFF0C\u4F60\u7236\u4EB2\u540C\u6211\u6536\u62FE\u76D8\u7F20\u5305\u88F9\uFF0C\u662F\u4E3A\u4F60\u51FA\u95E8\u8FDC\u6E38\u800C\u5907\uFF0C\u5E76\u975E\u8981\u9001\u4F60\u79CB\u95F1\u5165\u8BD5\u3002
+      n-\u8001\u5987 \u53EF\u4F60\u7236\u4EB2\u4E0D\u80AF\u5728\u4F60\u9762\u524D\u627F\u8BA4\uFF0C\u6700\u7EC8\u917F\u6210\u4E86\u90A3\u6837\u7684\u2026\u2026
+      n-\u8001\u5987 \u543E\u513F\uFF0C\u4F60\u7406\u89E3\u5417\uFF0C\u90A3\u662F\u4ED6\u7684\u2026\u2026\u50B2\u6162\u554A\u2026\u2026
+      n-\u8001\u5987 \u6211\u4E5F\u66FE\uFF0C\u6028\u4ED6\u6068\u4ED6\uFF0C\u53EF\u662F\u591A\u5E74\u8FC7\u53BB\uFF0C\u6028\u554A\u6068\u554A\uFF0C\u59CB\u7EC8\u662F\u62B5\u4E0D\u8FC7\u7231\u2026\u2026"
+    - "n-\u8001\u5987 \u554A\uFF0C\u662F\u4F60\u554A\u2026\u2026 n-\u8001\u5987 \u6211\u4E00\u5F00\u59CB\u5C31\u77E5\u9053\uFF0C\u662F\u4F60\u4E86\u2026\u2026
+      n-\u8001\u5987 \u592B\u541B\u3001\u543E\u513F\u2026\u2026"
+    m_values: 1500000013000000
   isDone: 0
   isTalk: 0
-  haveWeek2Dia: 0
+  haveWeek2Dia: 1
   isChangeDia: 0
   obj: {fileID: 2067788653}
+  w2DiaisDone: 0
 --- !u!61 &1356520227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1283,7 +1376,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.47, y: 3.63}
+    oldSize: {x: 0.99, y: 2.44}
     newSize: {x: 1.47, y: 3.63}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1358,6 +1451,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1356520230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356520225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2993b749c25d247b05d61f0602024c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letter: 8
 --- !u!1 &1468378436
 GameObject:
   m_ObjectHideFlags: 0
@@ -1392,20 +1498,28 @@ MonoBehaviour:
   requiredItem: 0
   dialogue:
     m_keys:
-    - "n- \u549A\u549A\u549A\u3001\u549A\u549A\u549A\u2026\u2026 n-\u6728\u5320 \u6D3B\u7740\u7ED9\u4EBA\u6253\u5DE5\uFF0C\u6B7B\u4E86\u7ED9\u9B3C\u6253\u5DE5\uFF0C\u5565\u65F6\u5019\u624D\u6709\u4E2A\u6E05\u95F2\u65E5\u5B50\u54C7\u3002
+    - "n- \u549A\u549A\u549A\u3001\u549A\u549A\u549A\u2026\u2026 n-\u6728\u5320 \u6D3B\u7740\u7ED9\u4EBA\u6253\u5DE5\uFF0C\u6B7B\u4E86\u7ED9\u9B3C\u6253\u5DE5\uFF0C\u5565\u65F6\u5019\u624D\u6709\u4E2A\u6E05\u95F2\u65E5\u5B50\u558F\u3002
       n-\u963F\u8A00 \uFF08\u54C7\uFF0C\u4ED6\u8BF4\u51FA\u4E86\u6211\u7684\u5FC3\u58F0\uFF09"
-    m_values: 12000000
+    m_values: 15000000
   doneDictionary:
     m_keys: []
     m_values: 
   Week2Dialouge:
-    m_keys: []
-    m_values: 
+    m_keys:
+    - "n-\u963F\u8A00 \u90A3\u4E2A\u2026\u2026 n-\u6728\u5320 \u6709\u4E8B\u5FEB\u8BF4\uFF0C\u54B1\u624B\u4E0A\u8FD8\u6709\u6D3B\u8BA1\u8981\u5E72\u3002
+      n-\u963F\u8A00 \u5176\u5B9E\u662F\u90A3\u8FB9\u90A3\u4F4D\u4E66\u751F\u2026\u2026
+      n-\u6728\u5320 \u4E66\u5446\u5B50\u6B20\u54B1\u7684\u94B1\uFF1F\u8FDE\u672C\u5E26\u5229\u4E00\u5171\u4E94\u8D2F\uFF0C\u4E00\u6587\u90FD\u4E0D\u80FD\u5C11\uFF01
+      n-\u6728\u5320 \u771F\u662F\u7684\uFF0C\u8FD9\u7834\u5730\u65B9\u94B1\u4E0D\u503C\u94B1\uFF0C\u4E0A\u8FB9\u7684\u4EBA\u597D\u6B79\u591A\u70E7\u4E00\u70B9\u561B\u3002
+      n-\u963F\u8A00 \u6211\u4E5F\u6CA1\u94B1\u554A\uFF0C\u6709\u4EC0\u4E48\u529E\u6CD5\u80FD\u8BA9\u4ED6\u6EE1\u8DB3\u5417\uFF1F"
+    - "n-\u6728\u5320 \u4E0D\u9519\u3002 n-\u963F\u8A00 \u8FD9\u662F\u6EE1\u610F\u4E86\u5417\u2026\u2026
+      n-\u6728\u5320 \u4E66\u5446\u5B50\u7684\u8D26\u5C31\u7B97\u4E86\u5427\uFF0C\u54B1\u5E72\u6D3B\u53BB\u4E86\u3002"
+    m_values: 150000000c000000
   isDone: 0
   isTalk: 0
-  haveWeek2Dia: 0
+  haveWeek2Dia: 1
   isChangeDia: 0
   obj: {fileID: 1015310360}
+  w2DiaisDone: 0
 --- !u!61 &1468378438
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1423,7 +1537,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.91, y: 4.85}
+    oldSize: {x: 1.41, y: 3.58}
     newSize: {x: 1.91, y: 4.85}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1440,7 +1554,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468378436}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.77, y: 8.38, z: -10.57417}
+  m_LocalPosition: {x: -4.77, y: 8.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1015310361}
@@ -1486,7 +1600,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1001652429
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 17
   m_Sprite: {fileID: 21300000, guid: 2501c6c5bcb689d468553cb4aec549d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1856,7 +1970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}

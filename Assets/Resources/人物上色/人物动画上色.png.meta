@@ -4,70 +4,70 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -1478305681513149942
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_0"
+    second: 0
   - first:
       213: -5862013093110492572
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_1"
+    second: 1
   - first:
       213: 1830120254561103773
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_9"
+    second: 6
   - first:
       213: 2154625799008609295
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_10"
+    second: 10
   - first:
       213: -2113084216536166607
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_12"
+    second: 12
   - first:
       213: 929182878684733338
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_16"
+    second: 17
   - first:
       213: 1137955427457375173
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_2"
+    second: 2
   - first:
       213: 1717542491930686648
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_3"
+    second: 3
   - first:
       213: -1780412382122277735
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_4"
+    second: 4
   - first:
       213: -2086575660882647236
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_5"
+    second: 5
   - first:
       213: -76390782846196469
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_6"
+    second: 7
   - first:
       213: -3231720081706653434
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_7"
+    second: 8
   - first:
       213: -1742823461555711325
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_8"
+    second: 9
   - first:
       213: 5239043662998525530
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_11"
+    second: 20
   - first:
       213: 4601317957012135582
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_13"
+    second: 11
   - first:
       213: -5492450065534361382
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_14"
+    second: 13
   - first:
       213: 5971664149132720079
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_15"
+    second: 14
   - first:
       213: 2017218535697459505
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_17"
+    second: 15
   - first:
       213: -5427077293031405118
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_18"
+    second: 16
   - first:
       213: -5708531077425779003
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_19"
+    second: 18
   - first:
       213: 6220470463082633382
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_20"
+    second: 19
   - first:
       213: 2201005068669363789
-    second: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_21"
+    second: 21
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -158,7 +158,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_0"
+      name: 0
       rect:
         serializedVersion: 2
         x: 101
@@ -179,7 +179,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_1"
+      name: 1
       rect:
         serializedVersion: 2
         x: 372
@@ -200,7 +200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_9"
+      name: 6
       rect:
         serializedVersion: 2
         x: 1957
@@ -221,7 +221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_10"
+      name: 10
       rect:
         serializedVersion: 2
         x: 143
@@ -242,7 +242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_12"
+      name: 12
       rect:
         serializedVersion: 2
         x: 712
@@ -263,7 +263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_16"
+      name: 17
       rect:
         serializedVersion: 2
         x: 2264
@@ -284,7 +284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_2"
+      name: 2
       rect:
         serializedVersion: 2
         x: 662
@@ -305,7 +305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_3"
+      name: 3
       rect:
         serializedVersion: 2
         x: 952
@@ -326,7 +326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_4"
+      name: 4
       rect:
         serializedVersion: 2
         x: 1242
@@ -347,7 +347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_5"
+      name: 5
       rect:
         serializedVersion: 2
         x: 1549
@@ -368,7 +368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_6"
+      name: 7
       rect:
         serializedVersion: 2
         x: 2226
@@ -389,7 +389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_7"
+      name: 8
       rect:
         serializedVersion: 2
         x: 2469
@@ -410,7 +410,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_8"
+      name: 9
       rect:
         serializedVersion: 2
         x: 2719
@@ -431,28 +431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_11"
-      rect:
-        serializedVersion: 2
-        x: 2986
-        y: 287
-        width: 161
-        height: 582
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a56d9cf2472d4b840800000000000000
-      internalID: 5239043662998525530
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_13"
+      name: 11
       rect:
         serializedVersion: 2
         x: 418
@@ -473,7 +452,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_14"
+      name: 13
       rect:
         serializedVersion: 2
         x: 1007
@@ -494,7 +473,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_15"
+      name: 14
       rect:
         serializedVersion: 2
         x: 1301
@@ -515,7 +494,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_17"
+      name: 15
       rect:
         serializedVersion: 2
         x: 1608
@@ -536,7 +515,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_18"
+      name: 16
       rect:
         serializedVersion: 2
         x: 1957
@@ -557,7 +536,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_19"
+      name: 18
       rect:
         serializedVersion: 2
         x: 2505
@@ -578,11 +557,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_20"
+      name: 19
       rect:
         serializedVersion: 2
-        x: 2745
-        y: 287
+        x: 2747
+        y: 289
         width: 161
         height: 510
       alignment: 0
@@ -599,13 +578,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "\u4EBA\u7269\u52A8\u753B\u4E0A\u8272_21"
+      name: 21
       rect:
         serializedVersion: 2
         x: 3226
-        y: 287
+        y: 286
         width: 161
-        height: 510
+        height: 514
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,6 +594,27 @@ TextureImporter:
       bones: []
       spriteID: d462fd2d27a8b8e10800000000000000
       internalID: 2201005068669363789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 20
+      rect:
+        serializedVersion: 2
+        x: 2979
+        y: 287
+        width: 161
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56d9cf2472d4b840800000000000000
+      internalID: 5239043662998525530
       vertices: []
       indices: 
       edges: []
