@@ -9,9 +9,9 @@ public class TransitionManger : MonoBehaviour
     public CanvasGroup canvasGroup;
 
     /// <summary>
-    /// ÇÐ»»³¡¾°µÄ(¶¯»­)ÐèÒªµÄÊ±¼ä
+    /// ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½Òªï¿½ï¿½Ê±ï¿½ï¿½
     /// </summary>
-    public float fadeDuration; //TODO:³¡¾°ÇÐ»»Ê±µÄ¶¯»­µÄÊ±¼äÒª¶à¾Ã--ÔÝ¶¨0.5f
+    public float fadeDuration; //TODO:ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½Ê±ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Òªï¿½ï¿½ï¿½--ï¿½Ý¶ï¿½0.5f
 
     private bool isFade;
 
@@ -29,10 +29,10 @@ public class TransitionManger : MonoBehaviour
     }
 
     /// <summary> 
-    /// ÕâÀïÊÇÊ¹ÓÃÇÐ»»³¡¾°µÄ·½·¨
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
     /// </summary>
-    /// <param name="from">¸Ã³¡¾°</param>
-    /// <param name="to">½«Òª±»ÇÐ»»µ½µÄ³¡¾°</param>
+    /// <param name="from">ï¿½Ã³ï¿½ï¿½ï¿½</param>
+    /// <param name="to">ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð»ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½</param>
     public void Switch(int from, int to)
     {
         if (!isFade)
@@ -44,12 +44,12 @@ public class TransitionManger : MonoBehaviour
         }
     }
 
-    //Ð­³Ì ÏÈ±äºÚÈ»ºóÐ¶ÔØ³¡¾°È»ºó¼ÓÔØÐÂ³¡¾°È»ºóÉèÎª±»¼¤»îµÄ³¡¾°£¬±äÍ¸Ã÷
+    //Ð­ï¿½ï¿½ ï¿½È±ï¿½ï¿½È»ï¿½ï¿½Ð¶ï¿½Ø³ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½
     IEnumerator SwitchAsny(int form, int to)
     {
         yield return Fade(1);
         yield return SceneManager.UnloadSceneAsync(form);
-        AkSoundEngine.SetState("Scene", "None");
+        // AkSoundEngine.SetState("Scene", "None");
         yield return new WaitForSeconds(1);
         yield return SceneManager.LoadSceneAsync(to, LoadSceneMode.Additive);
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex(to));
@@ -57,7 +57,7 @@ public class TransitionManger : MonoBehaviour
     }
 
 
-    //ÈçºÎ±äºÚ/±äÍ¸Ã÷
+    //ï¿½ï¿½Î±ï¿½ï¿½/ï¿½ï¿½Í¸ï¿½ï¿½
     IEnumerator Fade(float targetAlpha)
     {
         isFade = true;

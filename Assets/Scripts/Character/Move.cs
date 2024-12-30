@@ -13,7 +13,7 @@ public class Move : MonoBehaviour
 
     public bool canMove = true;
 
-    public AK.Wwise.Event sound;
+    // public AK.Wwise.Event sound;
 
     private void Awake()
     {
@@ -48,8 +48,8 @@ public class Move : MonoBehaviour
     {
         Movement.x = Input.GetAxis("Horizontal");
         Movement.y = Input.GetAxis("Vertical");
-        var a = Input.GetAxisRaw("Horizontal"); //控制角色朝向
-        var b = Input.GetAxisRaw("Vertical"); //控制角色朝向
+        var a = Input.GetAxisRaw("Horizontal"); //??????????
+        var b = Input.GetAxisRaw("Vertical"); //??????????
 
         rb.MovePosition(rb.position + Movement * speed * Time.deltaTime);
 
@@ -62,7 +62,7 @@ public class Move : MonoBehaviour
             this.GetComponent<SpriteRenderer>().flipX = false;
         }
 
-        _animator.SetFloat("Speed", Mathf.Abs(Movement.x + Movement.y)); //控制角色行走动画
+        _animator.SetFloat("Speed", Mathf.Abs(Movement.x + Movement.y)); //?????????????
 
 
         // this.transform.localScale = new Vector3(, 1, 1);
@@ -70,6 +70,6 @@ public class Move : MonoBehaviour
 
     void FootStep()
     {
-        sound.Post(gameObject);
+        // sound.Post(gameObject);
     }
 }
