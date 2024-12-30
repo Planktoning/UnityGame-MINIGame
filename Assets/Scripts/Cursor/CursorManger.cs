@@ -10,6 +10,9 @@ public class CursorManger : MonoBehaviour
     private Vector3 cursorWorPos =>
         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
+    /// <summary>
+    /// 能否被点击
+    /// </summary>
     private bool canCilcked;
 
     public bool canPass = false;
@@ -17,29 +20,14 @@ public class CursorManger : MonoBehaviour
     private void Awake()
     {
         //帧检测事件 如果点击了场景中的挂载有tag的物品，则将触发对应的事件
-        // currentItem.ObserveEveryValueChanged(a => { print(a); });
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(0)).Subscribe(_ =>
         {
-            // if (GameManager.Instance.dialogueManger.isScrolling)
-            // {
-            //     
-            // }
             if (GetItemOnMousePos())
             {
                 ClickHappen(GetItemOnMousePos().gameObject);
             }
         }).AddTo(this); //AddTo(this) 绑定至脚本的生命周期(一同enable，一同disable)
 
-        //订阅ItemSelectedEvent
-        Observable.FromEvent<ItemDetails>(action => SlotUI.ItemSelectedEvent += action,
-            action => SlotUI.ItemSelectedEvent -= action).Subscribe(action =>
-            {
-                if (GameManager.Instance.dialogueManger.isDialogue.Value)
-                {
-                    currentItem = action;
-                    GameManager.Instance.audioManger.ItemClicked();
-                }
-            });
 
         #region 碰撞体进入对话区域的操作
 
@@ -50,7 +38,7 @@ public class CursorManger : MonoBehaviour
             {
                 canPass = true;
             }
-        });
+        }).AddTo(this);
         Observable.FromEvent<GameObject>(action => Location.InteractiveEnter += action,
                 action => Location.InteractiveEnter -= action)
             .Subscribe(action =>
@@ -71,21 +59,10 @@ public class CursorManger : MonoBehaviour
                         action.GetComponent<Location>().isDone = true;
                     }
                 }
-            });
+            }).AddTo(this);
 
         #endregion
     }
-
-    // private void Update()
-    // {
-    //     canCilcked = GetItemOnMousePos();
-    //
-    //     //在可点击情况下且按下鼠标左键时开始执行
-    //     if (canCilcked && Input.GetMouseButtonDown(0))
-    //     {
-    //         ClickHappen(GetItemOnMousePos().gameObject);
-    //     }
-    // }
 
     /// <summary>
     /// 根据物品的tag进行判断该执行什么办法
@@ -100,18 +77,11 @@ public class CursorManger : MonoBehaviour
             case "Teleport":
                 obj.GetComponent<Teleport>().Switch();
                 break;
-            case "Inv":
-                var item = obj.GetComponent<Item>();
-                item?.ItemClicked();
-                break;
             case "Interactive":
                 var interactive = obj.GetComponent<BaseInteractive>();
                 if (interactive.isTalk)
                     GameManager.Instance.dialogueManger.GetDialogueInformation(interactive.dialogue, currentItem, obj,
                         false);
-                break;
-            default:
-                // Debug.Log(obj?.tag);
                 break;
         }
     }
@@ -125,23 +95,6 @@ public class CursorManger : MonoBehaviour
         LayerMask layerMask = 1 << 5;
         return Physics2D.OverlapPoint(cursorWorPos, layerMask); //
     }
-    // if (EventSystem.current.IsPointerOverGameObject())
-    // {
-    //     PointerEventData pointerData = new PointerEventData(EventSystem.current);
-    //     pointerData.position = Input.mousePosition;
-    //
-    //     List<RaycastResult> results = new List<RaycastResult>();
-    //     EventSystem.current.RaycastAll(pointerData, results);
-    //     for (int i = 0; i < results.Count; i++)
-    //     {
-    //         if (results[i].gameObject.layer == LayerMask.NameToLayer("BookUI"))
-    //         {
-    //             Debug.Log(results[i].gameObject.name);
-    //         }
-    //
-    //         Debug.Log(results[i].gameObject);
-    //     }
-    // }
 
     public void GetItem()
     {

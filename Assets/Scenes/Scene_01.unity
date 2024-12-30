@@ -620,7 +620,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &544110257
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2014,7 +2014,8 @@ MonoBehaviour:
     m_keys:
     - "n-\u5C0F\u67F3 \u8FD9\u592A\u9633\u6652\u5F97\u4EBA\u5BB6\u90FD\u67AF\u4E86\u3002
       n-\u5C0F\u67F3 \u6709\u6CA1\u6709\u597D\u5FC3\u4EBA\u6765\u7ED9\u4EBA\u5BB6\u6D47\u6D47\u6C34\u554A\u2026\u2026"
-    - "n-\u5C0F\u67F3 a-\u4E00\u6876\u6C34 \u662F\u7ED9\u6811\u6D47\u6C34\uFF0C\u4E0D\u662F\u7ED9\u6211\u3002"
+    - "n-\u5C0F\u67F3 \u662F\u7ED9\u6811\u6D47\u6C34\uFF0C\u4E0D\u662F\u7ED9\u6211\u3002
+      a-\u4E00\u6876\u6C34"
     m_values: 1500000004000000
   doneDictionary:
     m_keys: []

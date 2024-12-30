@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
@@ -8,6 +9,8 @@ public class BaseInteractive : MonoBehaviour
     /// 更改对话文本的物品
     /// </summary>
     [Header("更改到正确的对话需要的物品，不需要就不写")] public ItemName requiredItem;
+
+    public Dictionary<string, int> ASD;
 
     #region 序列化字
 
@@ -21,7 +24,7 @@ public class BaseInteractive : MonoBehaviour
 
     #endregion
 
-    // /// <summary>
+    // /// <summary>    
     // /// 点击交互时手上的物品
     // /// </summary>
     // public ItemName nowItem;

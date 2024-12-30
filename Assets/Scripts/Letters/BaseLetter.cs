@@ -18,6 +18,8 @@ public class BaseLetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public bool isDone;
 
+    private bool done;
+
     void Start()
     {
         _color = GetComponent<Text>().color;
@@ -25,13 +27,26 @@ public class BaseLetter : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (!isGetValued)
-            this.GetComponent<Text>().color = Color.green;
+        if (!isGetValued) GetComponent<Text>().color = Color.green;
+        if (done == false)
+            if (eventData.dragging)
+            {
+                if (GameManager.Instance.cursorManger.currentItem.itemName == itemName)
+                {
+                    isDone = true;
+                }
+            }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (!isGetValued)
             this.GetComponent<Text>().color = _color;
+        if (isDone)
+        {
+            GameManager.Instance.letterManager.ChangeColor(this.gameObject);
+            isDone = false;
+            done = true;
+        }
     }
 }

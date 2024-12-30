@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 372507383}
   m_Layer: 5
   m_Name: "\u4E66\u751F"
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 1061138805}
   m_Layer: 5
   m_Name: "\u7B97\u547D\u644A"
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1123,7 +1123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.6073327, y: 0.3304522}
+  m_Offset: {x: -0.3175192, y: -0.20478106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1134,7 +1134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9761267, y: 2.5145411}
+  m_Size: {x: 5.5814533, y: 3.5850077}
   m_EdgeRadius: 0
 --- !u!4 &1061138807
 Transform:
@@ -1164,7 +1164,7 @@ GameObject:
   - component: {fileID: 1153391458}
   m_Layer: 5
   m_Name: "\u9152\u8086"
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1211,7 +1211,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0530686, y: -0.012011051}
+  m_Offset: {x: 0.6056473, y: -0.62277675}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1222,7 +1222,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.9522696, y: 3.7422075}
+  m_Size: {x: 6.847112, y: 4.963739}
   m_EdgeRadius: 0
 --- !u!4 &1153391460
 Transform:
@@ -1313,7 +1313,7 @@ GameObject:
   - component: {fileID: 1356520230}
   m_Layer: 5
   m_Name: "\u8001\u5987"
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1478,7 +1478,7 @@ GameObject:
   - component: {fileID: 1468378440}
   m_Layer: 5
   m_Name: "\u6728\u5320"
-  m_TagString: Untagged
+  m_TagString: Interactive
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1600,7 +1600,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1001652429
   m_SortingLayer: 4
-  m_SortingOrder: 17
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 2501c6c5bcb689d468553cb4aec549d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2165,7 +2165,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7197811776201530868, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25228c667cbdd6445a20bd733a2fdb07, type: 3}

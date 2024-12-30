@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UniRx;
 using UnityEngine.UI;
@@ -14,6 +15,8 @@ public class InventotyManger : MonoBehaviour
     public List<SlotUI> SlotUis; //物品栏的每一个格子
 
     public Dropdown dropDown;
+
+    public int a;
 
     // private ItemDetails E = new ItemDetails(ItemName.None,);
 
@@ -31,11 +34,7 @@ public class InventotyManger : MonoBehaviour
             }).AddTo(this);
         Observable.FromEvent<ItemDetails>(action => DialogueManger.AddFeelingEvent += action,
                 action => DialogueManger.AddFeelingEvent -= action)
-            .Subscribe(item =>
-            {
-                // print(item.itemName);
-                AddFeeling(item);
-            }).AddTo(this);
+            .Subscribe(AddFeeling).AddTo(this);
         dropDown.OnValueChangedAsObservable()
             .Where(_ => dropDown.options.Count > 0)
             .Subscribe(i =>

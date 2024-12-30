@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: "\u6210\u6B65\u5802\u4E07\u80FD\u4E8B\u52A1\u62403"
+  companyName: "\u6210\u6B65\u5802\u4E07\u80FD\u4E8B\u52A1\u62404"
   productName: MINIGAME
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}

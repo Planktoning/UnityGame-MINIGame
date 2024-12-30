@@ -64,8 +64,10 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
                             else GameManager.Instance.audioManger.ItemDragFailed();
                             //执行拖拽后对话改变的逻辑
                             if (SlotIndex != 10) DeleteItem(a);
-                            if (SlotIndex == 10) GameManager.Instance.inventotyManger.DeleteFeeling(currentitem);
-                            
+                            if (a)
+                                if (SlotIndex == 10)
+                                    GameManager.Instance.inventotyManger.DeleteFeeling(currentitem);
+
 
                             //TODO:重排物品
                             ItemDetails fDetailsa = new ItemDetails();
@@ -139,7 +141,7 @@ public class SlotUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     ///点击物品栏上的物品，会在currentItem上返回具体的物品
     public void OnPointerClick(PointerEventData eventData)
     {
-        ItemSelectedEvent?.Invoke(currentitem);
+        // ItemSelectedEvent?.Invoke(currentitem);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

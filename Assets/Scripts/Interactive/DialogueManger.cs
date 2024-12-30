@@ -70,18 +70,33 @@ public class DialogueManger : MonoBehaviour
             return true;
         }
 
-        if (GetItemOnMousePos().gameObject?.tag == "Interactive")
+        try
         {
-            if (isDialogue.Value)
+            if (GetItemOnMousePos().gameObject.CompareTag("Interactive"))
+            {
+                if (isDialogue.Value)
+                {
+                    return false;
+                }
+
+                return true;
+            }
+            else if (GetItemOnMousePos().gameObject.CompareTag("Trigger"))
+            {
+                if (isDialogue.Value)
+                {
+                    return true;
+                }
+            }
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            if (dialogueLine == null)
             {
                 return false;
             }
-
-            return true;
-        }
-        else if (GetItemOnMousePos().gameObject?.tag == "Trigger")
-        {
-            if (isDialogue.Value)
+            else
             {
                 return true;
             }
@@ -98,6 +113,14 @@ public class DialogueManger : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
             {
+                if (GetItemOnMousePos().gameObject != null)
+                {
+                    if (GetItemOnMousePos().gameObject.CompareTag("Slots"))
+                    {
+                        return;
+                    }
+                }
+
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
                     GetSpaceDown = true;
@@ -176,23 +199,7 @@ public class DialogueManger : MonoBehaviour
                         }
                     }
                 }
-                else
-                {
-                    // CheckToChange();
-                    // dialogueBox.SetActive(false);
-                    // FindObjectOfType<Move>().canMove = true;
-                    // if (NPCgameobj == null)
-                    // {
-                    //     return;
-                    // }
-                    //
-                    // isDialogue.Value = false;
-                    // isChanged = false;
-                    //
-                    // NPCgameobj.GetComponent<BoxCollider2D>().enabled = true;
-                }
             }
-            
         }
     }
 
@@ -224,7 +231,7 @@ public class DialogueManger : MonoBehaviour
 
         NPCgameobj = obj;
         currentItem = item;
-        string[] talkText = new string[] { };
+        string[] talkText = { };
 
         //一周目加载
         foreach (var currentInfor in infor)
@@ -271,6 +278,7 @@ public class DialogueManger : MonoBehaviour
         catch (Exception e)
         {
             Console.WriteLine(e);
+            return;
         }
 
         try
@@ -286,8 +294,9 @@ public class DialogueManger : MonoBehaviour
         catch (Exception e)
         {
             Console.WriteLine(e);
+            return;
         }
-        
+
 
         isDialogue.Value = true;
 
@@ -300,7 +309,7 @@ public class DialogueManger : MonoBehaviour
             Console.WriteLine(e);
             return;
         }
-        
+
         Debug.Log(GetCurrentText());
         ScrollLetter();
         if (currentLine < dialogueLine.Length)
@@ -314,33 +323,6 @@ public class DialogueManger : MonoBehaviour
 
     public bool DragItemGetDialogueInformation(StringItemNameDictionary infor, ItemDetails item)
     {
-        // if (isChanged)
-        //     return false;
-
-        // bool beChanged = false;
-        //
-        // if (NPCgameobj.GetComponent<BaseInteractive>().isChangeDia == false)
-        // {
-        //     if (item.itemName == NPCgameobj.GetComponent<BaseInteractive>().requiredItem)
-        //     {
-        //         if (GameManager.Instance.GameWeek == 1)
-        //         {
-        //             infor = NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
-        //
-        //             // NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
-        //             beChanged = true;
-        //         }
-        //         else if (NPCgameobj.GetComponent<BaseInteractive>().haveWeek2Dia == false &&
-        //                  GameManager.Instance.GameWeek == 2)
-        //         {
-        //             infor = NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
-        //
-        //             beChanged = true;
-        //         }
-        //     }
-        // }
-
-
         itemName = item.itemName;
 
         string[] talkText = new string[] { };
@@ -402,14 +384,12 @@ public class DialogueManger : MonoBehaviour
         isDialogue.Value = true;
 
         currentLineText = dialogueLine[currentLine];
-        // StartCoroutine(ScrollLetter());
         ScrollLetter();
         if (currentLine < dialogueLine.Length)
         {
             currentLine++;
         }
 
-        // if (beChanged) NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
         return true;
     }
 
@@ -421,7 +401,7 @@ public class DialogueManger : MonoBehaviour
     {
         isScrolling = true;
         dialogueText.text = "";
-        
+
         dialogueText.DOText(dialogueLine[currentLine], .5f);
 
         isScrolling = false;
@@ -448,7 +428,6 @@ public class DialogueManger : MonoBehaviour
                 NPCgameobj.GetComponent<BaseInteractive>().dialogue =
                     NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
 
-                Debug.LogError("changed dialouge");
                 NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
             }
         }
@@ -461,7 +440,6 @@ public class DialogueManger : MonoBehaviour
                     NPCgameobj.GetComponent<BaseInteractive>().dialogue =
                         NPCgameobj.GetComponent<BaseInteractive>().doneDictionary;
 
-                    Debug.LogError("changed dialouge");
                     NPCgameobj.GetComponent<BaseInteractive>().isChangeDia = true;
                 }
             }

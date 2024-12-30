@@ -26,7 +26,7 @@ public class LetterManager : MonoBehaviour
 
     void Start()
     {
-        // OpenLetter();
+        OpenLetter();
     }
 
     void OpenLetter()
